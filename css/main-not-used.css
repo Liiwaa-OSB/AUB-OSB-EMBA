@@ -1,3 +1,88 @@
+/* ============================================
+   MAIN.CSS - OPTIMIZED WITH CSS VARIABLES
+   Campus Press Project
+   ============================================ */
+
+/* --------------------------------------------
+   ROOT VARIABLES (Design Tokens)
+   -------------------------------------------- */
+:root {
+    /* Colors - Primary & Secondary */
+    --color-primary: #840132;
+    --color-primary-dark: #6a132c;
+    --color-secondary: #142d66;
+    --color-secondary-dark: #1b234d;
+
+    /* RGB versions for rgba() usage */
+    --color-primary-rgb: 132, 1, 50;
+    --color-secondary-rgb: 20, 45, 102;
+    --color-primary-dark-rgb: 106, 19, 44;
+
+    /* Neutral & UI Colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-dark: #434444;
+    --color-gray-border: #e5e7eb;
+    --color-gray-light: #eee;
+    --color-gray-mid: #999;
+    --color-overlay-dark: rgba(0, 0, 0, 0.06);
+    --color-overlay-light: rgba(255, 255, 255, 0.85);
+    --color-overlay-translucent: rgba(255, 255, 255, 0.1);
+    --color-overlay-translucent-hover: rgba(255, 255, 255, 0.15);
+    --color-border-translucent: rgba(255, 255, 255, 0.15);
+
+    /* Typography */
+    --font-family-base: 'Proxima Nova', Manrope, Montserrat, Inter, Arial, sans-serif;
+    --font-size-h1: 4rem;
+    --font-size-h1-mobile: 3rem;
+    --font-size-h2: 3rem;
+    --font-size-h2-mobile: 2.3rem;
+    --font-size-h3: 1.9rem;
+    --font-size-h3-mobile: 1.5rem;
+    --font-size-large: 5rem;
+    --font-size-large-mobile: 3rem;
+
+    /* Spacing & Layout */
+    --container-padding: 0;
+    --section-padding-y: 2rem;
+    --section-padding-y-mobile: 0;
+    --grid-gap: 2em;
+    --grid-gap-small: 1em;
+    --footer-gap: 1.5em;
+    --footer-gap-desktop: 1em;
+
+    /* Page Width (for future constraints) */
+    --page-max-width: 1200px;
+    --content-max-width: 100%;
+
+    /* Breakpoints */
+    --breakpoint-xs: 600px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-wp: 782px;
+
+    /* Transitions & Effects */
+    --transition-default: transform 0.2s ease, box-shadow 0.2s ease;
+    --transition-slow: all 0.3s ease;
+    --transition-width: width 0.4s ease;
+    --transition-opacity: opacity 0.3s ease;
+    --box-shadow-sm: 0 2px 4px 0 rgba(14, 30, 37, 0.12),
+        0 2px 16px 0 rgba(14, 30, 37, 0.32);
+    --box-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+    /* Borders */
+    --border-radius-card: 0;
+    --border-radius-button: 30px;
+    --border-width-default: 1px;
+    --border-width-thick: 2px;
+}
+
+/* --------------------------------------------
+   GLOBAL RESETS & OVERRIDES
+   -------------------------------------------- */
 #wpadminbar {
     display: none;
 }
@@ -10,36 +95,31 @@ body.admin-bar.navbar-main-sticky-top #wrapper-navbar-main {
     top: 0;
 }
 
-/* Code above for live version */
-/*====================
-    Brand Font - START
-====================*/
+/* --------------------------------------------
+   BRAND FONT
+   -------------------------------------------- */
 @font-face {
-    /* font-family: 'Proxima Nova';
+    font-family: 'Proxima Nova';
     src: url('https://dubaihub.aub.edu.lb/files/2025/12/ProximaNova-Regular.woff2') format('woff2'),
         url('https://dubaihub.aub.edu.lb/files/2025/12/ProximaNova-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
-    font-display: swap; */
+    font-display: swap;
 }
 
 body {
-    font-family: 'Proxima Nova', Manrope, Montserrat, Inter, Arial, sans-serif !important;
+    font-family: var(--font-family-base) !important;
 }
 
-/*====================
-    Brand Font - END
-====================*/
-
-/*****************
-    * Custom Class Styles - START
-    *****************/
+/* --------------------------------------------
+   CUSTOM CLASS STYLES
+   -------------------------------------------- */
 .OSBD-half-bg {
     background-image: linear-gradient(to bottom,
             rgba(0, 0, 0, 0) 0%,
             rgba(0, 0, 0, 0) 40%,
-            #6a132c 40%,
-            #6a132c 90%,
+            var(--color-primary-dark) 40%,
+            var(--color-primary-dark) 90%,
             transparent 90%,
             transparent 100%);
 }
@@ -48,29 +128,27 @@ body {
     font-size: 1.75em !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
     .OSBD-banner-spacer {
         height: 0px !important;
     }
 }
 
-/* Mobile: hide desktop-only element */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .OSBD-hide-on-mobile {
         display: none !important;
     }
 }
 
-/* Desktop: hide mobile-only element */
-@media (min-width: 769px) {
+@media (min-width: calc(var(--breakpoint-md) + 1px)) {
     .OSBD-hide-on-desktop {
         display: none !important;
     }
 }
 
-/* GENERAL CSS */
+/* General Layout */
 #content.container {
-    padding: 0 !important;
+    padding: var(--container-padding) !important;
     max-width: unset !important;
 }
 
@@ -96,14 +174,9 @@ body {
     text-decoration: none !important;
 }
 
-/*****************
-* Custom Class Styles - END
-*****************/
-
-/*====================
-* Managing Cols - START
-*******************/
-/* Reset Gutenberg column constraints */
+/* --------------------------------------------
+   COLUMN MANAGEMENT (Gutenberg Overrides)
+   -------------------------------------------- */
 .OSBD-has-4-cols.wp-block-columns.alignwide,
 .OSBD-has-3-cols.wp-block-columns.alignwide {
     display: flex !important;
@@ -111,7 +184,6 @@ body {
     justify-content: center !important;
 }
 
-/* Reset Gutenberg column min/max rules */
 .OSBD-has-4-cols>.wp-block-column,
 .OSBD-has-3-cols>.wp-block-column {
     width: auto !important;
@@ -121,24 +193,22 @@ body {
 }
 
 .OSBD-has-4-cols>.wp-block-column {
-    flex: 0 0 calc(25% - 2em) !important;
+    flex: 0 0 calc(25% - var(--grid-gap)) !important;
 }
 
 .OSBD-has-3-cols .wp-block-column {
-    flex: 0 0 calc(33.33% - 2em) !important;
+    flex: 0 0 calc(33.33% - var(--grid-gap)) !important;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
+@media (max-width: var(--breakpoint-lg)) {
 
     .OSBD-has-4-cols>.wp-block-column,
     .OSBD-has-3-cols>.wp-block-column {
-        flex: 0 0 calc(50% - 1em) !important;
+        flex: 0 0 calc(50% - var(--grid-gap-small)) !important;
     }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
 
     .OSBD-has-4-cols>.wp-block-column,
     .OSBD-has-3-cols>.wp-block-column {
@@ -146,35 +216,33 @@ body {
     }
 }
 
-/*====================
-* Managing Cols - END
-*******************/
-
-/*====================
-* General Font Edits - START
-**********************/
+/* --------------------------------------------
+   TYPOGRAPHY
+   -------------------------------------------- */
 .has-larger-font-size {
-    font-size: 5rem;
+    font-size: var(--font-size-large);
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: var(--font-size-h1);
+}
 
-    @media (max-width: 600px) {
-        font-size: 3rem;
+@media (max-width: var(--breakpoint-xs)) {
+    h1 {
+        font-size: var(--font-size-h1-mobile);
     }
 }
 
 h2 {
-    font-size: 3rem;
+    font-size: var(--font-size-h2);
 }
 
 h2.OSBD-big-h2 {
-    font-size: 5rem;
+    font-size: var(--font-size-large);
 }
 
 h3 {
-    font-size: 1.9rem;
+    font-size: var(--font-size-h3);
     margin: 20px 0 !important;
 }
 
@@ -183,7 +251,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #142d66 !important;
+    color: var(--color-secondary) !important;
     text-transform: uppercase;
     font-weight: 800;
 }
@@ -191,7 +259,7 @@ h6 {
 .OSBD-dark-bg-section h2,
 .OSBD-dark-bg-section h3,
 .OSBD-dark-bg-section {
-    color: white !important;
+    color: var(--color-white) !important;
 }
 
 h4 {
@@ -210,10 +278,9 @@ p {
     line-height: 1.2;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
     .has-larger-font-size {
-        font-size: 3rem;
+        font-size: var(--font-size-large-mobile);
     }
 
     .has-medium-font-size {
@@ -221,22 +288,18 @@ p {
     }
 
     h2 {
-        font-size: 2.3rem;
+        font-size: var(--font-size-h2-mobile);
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: var(--font-size-h3-mobile);
         margin: 10px 0 !important;
     }
 }
 
-/*====================
-* General Font Edits - END
-*********************/
-
-/*====================
-* Carousel Edits - Start
-*********************/
+/* --------------------------------------------
+   CAROUSEL
+   -------------------------------------------- */
 .wp-block-coblocks-gallery-carousel.alignfull {
     max-width: 100% !important;
     left: 0;
@@ -247,16 +310,12 @@ p {
 }
 
 .OSBD-box-shadow {
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: var(--box-shadow-sm);
 }
 
-/*====================
-* Carousel Edits - END
-*********************/
-
-/*====================
-* Menu - START
-*********************/
+/* --------------------------------------------
+   MENU
+   -------------------------------------------- */
 #navbar-main {
     padding-top: 0;
     padding-bottom: 0;
@@ -273,21 +332,17 @@ p {
 .has-background .nav .current-menu-ancestor>a:not(.has-styling),
 .has-background .nav .current-menu-item>a:not(.has-styling) span {
     font-weight: 800;
-    color: #FFF;
+    color: var(--color-white);
 }
 
 #navbar-main-nav-buttons .btn-secondary {
-    background-color: #1b234d;
-    color: white;
+    background-color: var(--color-secondary-dark);
+    color: var(--color-white);
 }
 
-/*====================
-8 Menu - END
-*********************/
-
-/*====================
-* Header - START
-*********************/
+/* --------------------------------------------
+   HEADER
+   -------------------------------------------- */
 .OSBD-cover-section {
     max-height: 100vh;
 }
@@ -296,14 +351,16 @@ p {
     max-width: 500px;
     margin: auto;
     font-size: 2.5rem !important;
+}
 
-    @media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
+    .OSBD-cover-section .OSBD-half-bg {
         max-width: 80vh;
         font-size: 1.75rem !important;
     }
 }
 
-/* Homepage cover - END */
+
 
 header,
 header#hero-main {
@@ -316,43 +373,34 @@ header nav.breadcrumb-trail.breadcrumbs {
     display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
     header {
         margin-bottom: 10px !important;
     }
 }
 
-/*====================
-* Header - END
-*********************/
-
-/*====================
-* Sections Customization - START
-*********************/
+/* --------------------------------------------
+   SECTIONS
+   -------------------------------------------- */
 .OSBD-Section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
     margin: 0 !important;
 }
 
 .OSBD-translucent-white-card .OSBD-icon,
 .OSBD-translucent-white-card,
 .OSBD-translucent-white-card h2 {
-    color: #142d66 !important;
+    color: var(--color-secondary) !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-xs)) {
     .OSBD-Section {
-        padding: 0;
+        padding: var(--section-padding-y-mobile);
     }
 }
 
-/*====================
-* Sections Customization - END
-*********************/
-
-/* override segment vertical spacing */
-@media (min-width: 782px) {
+@media (min-width: var(--breakpoint-wp)) {
     .alignwide {
         margin-bottom: 4rem !important;
         margin-top: 4rem !important;
@@ -364,16 +412,16 @@ header nav.breadcrumb-trail.breadcrumbs {
     margin-top: 2rem !important;
 }
 
-/*****************
-* Buttons - START
-******************/
+/* --------------------------------------------
+   BUTTONS
+   -------------------------------------------- */
 .OSBD-button {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: var(--transition-default);
 }
 
 .OSBD-button a {
-    transition: transform 0.3s ease;
-    border: 2px solid transparent !important;
+    transition: var(--transition-slow);
+    border: var(--border-width-thick) solid transparent !important;
     padding: 10px 30px !important;
 }
 
@@ -386,88 +434,73 @@ header nav.breadcrumb-trail.breadcrumbs {
     transform: scale(1.05);
 }
 
-/* lii - Outlined button - uncomment when needed */
+/* Outlined button (commented by default) */
+/*
 .OSBD-outline-button a {
-    /* background: transparent !important;
-    border: 2px solid #6a132c !important; */
+    background: transparent !important;
+    border: 2px solid var(--color-primary-dark) !important;
 }
-
 .OSBD-outline-button a:hover {
-    /* background: #840132 !important;
-    border: 2px solid #840132 !important;
-    color: #ffffff !important; */
+    background: var(--color-primary) !important;
+    border: 2px solid var(--color-primary) !important;
+    color: var(--color-white) !important;
 }
+*/
 
-/*****************
-* Buttons - END
-******************/
-
-/*************
-* Image wrapper - START
-*************/
-/* lii - For teams page - uncomment when needed */
+/* --------------------------------------------
+   IMAGE WRAPPER (Teams page placeholder)
+   -------------------------------------------- */
+/*
 .OSBD-team-image-wrapper {
-    /* background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     min-height: 400px;
-    height: 100%; */
+    height: 100%;
 }
+*/
 
-/*************
-* Image wrapper - END
-*************/
-
-/*************
-* Cards Design - START
-*************/
-/* All Cards*/
-/* alm - if all good delete */
-.OSBD-card-text {
-    /* border: 1px solid #eee; */
-}
-
-/* alm - if all good delete */
-
-.wp-block-column>.OSBD-card {
-    /* flex: 1 1 auto; */
-}
-
+/* --------------------------------------------
+   CARDS DESIGN
+   -------------------------------------------- */
+/* Base Card */
 .OSBD-card {
-    border: 1px solid #eee;
+    border: 1px solid var(--color-gray-light);
     height: 100%;
     min-height: 100%;
 }
 
-/* Basic Card*/
+/* Basic Card */
 .OSBD-basic-card {
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-gray-border);
 }
 
 .OSBD-basic-card:hover {
-    border-color: rgba(132, 1, 50, 0.3);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    border-color: rgba(var(--color-primary-rgb), 0.3);
+    box-shadow: var(--box-shadow-card);
 }
 
-/* Translucent Card*/
+/* Translucent White Card */
 .OSBD-translucent-white-card {
-    background: rgba(255, 255, 255, 0.85);
-
+    background: var(--color-overlay-light);
     display: flex;
     flex-direction: column;
 }
 
-/* with section bg */
+.OSBD-translucent-white-card:hover {
+    background-color: var(--color-white);
+}
+
+/* Translucent Card (with section bg) */
 .OSBD-translucent-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--color-overlay-translucent);
+    border: 1px solid var(--color-border-translucent);
     margin-bottom: 0 !important;
-    align-items: flex-start !important;
     align-items: center !important;
 }
 
 .OSBD-translucent-card:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: var(--color-overlay-translucent-hover);
     border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -482,58 +515,32 @@ header nav.breadcrumb-trail.breadcrumbs {
     margin-bottom: 30px;
 }
 
-.OSBD-translucent-white-card:hover {
-    background-color: #FFFFFF;
-}
-
+/* Bery Card (Primary Color) */
 .OSBD-bery-card {
-    background: rgba(132, 1, 50, 1);
-    border: 1px solid rgba(132, 1, 50, 0.95);
+    background: var(--color-primary);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.95);
 }
 
 .OSBD-bery-card h3 {
-    color: white !important;
+    color: var(--color-white) !important;
 }
 
 .OSBD-bery-card:hover {
-    background-color: rgba(106, 19, 44, 1);
-    border-color: rgba(106, 19, 44, 0.95);
+    background-color: var(--color-primary-dark);
+    border-color: rgba(var(--color-primary-dark-rgb), 0.95);
 }
 
-
-/* alm - use it sometime */
-/* Add Line Animation above H3 in a card */
-.OSBD-animate-h3 h3 {
-    /* position: relative;
-    padding-top: 18px; */
-}
-
-.OSBD-animate-h3 h3::before {
-    /* content: "";
-    position: absolute;
-    top: -12px;
-    left: 0;
-    width: 40px;
-    height: 4px;
-    background-color: #142D66;
-    transition: width 0.35s ease; */
-}
-
-.OSBD-animate-h3:hover h3::before {
-    /* width: 80px; */
-}
-
-/* Process */
+/* Process Card */
 .OSBD-process-card {
     position: relative;
     overflow: visible;
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--color-overlay-dark);
     border: 2px solid rgba(0, 0, 0, 0.08);
 }
 
 .OSBD-process-card:hover {
-    background: #fff;
-    border: 2px solid #840132;
+    background: var(--color-white);
+    border: 2px solid var(--color-primary);
 }
 
 /* Profile Card */
@@ -555,38 +562,24 @@ header nav.breadcrumb-trail.breadcrumbs {
 
 .OSBD-profile-card hr {
     margin: 10px auto !important;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
 }
 
 .OSBD-profile-card:hover {
-    background: #FFF !important;
+    background: var(--color-white) !important;
 }
 
-/*************
-* Cards Design - END
-*************/
-
-/***********
-* Icons - START
-*************/
+/* Card Hover Animation for Icons */
 .OSBD-icon {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition-slow);
 }
 
 .OSBD-card:hover .OSBD-icon {
     transform: scale(1.1);
 }
 
-/***********
-* Icons - END
-*************/
-
-
-/*****************
-* Floating Buttons Styling - START
-*****************/
-/* Floating Buttons – Desktop Layout */
+/* --------------------------------------------
+   FLOATING BUTTONS
+   -------------------------------------------- */
 .OSBD-floating-buttons {
     position: fixed;
     top: 50%;
@@ -598,64 +591,51 @@ header nav.breadcrumb-trail.breadcrumbs {
     z-index: 9999;
 }
 
-/* Buttons – Base */
 .OSBD-floating-btn {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
     width: 55px;
     height: 55px;
     padding: 0 18px;
     overflow: hidden;
-
     text-decoration: none;
     font-weight: 600;
     white-space: nowrap;
-
-    border-radius: 30px 0 0 30px;
+    border-radius: var(--border-radius-button) 0 0 var(--border-radius-button);
     border: 3px solid transparent;
-
-    transition:
-        width 0.4s ease,
-        background-color 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease;
+    transition: var(--transition-width), background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Icon Wrapper */
 .OSBD-floating-btn .icon {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* SVG Icons */
 .osbd-icon {
     width: 22px;
     max-width: 22px;
     height: 22px;
     fill: currentColor;
-    transition: fill 0.3s ease;
 }
 
-/* Force paths to inherit color */
 .osbd-icon path {
     fill: currentColor;
 }
 
-/* Hidden Text */
 .OSBD-floating-btn .text {
     margin-left: 12px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: var(--transition-opacity);
+}
 
-    @media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
+    .OSBD-floating-btn .text {
         white-space: normal;
     }
 }
 
-/* Hover → Expand BOTH buttons */
 .OSBD-floating-buttons:hover .OSBD-floating-btn {
     width: 240px;
 }
@@ -664,43 +644,39 @@ header nav.breadcrumb-trail.breadcrumbs {
     opacity: 1;
 }
 
-/* Button Colors – Default **/
+/* Button Variants */
 .OSBD-floating-btn.download {
-    background-color: rgba(106, 19, 44);
-    border: 1px solid rgba(106, 19, 44);
-    color: #fff;
+    background-color: var(--color-primary-dark);
+    border: 1px solid var(--color-primary-dark);
+    color: var(--color-white);
 }
 
 .OSBD-floating-btn.apply {
-    background-color: #142D66;
-    border: 1px solid #142D66;
-    color: #fff;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    color: var(--color-white);
 }
 
 .OSBD-floating-btn.contact {
-    background-color: #434444;
-    border: 1px solid #434444;
-    color: #fff;
+    background-color: var(--color-gray-dark);
+    border: 1px solid var(--color-gray-dark);
+    color: var(--color-white);
 }
 
-/* Button Hover States */
 .OSBD-floating-btn.download:hover,
 .OSBD-floating-btn.apply:hover,
 .OSBD-floating-btn.contact:hover {
     transform: scale(1.05);
 }
 
-/*******************************
-* Mobile Layout – Bottom Fixed
-*******************************/
-@media (max-width: 768px) {
+/* Mobile Layout for Floating Buttons */
+@media (max-width: var(--breakpoint-md)) {
     .OSBD-floating-buttons {
         top: auto;
         bottom: 0;
         right: 0;
         left: 0;
         transform: none;
-
         flex-direction: row;
         gap: 0;
     }
@@ -722,110 +698,66 @@ header nav.breadcrumb-trail.breadcrumbs {
     }
 }
 
-/*****************
-* Floating Buttons Styling - END
-*****************/
-
-
-/*****************
-    * Accordion Styling - START - alm - when using FA!
-    *****************/
-/* .OSBD-accordion-element {
-    border: 1px solid #999;
-    overflow: hidden;
-}
-
-.OSBD-accordion-element summary,
-.OSBD-accordion-element p {
-    padding: 20px;
-}
-
-.OSBD-accordion-element summary:hover {
-    background: #eee;
-}
-
-.OSBD-accordion-element summary {
-    font-size: 24px;
-    list-style: none;
-    cursor: pointer;
-    position: relative;
-    padding-right: 48px;
-}
-
-@media (max-width: 600px) {
-    .OSBD-accordion-element summary {
-        font-size: 20px;
-    }
-}
-
-.OSBD-accordion-element summary::-webkit-details-marker {
-    display: none;
-}
-
+/* --------------------------------------------
+   ACCORDION (commented – for future use)
+   -------------------------------------------- */
+/*
+.OSBD-accordion-element { border: 1px solid var(--color-gray-mid); overflow: hidden; }
+.OSBD-accordion-element summary, .OSBD-accordion-element p { padding: 20px; }
+.OSBD-accordion-element summary:hover { background: var(--color-gray-light); }
+.OSBD-accordion-element summary { font-size: 24px; list-style: none; cursor: pointer; position: relative; padding-right: 48px; }
+@media (max-width: var(--breakpoint-xs)) { .OSBD-accordion-element summary { font-size: 20px; } }
+.OSBD-accordion-element summary::-webkit-details-marker { display: none; }
 .OSBD-accordion-element summary::after {
-    content: "";
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    width: 28px;
-    height: 28px;
-    transform: translateY(-50%);
-    background-color: rgb(106, 19, 44);
+    content: ""; position: absolute; right: 5px; top: 50%; width: 28px; height: 28px;
+    transform: translateY(-50%); background-color: var(--color-primary-dark);
     -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 19l7-7-7-7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 19l7-7-7-7' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
     transition: transform 0.3s ease;
 }
+.OSBD-accordion-element[open] summary::after { transform: translateY(-50%) rotate(90deg); }
+*/
 
-.OSBD-accordion-element[open] summary::after {
-    transform: translateY(-50%) rotate(90deg);
-} */
-
-/*****************
-* Accordion Styling - END
-*****************/
-
-/*****************
-* Possts List - START
-*****************/
+/* --------------------------------------------
+   POSTS LIST (Coblocks Swiper)
+   -------------------------------------------- */
 .coblocks-swiper .swiper-slide {
-    display: block
+    display: block;
 }
-/*****************
-* Possts List - END
-*****************/
 
-/*****************
-* Blog Page - START
-*****************/
+/* --------------------------------------------
+   BLOG PAGE
+   -------------------------------------------- */
 body.blog .main-wrapper {
     padding-left: max(24px, calc(50vw - 665px + 0.5em)) !important;
 }
+
 body.blog .main-wrapper article header {
     padding-top: 0 !important;
 }
+
 body.blog .main-wrapper h2 {
     font-size: 1.5rem !important;
 }
+
 body.blog .main-wrapper .post-categories {
     display: none;
 }
+
 body.blog .main-wrapper .entry-featured-image {
     margin-bottom: 0 !important;
 }
-/*****************
-* Blog Page - END
-*****************/
 
-/*****************
-    * Footer - START
-    *****************/
+/* --------------------------------------------
+   FOOTER
+   -------------------------------------------- */
 footer {
     padding: 0 !important;
 }
 
 footer h2 {
     font-size: 2rem;
-    color: #FFF !important;
+    color: var(--color-white) !important;
 }
 
 footer .wp-block-group {
@@ -863,7 +795,6 @@ footer #footer-full #footer-full-content .row .wp-block-columns {
 
 footer #footer-full #footer-full-content .row>.footer-widget:first-child .wp-block-columns ul {
     margin: 0;
-    /* text-align: center; */
     line-height: 2;
 }
 
@@ -872,7 +803,7 @@ footer #footer-full #footer-full-content .row>.footer-widget:first-child .wp-blo
 }
 
 footer #footer-full #footer-full-content .row>.footer-widget:first-child .wp-block-columns ul a {
-    color: #FFF;
+    color: var(--color-white);
     opacity: 0.7;
     text-decoration: none;
     position: relative;
@@ -891,8 +822,8 @@ footer #footer-full #footer-full-content .row>.footer-widget:first-child .wp-blo
     width: 10px;
     height: 1px;
     left: 0;
-    background: #fff;
-    transition: all 0.5s;
+    background: var(--color-white);
+    transition: var(--transition-slow);
 }
 
 footer #footer-full #footer-full-content .row>.footer-widget:first-child .wp-block-columns ul a:hover::after {
@@ -917,23 +848,25 @@ footer #footer-full #footer-full-content .row>.footer-widget:nth-child(2) {
     margin: 0;
     padding: 0;
     min-width: 100%;
+}
 
-    @media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
+    footer #footer-full #footer-full-content .row>.footer-widget:nth-child(2) {
         margin-bottom: 60px;
     }
 }
-
-
 
 footer #footer-full #footer-full-content .row>.footer-widget:nth-child(2) .wp-block-group {
     margin: 0 !important;
 }
 
 footer #footer-full #footer-full-content .row>.footer-widget:nth-child(2) :where(.is-layout-flex) {
-    gap: 1.5em;
+    gap: var(--footer-gap);
+}
 
-    @media (min-width: 600px) {
-        gap: 1em;
+@media (min-width: var(--breakpoint-xs)) {
+    footer #footer-full #footer-full-content .row>.footer-widget:nth-child(2) :where(.is-layout-flex) {
+        gap: var(--footer-gap-desktop);
     }
 }
 
@@ -954,48 +887,29 @@ footer .wp-block-columns>.wp-block-column .wp-block-buttons .wp-block-button {
     margin-bottom: 22px;
 }
 
-/* RESET existing inline borders if needed */
 footer #block-38 .wp-block-columns .wp-block-column {
     border: none !important;
     box-sizing: border-box;
     flex-basis: unset;
 }
 
-/*****************************
-DESKTOP (default ≥ 782px)
-*****************************/
-@media (min-width: 782px) {
+@media (min-width: var(--breakpoint-wp)) {
     footer #block-38 .wp-block-columns {
         display: flex;
         flex-wrap: nowrap;
     }
 
     footer #block-38 .wp-block-columns>.wp-block-column:not(:last-child) {
-        /* width: 50%; */
-        border-right: 1px solid white !important;
-    }
-
-    footer #block-38 .wp-block-columns .wp-block-column:nth-child(2) {
-        /* width: 50%; */
+        border-right: 1px solid var(--color-white) !important;
     }
 }
 
-/*****************
-    * Footer - END
-    *****************/
-
-
-/* ==========================
-    * HTML Anchor
-    * ========================== */
-
+/* --------------------------------------------
+   SECTION BACKGROUNDS WITH OVERLAYS
+   -------------------------------------------- */
 #OSBD-beyond-borders-section {
-    background:
-        linear-gradient(135deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(132, 1, 50, 0.7) 100%),
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-primary-rgb), 0.7) 100%),
         url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1007,12 +921,8 @@ DESKTOP (default ≥ 782px)
 }
 
 #OSBD-broader-influence-section {
-    background:
-        linear-gradient(135deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(20, 45, 102, 0.7) 100%),
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-secondary-rgb), 0.7) 100%),
         url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-meeting-table.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1020,26 +930,17 @@ DESKTOP (default ≥ 782px)
 }
 
 #OSBD-network-profile-section {
-    background:
-        linear-gradient(135deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(20, 45, 102, 0.7) 100%),
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-secondary-rgb), 0.7) 100%),
         url("https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-background-image-1.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 1rem 0 !important;
 }
 
-
 #OSBD-admission-requirements-section {
-    background:
-        linear-gradient(135deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(20, 45, 102, 0.7) 100%),
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(var(--color-secondary-rgb), 0.7) 100%),
         url("https://sites.aub.edu.lb/embadubai/files/2026/02/OSBD-Admission.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

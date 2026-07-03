@@ -145,7 +145,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0.75rem 0;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: var(--color-primary);
     gap: 0.25rem;
 }

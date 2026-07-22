@@ -13,32 +13,6 @@ body {
   padding-top: 0 !important;
 }
 
-/* ===== DESIGN TOKENS ===== */
-:root {
-  --color-primary: #840132;
-  --color-primary-dark: #6a132c;
-  --color-accent: #840132;
-  /* fallback, overridden per program */
-  --color-accent-dark: #6a132c;
-
-  --color-text-muted: #515151;
-  --color-bg-light: #f9fafb;
-  --color-border-light: #dadbdb;
-  --color-gray-bg: #808080;
-  --color-dark-gray: #434444;
-  --color-dark-gray-rgb: 67, 68, 68;
-
-  --color-pricing-analytics-accent: #3c955c;
-  --color-design-thinking-accent: #854295;
-  --color-ai-in-supply-chain-accent: #3aa0e2;
-  --color-family-business-governance-accent: #565ebb;
-
-  --font-family-base: "Roboto", sans-serif;
-  --spacing-unit: 1rem;
-  --container-max-width: 1280px;
-  --border-radius: 4px;
-}
-
 /*==============  MENU  ====================*/
 
 /* ---------- UTILITY BAR (desktop only) ---------- */

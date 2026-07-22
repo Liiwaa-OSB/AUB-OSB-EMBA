@@ -1,0 +1,58 @@
+:root {
+  /* Brand */
+  --color-primary: #840132;
+  --color-primary-dark: #5f0126;
+  
+    --color-secondary: #142d66;
+    --color-secondary-dark: #1b234d;
+
+  /* Neutrals */
+  --color-white: #fff;
+  --color-black: #111;
+  --color-ink: #0f0f14;
+  --color-text-muted: #3e3e4a;
+  --color-surface-muted: #f4f4f8;
+
+  /* Typography */
+  --font-body: "Roboto", sans-serif;
+  --font-display: "Roboto", sans-serif;
+
+  /* Layout */
+  --container-max-width: 1280px;
+  --section-space: 4.5rem;
+  --space-sm: 1rem;
+  --space-lg: 2.5rem;
+
+  /* Shape */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2.5rem;
+  --radius-pill: 100px;
+
+  /* Effects */
+  --shadow-md:
+    0 18px 36px -12px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+  --shadow-hover:
+    0 20px 48px rgba(132, 1, 50, 0.16), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-button: 0 4px 14px rgba(132, 1, 50, 0.3);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.18s;
+  --transition-base: 0.3s;
+}
+
+/* ---------- Reset and shared foundations ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}

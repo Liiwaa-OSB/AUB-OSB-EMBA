@@ -4,273 +4,664 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OSB Executive MBA · Homepage</title>
+    <title>AUB Executive MBA</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
         rel="stylesheet" />
-    <link rel="icon" href="images/logos/favicon.ico" type="image/png">
 
-    <link rel="stylesheet" href="css/menu.css" />
-    <link rel="stylesheet" href="css/footer.css" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
+
+    <style>
+        /* Keep all your existing styles here */
+        .nav-osb-links .osb-nav-item>a#emba-homepage-link {
+            color: var(--color-primary);
+        }
+
+        body.nav-scrolled .nav-osb .osb-nav-item>a#emba-homepage-link {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+    </style>
+
     <style>
         /* ============================================
-       ROOT VARIABLES (merged from style.css + local)
-       ============================================ */
+                   ROOT VARIABLES — Brand Identity
+                   ============================================ */
         :root {
-            --color-primary: #840132;
-            --color-primary-dark: #5e0125;
-            --color-secondary: #0f2b5e;
-            --color-secondary-light: #1a3d7a;
-            --color-white: #ffffff;
-            --color-black: #0a0a0a;
-            --color-gray-50: #f8f9fa;
-            --color-gray-100: #f1f3f5;
-            --color-gray-200: #e9ecef;
-            --color-gray-300: #dee2e6;
-            --color-gray-500: #868e96;
-            --color-gray-600: #495057;
-            --color-gray-700: #343a40;
-            --color-gray-800: #212529;
-            --color-gray-dark: #434444;
-            --color-gray-border: #e5e7eb;
-            --color-gray-light: #eee;
-            --color-overlay-translucent: rgba(255, 255, 255, 0.1);
-            --color-border-translucent: rgba(255, 255, 255, 0.15);
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --max-width: 1400px;
-            --section-spacing: 4rem 0;
-            --card-radius: 4px;
-            --transition: 0.3s ease;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+            --primary: #840132;
+            --primary-dark: #6a132c;
+            --primary-light: #f5e8eb;
+            --secondary: #142d66;
+            --secondary-light: #e8ecf5;
+            --bg: #f7f5f2;
+            --bg-alt: #efecea;
+            --white: #ffffff;
+            --ink: #0f0f0f;
+            --ink-mid: #4a4744;
+            --ink-light: #8a8682;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
+            --radius: 4px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         /* ============================================
-       RESET & BASE
-       ============================================ */
-        * {
+                   RESET & BASE
+                   ============================================ */
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: var(--font-family);
-            background: var(--color-white);
-            color: var(--color-gray-800);
-            line-height: 1.6;
+        html {
+            scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
+            height: auto;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ============================================
+                   UTILITY CLASSES
+                   ============================================ */
         .container {
-            max-width: var(--max-width);
+            width: min(100% - 2rem, 1280px);
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 24px;
         }
 
-        /* ============================================
-       TYPOGRAPHY
-       ============================================ */
-        h1 {
-            font-size: clamp(2.8rem, 6vw, 4.2rem);
-            font-weight: 600;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 48px;
+            }
         }
 
-        h2 {
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            color: var(--color-secondary);
+        .section-padding {
+            padding: 80px 0;
         }
 
-        h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 100px 0;
+            }
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 0.75rem;
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 120px 0;
+            }
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--color-gray-600);
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-       HERO (cover section from style.css)
-       ============================================ */
-        .OSBD-cover-section {
-            position: relative;
-            min-height: 85vh;
+        /* Section Label */
+        .section-label {
             display: flex;
             align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: var(--color-secondary);
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
-        .OSBD-cover-section video {
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .section-label span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--ink);
+        }
+
+        .section-title .highlight {
+            color: var(--primary);
+        }
+
+        .title-underline {
+            width: 56px;
+            height: 3px;
+            background: var(--primary);
+            margin: 20px 0 24px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(132, 1, 50, 0.25);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 30px;
+            background: transparent;
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+            gap: 14px;
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-lg {
+            width: 24px;
+            height: 24px;
+        }
+
+
+        /* ============================================
+                   HERO SECTION
+                   ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #0a1020;
+        }
+
+        .hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+        }
+
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 0;
+            opacity: 0.6;
         }
 
-        .cover-overlay {
+        .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
+            background: linear-gradient(180deg, rgba(10, 16, 32, 0.55) 0%, rgba(10, 16, 32, 0.3) 40%, rgba(10, 16, 32, 0.92) 100%);
         }
 
-        .cover-inner {
+        .hero-overlay-2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(132, 1, 50, 0.18) 0%, transparent 60%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+            background-size: 72px 72px;
+        }
+
+        .hero-rule {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .hero-content {
             position: relative;
-            z-index: 2;
-            text-align: center;
-            color: var(--color-white);
-            max-width: 90%;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 160px 24px 80px;
         }
 
-        .OSBD-banner-spacer {
-            height: 300px;
+        @media (min-width: 1024px) {
+            .hero-content {
+                padding: 180px 48px 100px;
+            }
         }
 
-        .OSBD-half-bg {
-            background-image: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0) 0%,
-                    rgba(0, 0, 0, 0) 50%,
-                    var(--color-primary-dark) 50%,
-                    var(--color-primary-dark) 75%,
-                    transparent 75%,
-                    transparent 100%);
-            display: inline-block;
-            padding: 0.5rem;
-            font-size: 2.5rem;
+        .hero-content .label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-content .label::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .hero-content .label span {
+            font-size: 11px;
             font-weight: 600;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--primary);
         }
 
-        .OSBD-button a {
-            display: inline-block;
-            padding: 10px 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            font-size: 1.35rem;
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 7vw, 5.6rem);
+            font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--white);
+            max-width: 800px;
         }
 
-        .OSBD-filled-white-button a {
-            background-color: var(--color-white) !important;
-            color: var(--color-primary-dark) !important;
+        .hero-content h1 .accent {
+            color: var(--primary);
         }
 
-        .OSBD-filled-white-button a:hover {
-            transform: scale(1.02);
-            opacity: 0.95;
+        .hero-content p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: white;
+            max-width: 520px;
+            margin: 24px 0 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-watch {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            background: transparent;
+        }
+
+        .hero-watch:hover {
+            gap: 16px;
+            color: var(--white);
+        }
+
+        .hero-watch .play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .hero-watch:hover .play-btn {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-watch .play-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        /* Scroll cue */
+        .scroll-cue {
+            position: absolute;
+            bottom: 32px;
+            right: 48px;
+            z-index: 10;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        @media (min-width: 1024px) {
+            .scroll-cue {
+                display: flex;
+            }
+        }
+
+        .scroll-cue svg {
+            width: 20px;
+            height: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
         }
 
         /* ============================================
-       PROGRAM INFO BAR (from style.css)
-       ============================================ */
-        .program-info {
-            background-color: #eeeeee;
-            text-align: center;
-            padding: 0.25rem 0;
-            margin: 0;
+                   PROGRAM SNAPSHOT
+                   ============================================ */
+        .snapshot {
+            background: var(--secondary);
+            border-bottom: 3px solid var(--primary);
         }
 
-        .info-items {
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .snapshot-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .snapshot-item {
+            padding: 20px 16px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .snapshot-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 767px) {
+            .snapshot-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .snapshot-item:nth-child(4) {
+                border-right: none;
+            }
+        }
+
+        .snapshot-item .value {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .snapshot-item .label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* ============================================
+                   VALUE PROPOSITION
+                   ============================================ */
+        .value-prop {
+            background: var(--bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .value-prop {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .value-prop {
+                padding: 120px 0;
+            }
+        }
+
+        .value-prop .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .value-prop .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .value-text p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--ink-mid);
+            max-width: 580px;
+        }
+
+        .value-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 32px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: all var(--transition);
+        }
+
+        .value-link:hover {
+            gap: 14px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--border);
+            gap: 1px;
+        }
+
+        .stat-item {
+            padding: 40px 32px;
+            background: var(--white);
+            transition: background var(--transition);
+        }
+
+        .stat-item:nth-child(2),
+        .stat-item:nth-child(4) {
+            background: var(--bg-alt);
+        }
+
+        .stat-item:hover {
+            background: var(--white) !important;
+        }
+
+        .stat-number {
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        /* ============================================
+                   FLIP CARDS SECTION
+                   ============================================ */
+        .flip-section {
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(132, 1, 50, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .flip-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flip-section {
+                padding: 120px 0;
+            }
+        }
+
+        .flip-header {
             display: flex;
             flex-direction: column;
-            padding: 0.75rem 0;
-            font-size: 1rem;
-            color: var(--color-primary);
-            gap: 0.25rem;
+            gap: 24px;
+            margin-bottom: 48px;
         }
 
-        @media (min-width:768px) {
-            .info-items {
+        @media (min-width: 1024px) {
+            .flip-header {
                 flex-direction: row;
-                justify-content: center;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-            .info-items span:not(:last-child)::after {
-                content: "|";
-                margin-left: 1rem;
-                font-weight: normal;
+                justify-content: space-between;
+                align-items: flex-end;
             }
         }
 
-        /* ============================================
-       VALUE PROPOSITION
-       ============================================ */
-        .value-prop {
-            padding: 3rem 0;
-            background: var(--color-gray-50);
-        }
-
-        .value-prop .value-text {
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--color-gray-700);
-            text-align: center;
-        }
-
-        /* ============================================
-       FLIP CARDS (local)
-       ============================================ */
-        .flip-section {
-            padding: 3rem 0;
-            background: var(--color-white);
+        .flip-header .sub {
+            font-size: 14px;
+            color: var(--ink-mid);
+            max-width: 320px;
         }
 
         .flip-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.75rem;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
         }
 
+        @media (min-width: 768px) {
+            .flip-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flip-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        /* Flip Card */
         .flip-card {
-            background: transparent;
-            height: 240px;
-            perspective: 1000px;
+            perspective: 1100px;
+            height: 250px;
             cursor: pointer;
+            position: relative;
         }
 
         .flip-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
             transform-style: preserve-3d;
-            border-radius: var(--card-radius);
         }
 
         .flip-card:hover .flip-card-inner {
@@ -280,193 +671,322 @@
         .flip-front,
         .flip-back {
             position: absolute;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             backface-visibility: hidden;
-            padding: 2rem 1.75rem;
+            -webkit-backface-visibility: hidden;
+            padding: 32px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            border-radius: var(--card-radius);
-            border: 1px solid var(--color-gray-200);
-            background: var(--color-white);
+            justify-content: space-between;
         }
 
         .flip-front {
-            align-items: flex-start;
-            text-align: left;
-            border: 1px solid var(--color-primary);
+            background: var(--ink-mid);
+            border: 1px solid var(--border);
         }
 
-        .flip-front h3 {
-            font-size: 1.35rem;
+        .flip-front .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+
+        .flip-front .number {
+            font-size: 36px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .flip-front .bottom .line {
+            width: 32px;
+            height: 2px;
+            background: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .flip-front .bottom h3 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .flip-front .bottom .explore {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--white);
         }
 
         .flip-back {
             transform: rotateY(180deg);
-            background: var(--color-secondary);
-            border: none;
-            color: var(--color-white);
-            align-items: flex-start;
-            text-align: left;
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .icon-wrap {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius);
+            color: var(--white);
+        }
+
+        .flip-back .icon-wrap svg {
+            color: var(--white);
+            width: 18px;
+            height: 18px;
+        }
+
+        .flip-back h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .flip-back p {
-            font-size: 0.92rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--white);
         }
 
         /* ============================================
-       LEADERS SECTION (4 cards)
-       ============================================ */
-        .leaders-section {
-            padding: 5rem 0;
-            background: var(--color-gray-50);
+                   PEERS SECTION
+                   ============================================ */
+        .light-section {
+            background: var(--bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .light-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .light-section {
+                padding: 120px 0;
+            }
+        }
+
+        .peers-header {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .peers-header {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: flex-end;
+            }
+        }
+
+        .peers-header p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--ink-mid);
         }
 
         .leaders-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
         }
 
-        .leader-card {
-            background: var(--color-white);
-            border: 1px solid var(--color-gray-200);
-            border-radius: var(--card-radius);
+        @media (min-width: 640px) {
+            .leaders-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .leaders-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Peer Card */
+        .leaders-card {
+            background: var(--white);
             overflow: hidden;
             transition: all var(--transition);
+            position: relative;
         }
 
-        .leader-card:hover {
-            border-color: var(--color-secondary);
+        .leaders-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
+            z-index: 2;
         }
 
-        .leader-card .card-image {
-            height: 160px;
-            background: var(--color-gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--color-gray-500);
-            font-weight: 500;
-            letter-spacing: 0.05em;
+        .leaders-photo {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .leaders-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.7s ease;
+        }
+
+        .leaders-card:hover .leaders-photo img {
+            transform: scale(1.05);
+        }
+
+        .leaders-photo .gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 55%);
+        }
+
+        .leaders-photo .industry {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            padding: 6px 16px;
+            background: var(--secondary);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
         }
 
-        .leader-card .card-body {
-            padding: 1.5rem 1.5rem 1.8rem;
+        .peer-info {
+            padding: 24px 28px 28px;
         }
 
-        .leader-card .card-body h3 {
-            font-size: 1.35rem;
+        .peer-info .line {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            margin-bottom: 20px;
+            transition: width var(--transition);
+        }
+
+        .leaders-card:hover .peer-info .line {
+            width: 48px;
+        }
+
+        .peer-info h3 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .peer-info .title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-mid);
+            margin-bottom: 2px;
+        }
+
+        .peer-info .company {
+            font-size: 12px;
+            color: var(--ink-light);
+            margin-bottom: 20px;
+        }
+
+        .peer-info .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .peer-info .meta .exp {
+            font-size: 11px;
             font-weight: 600;
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
         }
 
-        .leader-card .card-body p {
-            font-size: 0.88rem;
-            color: var(--color-gray-600);
-            line-height: 1.6;
-            margin: 0;
+        .peer-info .meta .tag {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
         }
+
 
         /* ============================================
-       RESPONSIVE (local + style overrides)
-       ============================================ */
-        @media (max-width:1024px) {
-            .flip-grid {
-                grid-template-columns: repeat(2, 1fr);
+                   RESPONSIVE TWEAKS
+                   ============================================ */
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: clamp(2.2rem, 10vw, 3.2rem);
             }
 
-            .leaders-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width:768px) {
-            .container {
-                padding: 0 1.25rem;
+            .hero-content p {
+                font-size: 16px;
             }
 
-            .OSBD-cover-section {
-                min-height: 70vh;
-            }
-
-            .OSBD-banner-spacer {
-                height: 0 !important;
-            }
-
-            .OSBD-half-bg {
-                max-width: 80vh;
-                font-size: 1.75rem;
-            }
-
-            .program-info {
-                padding: 0.25rem 0;
-            }
-
-            .info-items {
-                flex-direction: column;
-                gap: 0.3rem;
-                padding: 0.75rem 0;
-            }
-
-            .info-items span:not(:last-child)::after {
-                content: "";
-                display: none;
-            }
-
-            .flip-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .flip-card {
-                height: 220px;
+            .stat-item {
+                padding: 28px 20px;
             }
 
             .flip-front,
             .flip-back {
-                padding: 1.5rem;
+                padding: 24px;
             }
 
-            .leaders-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .value-prop {
-                padding: 2.5rem 0;
-            }
-
-            .leaders-section {
-                padding: 2.5rem 0;
+            .leaders-photo {
+                height: 220px;
             }
         }
 
-        @media (max-width:480px) {
-            .cover-inner {
-                padding: 0 1rem;
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 140px 16px 60px;
             }
 
-            .leader-card .card-image {
-                height: 120px;
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .OSBD-button a {
-                font-size: 1rem;
-                padding: 8px 20px;
+            .hero-watch {
+                justify-content: center;
+            }
+
+            .btn-primary {
+                justify-content: center;
+            }
+
+            .flip-card {
+                height: 240px;
+            }
+
+            .peer-info {
+                padding: 20px;
             }
         }
+
 
         /* ============================================
    CTA SECTION — Ready to Lead the Future?
@@ -551,14 +1071,16 @@
             }
         }
     </style>
-    <script src="js/menu.js" defer></script>
-
+    <script defer="" src="js/menu.js"></script>
 </head>
 
 <body>
-    
+
+    <!-- ============================================
+    NAVBAR
+    ============================================ -->
+    <!-- Navigation (preserved structure) -->
     <div class="nav">
-        <!-- UTILITY BAR (desktop only) -->
         <div class="nav-utility">
             <div class="nav-utility-container">
                 <a href="/Pages/AZ.aspx" class="nav-utility-link">A - Z</a><span class="nav-utility-separator">|</span>
@@ -579,125 +1101,79 @@
                 <a href="/advancement/Development/Pages/HowToMakeAGift.aspx" class="nav-utility-link">Give</a>
             </div>
         </div>
-
-        <!-- MAIN HEADER (logo + desktop mega + burger) -->
         <div class="nav-main-header" id="mainHeader">
             <div class="nav-main-container">
-                <div class="nav-logo">
-                    <a href="https://www.aub.edu.lb/osb/Pages/default.aspx">
-                        <img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" />
-                    </a>
-                </div>
-                <!-- Desktop mega menu (updated with full JSON structure) -->
+                <div class="nav-logo"><a href="https://www.aub.edu.lb/osb/Pages/default.aspx"><img
+                            src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" /></a></div>
                 <div class="nav-desktop">
                     <!-- About AUB -->
-                    <div class="nav-item">
-                        <button>
-                            About AUB<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                    <div class="nav-item"><button>About AUB<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>About AUB</h4>
                             <div class="nav-mega-grid">
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/AboutUs/Pages/default.aspx">Overview</a>
-                                        </li>
-                                        <li>
-                                            <a href="/aboutus/Pages/history.aspx">History</a>
-                                        </li>
-                                        <li>
-                                            <a href="/aboutus/Pages/mission.aspx">Mission and Vision</a>
-                                        </li>
-                                        <li>
-                                            <a href="/aboutus/Pages/facts.aspx">Facts and Figures</a>
-                                        </li>
+                                        <li><a href="/AboutUs/Pages/default.aspx">Overview</a></li>
+                                        <li><a href="/aboutus/Pages/history.aspx">History</a></li>
+                                        <li><a href="/aboutus/Pages/mission.aspx">Mission and Vision</a></li>
+                                        <li><a href="/aboutus/Pages/facts.aspx">Facts and Figures</a></li>
                                         <li><a href="/President/oeo-titleix">Title IX</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/AboutUs/Pages/leadership.aspx">AUB Leadership</a>
-                                        </li>
-                                        <li>
-                                            <a href="/president">Office of the President</a>
-                                        </li>
+                                        <li><a href="/AboutUs/Pages/leadership.aspx">AUB Leadership</a></li>
+                                        <li><a href="/president">Office of the President</a></li>
                                         <li><a href="/nyo">New York Office</a></li>
                                         <li><a href="/maingate">The MainGate Magazine</a></li>
-                                        <li>
-                                            <a href="/advancement">Office of Advancement</a>
-                                        </li>
+                                        <li><a href="/advancement">Office of Advancement</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
                                         <li><a href="/aboutus/Pages/campus.aspx">Campus</a></li>
-                                        <li>
-                                            <a href="/aboutus/Pages/beirut-lb.aspx">About Beirut and Lebanon</a>
-                                        </li>
+                                        <li><a href="/aboutus/Pages/beirut-lb.aspx">About Beirut and Lebanon</a></li>
                                         <li><a href="/accreditation">Accreditation</a></li>
-                                        <li>
-                                            <a href="https://150.aub.edu.lb/" target="_blank">AUB 150</a>
-                                        </li>
+                                        <li><a href="https://150.aub.edu.lb/" target="_blank">AUB 150</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Academics -->
-                    <div class="nav-item">
-                        <button>
-                            Academics<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                    <div class="nav-item"><button>Academics<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>ACADEMICS</h4>
                             <div class="nav-mega-grid">
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/academics/Pages/faculties.aspx">Faculties</a>
-                                        </li>
-                                        <li>
-                                            <a href="/Pages/AZ.aspx">Departments and Centers</a>
-                                        </li>
-                                        <li>
-                                            <a href="/academics/pages/majors_programs.aspx">Majors and Programs</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www-banner.aub.edu.lb/pls/weba/bwckctlg.p_disp_dyn_ctlg"
+                                        <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
+                                        <li><a href="/Pages/AZ.aspx">Departments and Centers</a></li>
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
+                                        <li><a href="https://www-banner.aub.edu.lb/pls/weba/bwckctlg.p_disp_dyn_ctlg"
                                                 target="_blank">Search
-                                                for a Course</a>
-                                        </li>
+                                                for a Course</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/theinstitute">Institute for Academic Innovation and
-                                                Development</a>
-                                        </li>
+                                        <li><a href="/theinstitute">Institute for Academic Innovation and
+                                                Development</a></li>
                                         <li><a href="/graduatecouncil">Graduate Council</a></li>
-                                        <li>
-                                            <a href="/generaleducation">General Education Program</a>
-                                        </li>
-                                        <li>
-                                            <a href="/oip">Office of International Programs</a>
-                                        </li>
+                                        <li><a href="/generaleducation">General Education Program</a></li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
                                         <li><a href="/provost">Office of the Provost</a></li>
-                                        <li>
-                                            <a href="/registrar">Office of the Registrar</a>
-                                        </li>
+                                        <li><a href="/registrar">Office of the Registrar</a></li>
                                         <li><a href="/libraries">Libraries</a></li>
                                     </ul>
                                 </div>
@@ -705,13 +1181,10 @@
                         </div>
                     </div>
                     <!-- Admissions -->
-                    <div class="nav-item">
-                        <button>
-                            Admissions<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                    <div class="nav-item"><button>Admissions<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>ADMISSIONS</h4>
                             <div class="nav-mega-grid">
@@ -719,350 +1192,184 @@
                                     <ul class="nav-mega-links">
                                         <li><a href="/admissions">Admissions</a></li>
                                         <li><a href="/faid">Financial Aid</a></li>
-                                        <li>
-                                            <a href="http://www.aub.edu.lb/admissions/Pages/TC/index.html"
+                                        <li><a href="http://www.aub.edu.lb/admissions/Pages/TC/index.html"
                                                 target="_blank">Tuition and Fees
-                                                Calculator</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx"
-                                                target="_blank">Visiting Student</a>
-                                        </li>
+                                                Calculator</a></li>
+                                        <li><a href="https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx"
+                                                target="_blank">Visiting Student</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/faid/Pages/Scholarships.aspx">Scholarships</a>
-                                        </li>
-                                        <li>
-                                            <a href="/lead">LEAD scholarship opportunities</a>
-                                        </li>
+                                        <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
+                                        <li><a href="/lead">LEAD scholarship opportunities</a></li>
                                         <li><a href="/sao">Office of Student Affairs</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/academics/pages/majors_programs.aspx">Majors and Programs</a>
-                                        </li>
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
                                         <li><a href="/graduatecouncil">Graduate Council</a></li>
-                                        <li>
-                                            <a href="/oip">Office of International Programs</a>
-                                        </li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Research -->
-                    <div class="nav-item">
-                        <button>
-                            Research<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                    <div class="nav-item"><button>Research<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>Research</h4>
                             <div class="nav-mega-grid">
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
                                         <li><a href="/research">Office of Research</a></li>
-                                        <li>
-                                            <a href="/Pages/ResearchbyFaculty.aspx">Research by Faculty/School</a>
-                                        </li>
-                                        <li>
-                                            <a href="/Pages/ResearchCenters.aspx">Interfaculty Research Centers</a>
-                                        </li>
+                                        <li><a href="/Pages/ResearchbyFaculty.aspx">Research by Faculty/School</a></li>
+                                        <li><a href="/Pages/ResearchCenters.aspx">Interfaculty Research Centers</a></li>
                                         <li><a href="/urb">University Research Board</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/Pages/ResearchSupport.aspx">Research Funding</a>
-                                        </li>
-                                        <li>
-                                            <a href="/urb/Pages/Researchintegrity.aspx">Research Integrity</a>
-                                        </li>
-                                        <li>
-                                            <a href="/irb">Human Research Protection Program / Institutional
-                                                Review Board</a>
-                                        </li>
+                                        <li><a href="/Pages/ResearchSupport.aspx">Research Funding</a></li>
+                                        <li><a href="/urb/Pages/Researchintegrity.aspx">Research Integrity</a></li>
+                                        <li><a href="/irb">Human Research Protection Program / Institutional Review
+                                                Board</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="/MRVP">Medical Research Volunteer Program</a>
-                                        </li>
-                                        <li>
-                                            <a href="/provost/urvp">Undergraduate Research Volunteer Program</a>
-                                        </li>
-                                        <li>
-                                            <a href="/articles/Pages/research.aspx">Research News</a>
-                                        </li>
+                                        <li><a href="/MRVP">Medical Research Volunteer Program</a></li>
+                                        <li><a href="/provost/urvp">Undergraduate Research Volunteer Program</a></li>
+                                        <li><a href="/articles/Pages/research.aspx">Research News</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Outreach -->
-                    <div class="nav-item">
-                        <button>
-                            Outreach<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                    <div class="nav-item"><button>Outreach<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>Outreach</h4>
                             <div class="nav-mega-grid">
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
                                         <li><a href="/CCE">Community Engagement</a></li>
-                                        <li>
-                                            <a href="/Neighborhood">Neighborhood Initiative</a>
-                                        </li>
-                                        <li>
-                                            <a href="/natureconservation">Nature Conservation</a>
-                                        </li>
+                                        <li><a href="/Neighborhood">Neighborhood Initiative</a></li>
+                                        <li><a href="/natureconservation">Nature Conservation</a></li>
                                         <li><a href="/seniors">University for Seniors</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
                                         <li><a href="/ifi">Issam Fares Institute</a></li>
-                                        <li>
-                                            <a href="https://sites.aub.edu.lb/ipark/" target="_blank">iPark</a>
-                                        </li>
+                                        <li><a href="https://sites.aub.edu.lb/ipark/" target="_blank">iPark</a></li>
                                         <li><a href="/k2p">Knowledge to Policy Center</a></li>
-                                        <li>
-                                            <a href="/masri_institute">The Munib and Angela Masri Institute of Energy
-                                                and
-                                                Natural Resources</a>
-                                        </li>
+                                        <li><a href="/masri_institute">The Munib and Angela Masri Institute of Energy
+                                                and Natural
+                                                Resources</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="https://www.aub.edu.lb/hub/Pages/default.aspx" target="_blank">AI
-                                                Hub</a>
-                                        </li>
-                                        <li>
-                                            <a href="/fafs/esdu">Environment and Sustainable Development</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://ghi.aub.edu.lb/" target="_blank">Global Health
-                                                Institute</a>
-                                        </li>
+                                        <li><a href="https://www.aub.edu.lb/hub/Pages/default.aspx" target="_blank">AI
+                                                Hub</a></li>
+                                        <li><a href="/fafs/esdu">Environment and Sustainable Development</a></li>
+                                        <li><a href="https://ghi.aub.edu.lb/" target="_blank">Global Health
+                                                Institute</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Boldly Campaign -->
-                    <div class="nav-item">
-                        <button>
-                            Boldly Campaign<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2">
+                    <div class="nav-item"><button>Boldly Campaign<svg width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="m6 9 6 6 6-6" />
-                            </svg>
-                        </button>
+                            </svg></button>
                         <div class="nav-mega">
                             <h4>Boldly Campaign</h4>
                             <div class="nav-mega-grid">
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="http://boldly.aub.edu.lb/" target="_blank">Campaign Overview</a>
+                                        <li><a href="http://boldly.aub.edu.lb/" target="_blank">Campaign Overview</a>
                                         </li>
-                                        <li>
-                                            <a href="http://boldly.aub.edu.lb/impact-stories/" target="_blank">Impact
-                                                Stories</a>
-                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/impact-stories/" target="_blank">Impact
+                                                Stories</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="http://boldly.aub.edu.lb/campaign-objectives/"
+                                        <li><a href="http://boldly.aub.edu.lb/campaign-objectives/"
                                                 target="_blank">Campaign Objectives</a>
                                         </li>
-                                        <li>
-                                            <a href="http://boldly.aub.edu.lb/ways-to-support/" target="_blank">Ways to
-                                                Support</a>
-                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/ways-to-support/" target="_blank">Ways to
+                                                Support</a></li>
                                     </ul>
                                 </div>
                                 <div class="nav-mega-column">
                                     <ul class="nav-mega-links">
-                                        <li>
-                                            <a href="http://boldly.aub.edu.lb/#funding-v2" target="_blank">Campaign
-                                                Progress</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://secureca.imodules.com/s/1716/interior.aspx?sid=1716&gid=2&pgid=618&cid=2462"
-                                                target="_blank">Join the Campaign</a>
-                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/#funding-v2" target="_blank">Campaign
+                                                Progress</a></li>
+                                        <li><a href="https://secureca.imodules.com/s/1716/interior.aspx?sid=1716&gid=2&pgid=618&cid=2462"
+                                                target="_blank">Join the Campaign</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button class="nav-mobile-btn" id="burgerBtn" aria-label="Menu">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <button class="nav-mobile-btn" id="burgerBtn" aria-label="Menu"><svg width="28" height="28"
+                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
                         <line x1="3" y1="12" x2="21" y2="12" />
                         <line x1="3" y1="6" x2="21" y2="6" />
                         <line x1="3" y1="18" x2="21" y2="18" />
-                    </svg>
-                </button>
+                    </svg></button>
             </div>
         </div>
-
-        <!-- OSB ROW (third level, becomes sticky) updated with provided nav-osb structure -->
         <div class="nav-osb" id="osbRow">
             <div class="nav-osb-container">
-                <div class="nav-osb-logo">
-                    <a href="/"><img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" /></a>
+                <div class="nav-osb-logo"><a href="/"><img src="images/logos/AUB+OSB-Merged-Logo-white.png"
+                            alt="AUB OSB Logo" /></a>
                 </div>
                 <div class="nav-osb-links">
-                    <ul class="osb-nav">
-                        <!-- About OSB with dropdown -->
-                        <li class="osb-nav-item has-dropdown">
+                    <ul class="osb-nav mba-nav">
+                        <li class="osb-nav-item mba-nav-item">
                             <a href="#" id="about-osb-link">About OSB</a>
-                            <ul class="osb-dropdown">
-                                <li>
-                                    <a href="/osb/about/Pages/Meet-the-Dean.aspx" id="meet-the-dean">Meet the Dean</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/about/Pages/default.aspx" id="mission-and-vision">Mission And
-                                        Vision</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/about/Pages/Olayan-.aspx" id="about-suliman-saleh-olayan">About
-                                        Suliman Saleh Olayan</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.aub.edu.lb/osb/Pages/advisoryboard.aspx" target="_blank"
-                                        id="international-advisory-board">International Advisory Board</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/about/Pages/Global-Recognition-.aspx"
-                                        id="global-recognitions-labels">Global
-                                        Recognitions & Labels</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/about/Pages/Governance.aspx" id="governance">Governance</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/about/Pages/recources.aspx" id="faculty-staff-resources">Faculty and
-                                        Staff Resources</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/125/Pages/default.aspx" target="_blank" id="osb-125">OSB 125</a>
-                                </li>
-                                <li>
-                                    <a href="https://sites.aub.edu.lb/osb2029/" target="_blank"
-                                        id="osb-strategic-plan-2029">OSB Strategic
-                                        Plan 2029</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.aub.edu.lb/osb/about/Pages/Employment.aspx" target="_blank"
-                                        id="job-opportunities">Job Opportunities</a>
-                                </li>
-                            </ul>
                         </li>
-                        <!-- Academic Programs with dropdown -->
-                        <li class="osb-nav-item has-dropdown">
-                            <a href="#" id="academic-programs-link">Academic Programs</a>
-                            <ul class="osb-dropdown">
-                                <li>
-                                    <a href="/osb/UndergradProgram" target="_blank"
-                                        id="undergraduate-program">Undergraduate Program</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/Pages/SpecializedMasters.aspx" target="_blank"
-                                        id="specialized-masters">Specialized
-                                        Masters</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/MBA" target="_blank" id="mba">MBA</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/OMBA/Pages/default.aspx" target="_blank" id="mba-online">MBA
-                                        Online</a>
-                                </li>
-                                <li>
-                                    <a href="/osb/EMBA" target="_blank" id="executive-mba">Executive MBA</a>
-                                </li>
-                            </ul>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="emba-homepage-link">Executive MBA</a>
                         </li>
-                        <!-- Executive Education (external link + dropdown) -->
-                        <li class="osb-nav-item">
-                            <!-- lii replace href below -->
-                            <!-- href="https://www.aub.edu.lb/osb/executiveeducation/Pages/default.aspx" -->
-                            <a href="https://www.aub.edu.lb/osb/executiveeducation" target="_blank"
-                                id="executive-education-link">Executive Education</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="the-program-link">The Program</a>
                         </li>
-                        <!-- OSB Online with dropdown -->
-                        <li class="osb-nav-item has-dropdown">
-                            <a href="#" id="osb-online-link">OSB Online</a>
-                            <ul class="osb-dropdown">
-                                <li>
-                                    <a href="https://www.aub.edu.lb/online/Entrepreneurship-Innovation-online-diploma/Pages/default.aspx"
-                                        target="_blank" id="entrepreneurship-innovation-online-diploma">Entrepreneurship
-                                        & Innovation Online
-                                        Graduate
-                                        Professional Diploma</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.aub.edu.lb/osb/online/combating-trade-based-financial-crime-certificate/Pages/default.aspx"
-                                        target="_blank" id="combating-trade-based-financial-crime-certificate">Combating
-                                        Trade-Based
-                                        Financial Crime Online
-                                        Certificate</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.aub.edu.lb/osb/online/strategic_branding/Pages/default.aspx"
-                                        target="_blank" id="strategic-branding-digital-era-diploma">Strategic Branding
-                                        in the Digital Era Online Diploma</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.aub.edu.lb/osb/online/investment-analysis-modern-portfolio-management/Pages/default.aspx"
-                                        target="_blank"
-                                        id="investment-analysis-modern-portfolio-management-diploma">Investment Analysis
-                                        and
-                                        Modern Portfolio Management
-                                        Online Graduate Professional Diploma</a>
-                                </li>
-                            </ul>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="career-impact-link">Career Impact</a>
                         </li>
-                        <!-- Faculty -->
-                        <li class="osb-nav-item">
-                            <a href="/osb/Pages/Faculty.aspx" id="faculty">Faculty</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="class-profile-network-link">Class Profile &amp; Network</a>
                         </li>
-                        <!-- Research -->
-                        <li class="osb-nav-item">
-                            <a href="https://www.aub.edu.lb/osb/facultyresearch/Pages/default.aspx" target="_blank"
-                                id="research">Research</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="tuition-fees-link">Tuition &amp; Fees</a>
                         </li>
-                        <!-- News -->
-                        <li class="osb-nav-item">
-                            <a href="https://www.aub.edu.lb/osb/news/Pages/default.aspx" id="news">News</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="admissions-link">Admissions</a>
                         </li>
-                        <!-- OSB Impacts -->
-                        <li class="osb-nav-item">
-                            <a href="https://www.aub.edu.lb/osb/impact/Pages/default.aspx" target="_blank"
-                                id="osb-impacts">OSB
-                                Impacts</a>
-                        </li>
-                        <!-- "Recent" hidden item (present but not shown visually) -->
-                        <li class="osb-nav-item" style="display: none">
-                            <a href="/osb" id="recent">Recent</a>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="#" id="why-link">Why ???</a>
                         </li>
                     </ul>
                 </div>
@@ -1071,15 +1378,12 @@
     </div>
     <div class="nav-mobile-overlay" id="mobileOverlay">
         <div class="mobile-overlay-header">
-            <div class="mobile-logo">
-                <img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB" />
-            </div>
-            <button class="mobile-close-btn" id="closeOverlayBtn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <div class="mobile-logo"><img src="images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB" /></div><button
+                class="mobile-close-btn" id="closeOverlayBtn"><svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="white" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-            </button>
+                </svg></button>
         </div>
         <div class="mobile-menu-sections">
             <div class="mobile-section">
@@ -1091,137 +1395,465 @@
                 <div id="mobileMainNav"></div>
             </div>
             <div class="mobile-section">
-                <div class="mobile-section-title">OSB School</div>
+                <div class="mobile-section-title">OSB School - MBA</div>
                 <div id="mobileOsbNav"></div>
             </div>
         </div>
     </div>
 
-    <!-- ========== HERO COVER SECTION (from style.css) ========== -->
-    <header class="OSBD-cover-section">
-        <video autoplay muted loop playsinline>
-            <source src="https://sites.aub.edu.lb/embadubai/files/2026/01/iStock-1547600743.mp4" type="video/mp4" />
-        </video>
-        <div class="cover-overlay"></div>
-        <div class="cover-inner">
-            <div class="OSBD-banner-spacer"></div>
-            <h1>Executive MBA</h1>
-            <p class="OSBD-half-bg">RETHINK. RESHAPE. LEAD.</p>
-            <div class="mt-1">
-                <div class="OSBD-button OSBD-filled-white-button">
-                    <a href="#0" class="wp-block-button__link">Explore The Program</a>
-                </div>
+    <!-- ============================================
+    HERO
+    ============================================ -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
+                alt="AUB Campus" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay-2"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-rule"></div>
+
+        <div class="hero-content">
+            <h1>
+                Lead Beyond<br />
+                <span class="accent">Experience.</span><br />
+                Shape What's Next.
+            </h1>
+
+            <p>
+                An elite 15-month Executive MBA rooted in Beirut's intellectual heritage —
+                designed for senior leaders ready to operate at the highest level.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#" class="btn-primary">
+                    Download Brochure
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+
+                <button class="hero-watch">
+                    <span class="play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </span>
+                    Watch Overview
+                </button>
             </div>
         </div>
-    </header>
 
-    <!-- ========== PROGRAM INFO BAR (from style.css) ========== -->
-    <div class="program-info">
-        <div class="info-items">
-            <span>15-Month Program</span>
-            <span>Blended Format</span>
-            <span>44 Credits</span>
-            <span>AUB Beirut Campus</span>
-        </div>
-    </div>
-
-    <!-- ==========================================
-     VALUE PROPOSITION
-     ========================================== -->
-    <section class="value-prop">
-        <div class="container">
-            <h2 class="section-title">Value Proposition</h2>
-            <p class="value-text">
-                The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
-                ready to lead at a higher strategic level. Through immersive residencies, a global learning experience,
-                and a dedicated leadership development journey, participants strengthen their ability to navigate
-                complexity, drive transformation, and create measurable business impact. Beyond the academic experience,
-                participants gain access to a powerful executive ecosystem of peers, faculty, industry leaders, and the
-                wider AUB alumni network, building strategic relationships and leadership capital that extend far beyond
-                graduation.
-            </p>
+        <div class="scroll-cue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
         </div>
     </section>
 
-    <!-- ==========================================
-     6 FLIP CARDS
-     ========================================== -->
+    <!-- ============================================
+    PROGRAM SNAPSHOT
+    ============================================ -->
+    <section class="snapshot">
+        <div class="container">
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <div class="value">15 Months</div>
+                    <div class="label">Duration</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">Blended</div>
+                    <div class="label">Format</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">AUB Beirut</div>
+                    <div class="label">Campus</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">International</div>
+                    <div class="label">Residency</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">Sept 2026</div>
+                    <div class="label">Start Date</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    VALUE PROPOSITION
+    ============================================ -->
+    <section class="value-prop">
+        <div class="container">
+            <div class="value-text">
+
+                <div class="title-underline"></div>
+                <p>
+                    The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
+                    ready to lead at a higher strategic level. Through immersive residencies, a global learning
+                    experience, and a dedicated leadership development journey, participants strengthen their ability to
+                    navigate complexity, drive transformation, and create measurable business impact. Beyond the
+                    academic experience, participants gain access to a powerful executive ecosystem of peers, faculty,
+                    industry leaders, and the wider AUB alumni network, building strategic relationships and leadership
+                    capital that extend far beyond graduation.
+                </p>
+                <a href="#" class="value-link">
+                    Explore the Curriculum
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Career Advancement Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">38</div>
+                    <div class="stat-label">Avg. Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">22+</div>
+                    <div class="stat-label">Industries Represented</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12,000+</div>
+                    <div class="stat-label">Global Alumni Network</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FLIP CARDS
+    ============================================ -->
     <section class="flip-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA.<br />Built in Beirut. Connected Globally.</h2>
-            <p class="section-subtitle">A program designed for leaders who want to drive transformation, build lasting
-                networks, and create impact.</p>
+            <div class="flip-header">
+                <div>
+                    <h2 class="section-title" style="color: var(--secondary-light);">
+                        One Executive MBA.<br />
+                        Built in Beirut. <span class="highlight">Connected Globally.</span>
+                    </h2>
+                </div>
+            </div>
 
             <div class="flip-grid">
                 <!-- Card 1 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>Leadership Development</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6"></circle>
+                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">01</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Leadership Development</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>A dedicated journey to strengthen executive presence, self-awareness, communication, and
-                                strategic influence.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Leadership Development</h3>
+                                <p>A dedicated journey to strengthen executive presence, self-awareness, communication,
+                                    and strategic influence.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Card 2 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>Strategic Business Learning</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">02</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Strategic Business Learning</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>Develop an integrated perspective across strategy, finance, operations, marketing, and
-                                leadership for stronger decision-making.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Strategic Business Learning</h3>
+                                <p>Develop an integrated business perspective across strategy, finance, operations,
+                                    marketing, and leadership—enabling stronger strategic decision-making.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Card 3 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>Applied Business Impact</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2v4"></path>
+                                        <path d="M12 18v4"></path>
+                                        <path d="M4.93 4.93l2.83 2.83"></path>
+                                        <path d="M16.24 16.24l2.83 2.83"></path>
+                                        <path d="M2 12h4"></path>
+                                        <path d="M18 12h4"></path>
+                                        <path d="M4.93 19.07l2.83-2.83"></path>
+                                        <path d="M16.24 7.76l2.83-2.83"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">03</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Applied Business Impact</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>Translate learning into actionable insights through real business challenges and
-                                practical frameworks you can apply immediately.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2v4"></path>
+                                    <path d="M12 18v4"></path>
+                                    <path d="M4.93 4.93l2.83 2.83"></path>
+                                    <path d="M16.24 16.24l2.83 2.83"></path>
+                                    <path d="M2 12h4"></path>
+                                    <path d="M18 12h4"></path>
+                                    <path d="M4.93 19.07l2.83-2.83"></path>
+                                    <path d="M16.24 7.76l2.83-2.83"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Applied Business Impact</h3>
+                                <p>Translate learning into actionable insights through real business challenges,
+                                    case-based discussions, and practical frameworks.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Card 4 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>Executive Network</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">04</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Executive Network</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>Build strategic relationships with accomplished peers, faculty, and industry leaders that
-                                extend your professional influence.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Executive Network</h3>
+                                <p>Build strategic relationships with accomplished peers, faculty, and industry leaders
+                                    that extend your professional influence and leadership.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Card 5 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>International Residency</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="number">05</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>International Residency</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>Gain global exposure through an immersive residency at a partner business school,
-                                broadening your leadership perspective.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>International Residency</h3>
+                                <p>Gain global exposure through an immersive residency at a partner business school,
+                                    broadening your understanding of international markets and leadership practices.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- Card 6 -->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-front">
-                            <h3>AUB Ecosystem &amp; Alumni</h3>
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                        <line x1="8" y1="2" x2="8" y2="22"></line>
+                                        <line x1="16" y1="2" x2="16" y2="22"></line>
+                                        <line x1="2" y1="8" x2="22" y2="8"></line>
+                                        <line x1="2" y1="16" x2="22" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <span class="number">06</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                         <div class="flip-back">
-                            <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of
-                                your MBA well beyond graduation.</p>
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                    <line x1="8" y1="2" x2="8" y2="22"></line>
+                                    <line x1="16" y1="2" x2="16" y2="22"></line>
+                                    <line x1="2" y1="8" x2="22" y2="8"></line>
+                                    <line x1="2" y1="16" x2="22" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                                <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of
+                                    your Executive MBA well beyond graduation.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1229,54 +1861,94 @@
         </div>
     </section>
 
-    <!-- ==========================================
-     LEADERS — 4 cards
-     ========================================== -->
-    <section class="leaders-section">
+    <!-- ============================================
+    EXECUTIVE PEERS
+    ============================================ -->
+    <section class="light-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA.<br />Shaped by Leaders.</h2>
-            <p class="section-subtitle">Learn alongside accomplished peers, engage with world-class faculty, and
-                interact with industry leaders who challenge your thinking.</p>
+            <!-- header: exactly as provided -->
+            <div class="peers-header">
+                <div>
+                    <h2 class="section-title">
+                        One Executive MBA.<br />
+                        <span class="highlight">Shaped by Leaders.</span>
+                    </h2>
+                </div>
+            </div>
 
+            <!-- grid: 4 cards, using ONLY the text you provided below -->
             <div class="leaders-grid">
-                <!-- 1: Executive Peers -->
-                <div class="leader-card">
-                    <div class="card-image" style="background:var(--color-gray-100);color:var(--color-gray-500);">
-                        Executive Peers</div>
-                    <div class="card-body">
+                <!-- 1. Executive Peers (Who are learning) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2d0?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Students in discussion – executive peers" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who are learning</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
                         <h3>Executive Peers</h3>
-                        <p>Learn alongside accomplished senior professionals from diverse industries, bringing
-                            real-world challenges and strategic perspectives into every discussion.</p>
+                        <div class="desc">
+                            Learn alongside accomplished senior professionals from diverse industries, bringing
+                            real-world challenges, strategic perspectives, and leadership insights into every
+                            discussion.
+                        </div>
                     </div>
                 </div>
-                <!-- 2: Faculty Leaders -->
-                <div class="leader-card">
-                    <div class="card-image" style="background:var(--color-gray-100);color:var(--color-gray-500);">
-                        Faculty Leaders</div>
-                    <div class="card-body">
+
+                <!-- 2. Faculty Leaders (Who guides their journey) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Faculty in class – guides their journey" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who guides their journey</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
                         <h3>Faculty Leaders</h3>
-                        <p>Engage with world-class faculty and thought leaders who combine academic excellence with
-                            practical business expertise.</p>
+                        <div class="desc">
+                            Engage with world-class faculty and thought leaders who combine academic excellence
+                            with practical business expertise, bridging theory with real market realities.
+                        </div>
                     </div>
                 </div>
-                <!-- 3: Industry Leaders -->
-                <div class="leader-card">
-                    <div class="card-image" style="background:var(--color-gray-100);color:var(--color-gray-500);">
-                        Industry Leaders</div>
-                    <div class="card-body">
+
+                <!-- 3. Industry Leaders (Who challenges their thinking) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Guest speaker – industry leaders" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who challenges their thinking</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
                         <h3>Industry Leaders</h3>
-                        <p>Interact with guest speakers, business executives, and sector experts who bring current
-                            market insights and emerging trends.</p>
+                        <div class="desc">
+                            Interact with Gain exposure to guest speakers, business executives, and sector experts
+                            who bring current market insights, emerging trends, and leadership perspectives into
+                            the learning experience.
+                        </div>
                     </div>
                 </div>
-                <!-- 4: Global Leadership Immersion -->
-                <div class="leader-card">
-                    <div class="card-image" style="background:var(--color-gray-100);color:var(--color-gray-500);">Global
-                        Immersion</div>
-                    <div class="card-body">
+
+                <!-- 4. Global Leadership Immersion (How they expand their global perspective) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Global residency – global perspective" />
+                        <div class="gradient"></div>
+                        <div class="industry">How they expand their global perspective</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
                         <h3>Global Leadership Immersion</h3>
-                        <p>Expand your strategic perspective through direct engagement with global business environments
-                            and cross-market leadership insights.</p>
+                        <div class="desc">
+                            Expand your strategic perspective through direct engagement with global business
+                            environments, international faculty, and cross-market leadership insights.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1295,11 +1967,13 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
     <footer class="footer">
         <div class="container">
             <div class="footer__accred">
-                <img src="images/AUB-OSB-accreditations.jpg" alt="Accreditations" />
+                <img alt="Accreditations" decoding="async" loading="lazy" src="images/AUB-OSB-accreditations.png" />
             </div>
             <div class="footer-grid">
                 <div class="footer-item">
@@ -1308,7 +1982,7 @@
                         For various questions, please try contacting us via social media
                         first!
                     </p>
-                    <a href="#" class="footer-item__link">read more</a>
+                    <a class="footer-item__link" href="#">read more</a>
                 </div>
                 <div class="footer-item">
                     <h2 class="footer-item__title">Privacy Statement</h2>
@@ -1316,7 +1990,7 @@
                         We take data privacy seriously and adhere to all applicable data
                         privacy laws and regulations.
                     </p>
-                    <a href="#" class="footer-item__link">read more</a>
+                    <a class="footer-item__link" href="#">read more</a>
                 </div>
                 <div class="footer-item">
                     <h2 class="footer-item__title">Copyright and Disclaimer</h2>
@@ -1324,7 +1998,7 @@
                         Written permission is needed to copy or disseminate all or part of
                         the materials on the AUB website.
                     </p>
-                    <a href="#" class="footer-item__link">read more</a>
+                    <a class="footer-item__link" href="#">read more</a>
                 </div>
                 <div class="footer-item">
                     <h2 class="footer-item__title">
@@ -1334,11 +2008,10 @@
                         AUB is committed to providing a safe and respectful environment to
                         all members of its community.
                     </p>
-                    <a href="#" class="footer-item__link">read more</a>
+                    <a class="footer-item__link" href="#">read more</a>
                 </div>
             </div>
         </div>
-
         <div class="bg-burgundy">
             <div class="container footer-links-grid">
                 <div class="footer-links-column">
@@ -1353,11 +2026,12 @@
                         </li>
                         <li><a href="/Pages/AUBSIS.aspx">AUBSSI</a></li>
                         <li>
-                            <a href="https://careers.aub.edu.lb/Login" target="_blank">Career Portal</a>
+                            <a href="https://careers.aub.edu.lb/Login" rel="noopener noreferrer" target="_blank">Career
+                                Portal</a>
                         </li>
                         <li><a href="/comptroller">Comptroller</a></li>
                         <li>
-                            <a href="https://lms.aub.edu.lb/" target="_blank">E-Learning</a>
+                            <a href="https://lms.aub.edu.lb/" rel="noopener noreferrer" target="_blank">E-Learning</a>
                         </li>
                     </ul>
                 </div>
@@ -1386,38 +2060,103 @@
                         <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
                         <li><a href="/search/Pages/default.aspx">Search</a></li>
                         <li>
-                            <a href="https://www.aub.edu.lb/Pages/Webmail.aspx" target="_blank">Webmail</a>
+                            <a href="https://www.aub.edu.lb/Pages/Webmail.aspx" rel="noopener noreferrer"
+                                target="_blank">Webmail</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <div class="footer-bottom">
             <ul class="social-links">
                 <li>
-                    <a class="social-fb-icon" href="http://www.facebook.com/aub.edu.lb" target="_blank"
-                        aria-label="Facebook">&nbsp;</a>
+                    <a aria-label="Facebook" class="social-fb-icon" href="https://www.facebook.com/aub.edu.lb"
+                        rel="noopener noreferrer" target="_blank"> </a>
                 </li>
                 <li>
-                    <a class="social-tw-icon" href="http://twitter.com/AUB_Lebanon" target="_blank"
-                        aria-label="Twitter">&nbsp;</a>
+                    <a aria-label="Twitter" class="social-tw-icon" href="https://twitter.com/AUB_Lebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
                 </li>
                 <li>
-                    <a class="social-in-icon" href="https://www.linkedin.com/company/american-university-of-beirut"
-                        target="_blank" aria-label="LinkedIn">&nbsp;</a>
+                    <a aria-label="LinkedIn" class="social-in-icon"
+                        href="https://www.linkedin.com/company/american-university-of-beirut" rel="noopener noreferrer"
+                        target="_blank"> </a>
                 </li>
                 <li>
-                    <a class="social-ig-icon" href="http://instagram.com/aub_lebanon" target="_blank"
-                        aria-label="Instagram">&nbsp;</a>
+                    <a aria-label="Instagram" class="social-ig-icon" href="https://instagram.com/aub_lebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
                 </li>
                 <li>
-                    <a class="social-yt-icon" href="https://www.youtube.com/@AUBOSB" target="_blank"
-                        aria-label="Youtube">&nbsp;</a>
+                    <a aria-label="Youtube" class="social-yt-icon" href="https://www.youtube.com/aubatlebanon"
+                        rel="noopener noreferrer" target="_blank"> </a>
                 </li>
             </ul>
         </div>
     </footer>
+    <!-- SCRIPTS -->
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let scrolled = false;
+
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 50;
+            if (isScrolled !== scrolled) {
+                scrolled = isScrolled;
+                navbar.classList.toggle('scrolled', scrolled);
+            }
+        });
+
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        toggleBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+
+            // Update icon
+            toggleBtn.innerHTML = menuOpen ?
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>` :
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuOpen = false;
+                toggleBtn.innerHTML =
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        });
+
+        // Flip cards - support both hover and click (for touch devices)
+        document.querySelectorAll('.flip-card').forEach(card => {
+            const inner = card.querySelector('.flip-card-inner');
+
+            // Hover for desktop
+            card.addEventListener('mouseenter', () => {
+                inner.style.transform = 'rotateY(180deg)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                inner.style.transform = 'rotateY(0deg)';
+            });
+
+            // Click for touch devices
+            card.addEventListener('click', () => {
+                const current = inner.style.transform;
+                inner.style.transform = current === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            });
+        });
+    </script>
+
 </body>
 
 </html>

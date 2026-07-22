@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AUB Executive MBA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ============================================
+                   ROOT VARIABLES — Brand Identity
+                   ============================================ */
+        :root {
+            --primary: #840132;
+            --primary-dark: #6a132c;
+            --primary-light: #f5e8eb;
+            --secondary: #142d66;
+            --secondary-light: #e8ecf5;
+            --bg: #f7f5f2;
+            --bg-alt: #efecea;
+            --white: #ffffff;
+            --ink: #0f0f0f;
+            --ink-mid: #4a4744;
+            --ink-light: #8a8682;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
+            --radius: 4px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* ============================================
+                   RESET & BASE
+                   ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ============================================
+                   UTILITY CLASSES
+                   ============================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 48px;
+            }
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-padding {
+                padding: 120px 0;
+            }
+        }
+
+        /* Section Label */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .section-label span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--ink);
+        }
+
+        .section-title .highlight {
+            color: var(--primary);
+        }
+
+        .title-underline {
+            width: 56px;
+            height: 3px;
+            background: var(--primary);
+            margin: 20px 0 24px;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(132, 1, 50, 0.25);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 13px 30px;
+            background: transparent;
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+            gap: 14px;
+        }
+
+        /* SVG Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+        }
+
+        .icon-lg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ============================================
+                   NAVBAR
+                   ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 24px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        @media (min-width: 1024px) {
+            .navbar {
+                padding: 0 48px;
+            }
+        }
+
+        .navbar.scrolled {
+            background: rgba(247, 245, 242, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 900;
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            border-radius: var(--radius);
+        }
+
+        .logo-text {
+            line-height: 1.2;
+        }
+
+        .logo-text .main {
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: color var(--transition);
+        }
+
+        .navbar.scrolled .logo-text .main {
+            color: var(--ink);
+        }
+
+        .logo-text .sub {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.55);
+            transition: color var(--transition);
+        }
+
+        .navbar.scrolled .logo-text .sub {
+            color: var(--ink-light);
+        }
+
+        /* Nav Links */
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 28px;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.72);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--ink-mid);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .navbar.scrolled .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--white) !important;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(132, 1, 50, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        @media (min-width: 1024px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        .navbar.scrolled .menu-toggle {
+            color: var(--ink);
+        }
+
+        .menu-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            padding: 16px 24px 32px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 14px 0;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-mid);
+            border-bottom: 1px solid var(--border);
+            transition: color var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu .mobile-cta {
+            margin-top: 12px;
+            padding: 14px;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            border-radius: var(--radius);
+            border-bottom: none;
+            font-weight: 600;
+        }
+
+        .mobile-menu .mobile-cta:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+
+        /* ============================================
+                   HERO SECTION
+                   ============================================ */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #0a1020;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 16, 32, 0.55) 0%, rgba(10, 16, 32, 0.3) 40%, rgba(10, 16, 32, 0.92) 100%);
+        }
+
+        .hero-overlay-2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(132, 1, 50, 0.18) 0%, transparent 60%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px);
+            background-size: 72px 72px;
+        }
+
+        .hero-rule {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 160px 24px 80px;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                padding: 180px 48px 100px;
+            }
+        }
+
+        .hero-content .label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-content .label::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .hero-content .label span {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.8rem, 7vw, 5.6rem);
+            font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.025em;
+            color: var(--white);
+            max-width: 800px;
+        }
+
+        .hero-content h1 .accent {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            color: white;
+            max-width: 520px;
+            margin: 24px 0 36px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-watch {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            background: transparent;
+        }
+
+        .hero-watch:hover {
+            gap: 16px;
+            color: var(--white);
+        }
+
+        .hero-watch .play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .hero-watch:hover .play-btn {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-watch .play-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        /* Scroll cue */
+        .scroll-cue {
+            position: absolute;
+            bottom: 32px;
+            right: 48px;
+            z-index: 10;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        @media (min-width: 1024px) {
+            .scroll-cue {
+                display: flex;
+            }
+        }
+
+        .scroll-cue svg {
+            width: 20px;
+            height: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
+        /* ============================================
+                   PROGRAM SNAPSHOT
+                   ============================================ */
+        .snapshot {
+            background: var(--secondary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .snapshot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            .snapshot-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        .snapshot-item {
+            padding: 20px 16px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .snapshot-item:last-child {
+            border-right: none;
+        }
+
+        @media (max-width: 767px) {
+            .snapshot-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .snapshot-item:nth-child(4) {
+                border-right: none;
+            }
+        }
+
+        .snapshot-item .value {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .snapshot-item .label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        /* ============================================
+                   VALUE PROPOSITION
+                   ============================================ */
+        .value-prop {
+            background: var(--bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .value-prop {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .value-prop {
+                padding: 120px 0;
+            }
+        }
+
+        .value-prop .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .value-prop .container {
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+            }
+        }
+
+        .value-text p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.95;
+            color: var(--ink-mid);
+            max-width: 580px;
+        }
+
+        .value-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 32px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: all var(--transition);
+        }
+
+        .value-link:hover {
+            gap: 14px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--border);
+            gap: 1px;
+        }
+
+        .stat-item {
+            padding: 40px 32px;
+            background: var(--white);
+            transition: background var(--transition);
+        }
+
+        .stat-item:nth-child(2),
+        .stat-item:nth-child(4) {
+            background: var(--bg-alt);
+        }
+
+        .stat-item:hover {
+            background: var(--white) !important;
+        }
+
+        .stat-number {
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        /* ============================================
+                   FLIP CARDS SECTION
+                   ============================================ */
+        .flip-section {
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(132, 1, 50, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .flip-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flip-section {
+                padding: 120px 0;
+            }
+        }
+
+        .flip-header {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .flip-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+
+        .flip-header .sub {
+            font-size: 14px;
+            color: var(--ink-mid);
+            max-width: 320px;
+        }
+
+        .flip-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        @media (min-width: 768px) {
+            .flip-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .flip-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        /* Flip Card */
+        .flip-card {
+            perspective: 1100px;
+            height: 250px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flip-front {
+            background: var(--ink-mid);
+            border: 1px solid var(--border);
+        }
+
+        .flip-front .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .flip-front .icon-wrap {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: var(--radius);
+        }
+
+        .flip-front .number {
+            font-size: 36px;
+            font-weight: 800;
+            color: rgba(0, 0, 0, 0.04);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .flip-front .bottom .line {
+            width: 32px;
+            height: 2px;
+            background: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .flip-front .bottom h3 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+
+        .flip-front .bottom .explore {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .flip-back {
+            transform: rotateY(180deg);
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .flip-back .icon-wrap {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius);
+        }
+
+        .flip-back .icon-wrap svg {
+            color: var(--white);
+            width: 18px;
+            height: 18px;
+        }
+
+        .flip-back h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .flip-back p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--white);
+        }
+
+        /* ============================================
+                   PEERS SECTION
+                   ============================================ */
+        .peers-section {
+            background: var(--bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .peers-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .peers-section {
+                padding: 120px 0;
+            }
+        }
+
+        .peers-header {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .peers-header {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: flex-end;
+            }
+        }
+
+        .peers-header p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--ink-mid);
+        }
+
+        .peers-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        @media (min-width: 640px) {
+            .peers-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .peers-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        /* Peer Card */
+        .peer-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .peer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+        }
+
+        .peer-photo {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .peer-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.7s ease;
+        }
+
+        .peer-card:hover .peer-photo img {
+            transform: scale(1.05);
+        }
+
+        .peer-photo .gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 55%);
+        }
+
+        .peer-photo .industry {
+            position: absolute;
+            top: 16px;
+            left: 0;
+            padding: 6px 16px;
+            background: var(--primary);
+            color: var(--white);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .peer-info {
+            padding: 24px 28px 28px;
+        }
+
+        .peer-info .line {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            margin-bottom: 20px;
+            transition: width var(--transition);
+        }
+
+        .peer-card:hover .peer-info .line {
+            width: 48px;
+        }
+
+        .peer-info h3 {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .peer-info .title {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--ink-mid);
+            margin-bottom: 2px;
+        }
+
+        .peer-info .company {
+            font-size: 12px;
+            color: var(--ink-light);
+            margin-bottom: 20px;
+        }
+
+        .peer-info .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .peer-info .meta .exp {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .peer-info .meta .tag {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        /* ============================================
+                   FOOTER
+                   ============================================ */
+        .footer {
+            padding: 40px 24px;
+            background: var(--ink);
+            border-top: 3px solid var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .footer {
+                padding: 40px 48px;
+            }
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .footer .container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand .mark {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 900;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            border-radius: var(--radius);
+        }
+
+        .footer-brand .text .main {
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .footer-brand .text .sub {
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.22);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.3);
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ============================================
+                   RESPONSIVE TWEAKS
+                   ============================================ */
+        @media (max-width: 767px) {
+            .hero-content h1 {
+                font-size: clamp(2.2rem, 10vw, 3.2rem);
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .stat-item {
+                padding: 28px 20px;
+            }
+
+            .flip-front,
+            .flip-back {
+                padding: 24px;
+            }
+
+            .peer-photo {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 140px 16px 60px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-watch {
+                justify-content: center;
+            }
+
+            .btn-primary {
+                justify-content: center;
+            }
+
+            .flip-card {
+                height: 240px;
+            }
+
+            .peer-info {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================
+    NAVBAR
+    ============================================ -->
+    <nav class="navbar" id="navbar">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <div class="logo-mark">AUB</div>
+            <div class="logo-text">
+                <div class="main">Executive MBA</div>
+                <div class="sub">Olayan School of Business</div>
+            </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="nav-links">
+            <a href="#">Program</a>
+            <a href="#">Curriculum</a>
+            <a href="#">Faculty</a>
+            <a href="#">Residency</a>
+            <a href="#">Alumni</a>
+            <a href="#">Admissions</a>
+            <a href="#" class="nav-cta">Apply Now</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#">Program</a>
+            <a href="#">Curriculum</a>
+            <a href="#">Faculty</a>
+            <a href="#">Residency</a>
+            <a href="#">Alumni</a>
+            <a href="#">Admissions</a>
+            <a href="#" class="mobile-cta">Apply Now</a>
+        </div>
+    </nav>
+
+    <!-- ============================================
+    HERO
+    ============================================ -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
+                alt="AUB Campus" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay-2"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-rule"></div>
+
+        <div class="hero-content">
+            <div class="label">
+                <span>AUB · Olayan School of Business</span>
+            </div>
+
+            <h1>
+                Lead Beyond<br />
+                <span class="accent">Experience.</span><br />
+                Shape What's Next.
+            </h1>
+
+            <p>
+                An elite 15-month Executive MBA rooted in Beirut's intellectual heritage —
+                designed for senior leaders ready to operate at the highest level.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#" class="btn-primary">
+                    Download Brochure
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+
+                <button class="hero-watch">
+                    <span class="play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </span>
+                    Watch Overview
+                </button>
+            </div>
+        </div>
+
+        <div class="scroll-cue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================
+    PROGRAM SNAPSHOT
+    ============================================ -->
+    <section class="snapshot">
+        <div class="container">
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <div class="value">15 Months</div>
+                    <div class="label">Duration</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">Blended</div>
+                    <div class="label">Format</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">AUB Beirut</div>
+                    <div class="label">Campus</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">International</div>
+                    <div class="label">Residency</div>
+                </div>
+                <div class="snapshot-item">
+                    <div class="value">Sept 2026</div>
+                    <div class="label">Start Date</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    VALUE PROPOSITION
+    ============================================ -->
+    <section class="value-prop">
+        <div class="container">
+            <div class="value-text">
+                <div class="section-label">
+                    <span>Why AUB EMBA</span>
+                </div>
+                <h2 class="section-title">
+                    Where Regional Mastery<br />
+                    Meets Global Reach
+                </h2>
+                <div class="title-underline"></div>
+                <p>
+                    The AUB Executive MBA is engineered for senior professionals who have already proven themselves —
+                    and are ready to lead at a higher level. Over 15 immersive months, you will master the disciplines
+                    that define transformational leadership: from financial acuity and operational strategy to
+                    organizational influence and cross-border market intelligence. Rooted in AUB's century-long
+                    tradition of academic excellence and powered by a faculty of world-class practitioners, the program
+                    bridges rigorous theory with the messy, high-stakes reality of modern business. You will leave not
+                    only with sharper thinking, but with a peer network of exceptional executives.
+                </p>
+                <a href="#" class="value-link">
+                    Explore the Curriculum
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">Career Advancement Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">38</div>
+                    <div class="stat-label">Avg. Years of Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">22+</div>
+                    <div class="stat-label">Industries Represented</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">12,000+</div>
+                    <div class="stat-label">Global Alumni Network</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FLIP CARDS
+    ============================================ -->
+    <section class="flip-section">
+        <div class="container">
+            <div class="flip-header">
+                <div>
+                    <div class="section-label">
+                        <span>Program Pillars</span>
+                    </div>
+                    <h2 class="section-title" style="color: var(--secondary-light);">
+                        One Executive MBA.<br />
+                        Built in Beirut. <span class="highlight">Connected Globally.</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="flip-grid">
+                <!-- Card 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6"></circle>
+                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">01</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Leadership Development</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Leadership Development</h3>
+                                <p>A dedicated journey to strengthen executive presence, self-awareness, communication,
+                                    and strategic influence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">02</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Strategic Business Learning</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Strategic Business Learning</h3>
+                                <p>Develop an integrated business perspective across strategy, finance, operations,
+                                    marketing, and leadership—enabling stronger strategic decision-making.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2v4"></path>
+                                        <path d="M12 18v4"></path>
+                                        <path d="M4.93 4.93l2.83 2.83"></path>
+                                        <path d="M16.24 16.24l2.83 2.83"></path>
+                                        <path d="M2 12h4"></path>
+                                        <path d="M18 12h4"></path>
+                                        <path d="M4.93 19.07l2.83-2.83"></path>
+                                        <path d="M16.24 7.76l2.83-2.83"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">03</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Applied Business Impact</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2v4"></path>
+                                    <path d="M12 18v4"></path>
+                                    <path d="M4.93 4.93l2.83 2.83"></path>
+                                    <path d="M16.24 16.24l2.83 2.83"></path>
+                                    <path d="M2 12h4"></path>
+                                    <path d="M18 12h4"></path>
+                                    <path d="M4.93 19.07l2.83-2.83"></path>
+                                    <path d="M16.24 7.76l2.83-2.83"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Applied Business Impact</h3>
+                                <p>Translate learning into actionable insights through real business challenges,
+                                    case-based discussions, and practical frameworks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <span class="number">04</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>Executive Network</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Executive Network</h3>
+                                <p>Build strategic relationships with accomplished peers, faculty, and industry leaders
+                                    that extend your professional influence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="number">05</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>International Residency</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>International Residency</h3>
+                                <p>Gain global exposure through an immersive residency at a partner business school,
+                                    broadening your understanding of international markets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                        <line x1="8" y1="2" x2="8" y2="22"></line>
+                                        <line x1="16" y1="2" x2="16" y2="22"></line>
+                                        <line x1="2" y1="8" x2="22" y2="8"></line>
+                                        <line x1="2" y1="16" x2="22" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <span class="number">06</span>
+                            </div>
+                            <div class="bottom">
+                                <div class="line"></div>
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                                <div class="explore">
+                                    Explore
+                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                    <line x1="8" y1="2" x2="8" y2="22"></line>
+                                    <line x1="16" y1="2" x2="16" y2="22"></line>
+                                    <line x1="2" y1="8" x2="22" y2="8"></line>
+                                    <line x1="2" y1="16" x2="22" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                                <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of
+                                    your Executive MBA well beyond graduation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    EXECUTIVE PEERS
+    ============================================ -->
+    <section class="peers-section">
+        <div class="container">
+            <div class="peers-header">
+                <div>
+                    <div class="section-label">
+                        <span>Your Cohort</span>
+                    </div>
+                    <h2 class="section-title">
+                        One Executive MBA.<br />
+                        <span class="highlight">Shaped by Leaders.</span>
+                    </h2>
+                </div>
+                <p>
+                    Learn alongside accomplished senior professionals from diverse industries, bringing real-world
+                    challenges, strategic perspectives, and leadership insights into every discussion.
+                </p>
+            </div>
+
+            <div class="peers-grid">
+                <!-- Peer 1 -->
+                <div class="peer-card">
+                    <div class="peer-photo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=480&h=560&fit=crop&auto=format&q=80"
+                            alt="Karim Al-Mansouri" />
+                        <div class="gradient"></div>
+                        <div class="industry">Finance &amp; Private Equity</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Karim Al-Mansouri</h3>
+                        <div class="title">Chief Operating Officer</div>
+                        <div class="company">Gulf Capital Holdings</div>
+                        <div class="meta">
+                            <span class="exp">18 yrs</span>
+                            <span class="tag">Executive Peer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peer 2 -->
+                <div class="peer-card">
+                    <div class="peer-photo">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=480&h=560&fit=crop&auto=format&q=80"
+                            alt="Nadia Haddad" />
+                        <div class="gradient"></div>
+                        <div class="industry">Retail &amp; Real Estate</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Nadia Haddad</h3>
+                        <div class="title">VP Strategy &amp; Growth</div>
+                        <div class="company">Majid Al Futtaim</div>
+                        <div class="meta">
+                            <span class="exp">14 yrs</span>
+                            <span class="tag">Executive Peer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peer 3 -->
+                <div class="peer-card">
+                    <div class="peer-photo">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=480&h=560&fit=crop&auto=format&q=80"
+                            alt="Omar Khalil" />
+                        <div class="gradient"></div>
+                        <div class="industry">Professional Services</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Omar Khalil</h3>
+                        <div class="title">Regional Director</div>
+                        <div class="company">PwC Middle East</div>
+                        <div class="meta">
+                            <span class="exp">16 yrs</span>
+                            <span class="tag">Executive Peer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peer 4 -->
+                <div class="peer-card">
+                    <div class="peer-photo">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=480&h=560&fit=crop&auto=format&q=80"
+                            alt="Sara Tannous" />
+                        <div class="gradient"></div>
+                        <div class="industry">Banking &amp; Fintech</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Sara Tannous</h3>
+                        <div class="title">Head of Digital Transformation</div>
+                        <div class="company">Bank of Lebanon</div>
+                        <div class="meta">
+                            <span class="exp">12 yrs</span>
+                            <span class="tag">Executive Peer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-brand">
+                <div class="mark">AUB</div>
+                <div class="text">
+                    <div class="main">Executive MBA</div>
+                    <div class="sub">Suliman S. Olayan School of Business</div>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2026 American University of Beirut. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let scrolled = false;
+
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 50;
+            if (isScrolled !== scrolled) {
+                scrolled = isScrolled;
+                navbar.classList.toggle('scrolled', scrolled);
+            }
+        });
+
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        toggleBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+
+            // Update icon
+            toggleBtn.innerHTML = menuOpen ?
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>` :
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuOpen = false;
+                toggleBtn.innerHTML =
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        });
+
+        // Flip cards - support both hover and click (for touch devices)
+        document.querySelectorAll('.flip-card').forEach(card => {
+            const inner = card.querySelector('.flip-card-inner');
+
+            // Hover for desktop
+            card.addEventListener('mouseenter', () => {
+                inner.style.transform = 'rotateY(180deg)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                inner.style.transform = 'rotateY(0deg)';
+            });
+
+            // Click for touch devices
+            card.addEventListener('click', () => {
+                const current = inner.style.transform;
+                inner.style.transform = current === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            });
+        });
+    </script>
+
+</body>
+
+</html>

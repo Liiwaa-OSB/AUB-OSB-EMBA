@@ -52,7 +52,7 @@
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
             --radius: 4px;
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font: "Roboto", sans-serif;
         }
 
         /* ============================================
@@ -75,7 +75,6 @@
         body {
             font-family: var(--font);
             background: var(--bg);
-            color: var(--ink);
             line-height: 1.6;
         }
 
@@ -92,6 +91,10 @@
 
         ul {
             list-style: none;
+        }
+
+        h3 {
+            font-size: clamp(1rem, 4vw, 1.4rem);
         }
 
         /* ============================================
@@ -142,7 +145,7 @@
         }
 
         .section-label span {
-            font-size: 11px;
+            font-size: 1.05rem;
             font-weight: 600;
             letter-spacing: 0.32em;
             text-transform: uppercase;
@@ -152,7 +155,7 @@
         /* Section Titles */
         .section-title {
             font-size: clamp(2rem, 4vw, 3.2rem);
-            font-weight: 800;
+            font-weight: 700;
             letter-spacing: -0.03em;
             line-height: 1.1;
             color: var(--ink);
@@ -229,8 +232,8 @@
         }
 
         .icon-lg {
-            width: 24px;
-            height: 24px;
+            width: 34px;
+            height: 34px;
         }
 
 
@@ -239,7 +242,7 @@
                    ============================================ */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             align-items: flex-end;
             overflow: hidden;
@@ -280,27 +283,18 @@
             background-size: 72px 72px;
         }
 
-        .hero-rule {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
         .hero-content {
             position: relative;
             z-index: 10;
             width: 100%;
-            max-width: 1200px;
+            max-width: min(100% - 2rem, 1280px);
             margin: 0 auto;
-            padding: 160px 24px 80px;
+            padding: 160px 24px 120px;
         }
 
         @media (min-width: 1024px) {
             .hero-content {
-                padding: 180px 48px 100px;
+                padding: 180px 48px 140px;
             }
         }
 
@@ -329,7 +323,7 @@
 
         .hero-content h1 {
             font-size: clamp(2.8rem, 7vw, 5.6rem);
-            font-weight: 800;
+            font-weight: 700;
             line-height: 1.02;
             letter-spacing: -0.025em;
             color: var(--white);
@@ -398,31 +392,6 @@
             fill: white;
         }
 
-        /* Scroll cue */
-        .scroll-cue {
-            position: absolute;
-            bottom: 32px;
-            right: 48px;
-            z-index: 10;
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255, 255, 255, 0.25);
-        }
-
-        @media (min-width: 1024px) {
-            .scroll-cue {
-                display: flex;
-            }
-        }
-
-        .scroll-cue svg {
-            width: 20px;
-            height: 20px;
-            animation: bounce 2s infinite;
-        }
-
         @keyframes bounce {
 
             0%,
@@ -439,8 +408,10 @@
                    PROGRAM SNAPSHOT
                    ============================================ */
         .snapshot {
-            background: var(--secondary);
-            border-bottom: 3px solid var(--primary);
+            background: linear-gradient(180deg, transparent, var(--secondary));
+            height: 84px;
+            margin-top: -84px;
+            position: relative;
         }
 
         .snapshot-grid {
@@ -486,7 +457,7 @@
             font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.45);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* ============================================
@@ -524,10 +495,9 @@
         }
 
         .value-text p {
-            font-size: 15px;
+            font-size: 1.05rem;
             font-weight: 300;
             line-height: 1.95;
-            color: var(--ink-mid);
             max-width: 580px;
         }
 
@@ -573,7 +543,7 @@
 
         .stat-number {
             font-size: clamp(2.4rem, 4vw, 3.4rem);
-            font-weight: 800;
+            font-weight: 700;
             letter-spacing: -0.03em;
             color: var(--primary);
             line-height: 1;
@@ -592,8 +562,12 @@
                    FLIP CARDS SECTION
                    ============================================ */
         .flip-section {
-            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(132, 1, 50, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg);
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 45, 102, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg);
             padding: 80px 0;
+        }
+
+        .flip-section .section-title .highlight {
+            color: var(--secondary-light);
         }
 
         @media (min-width: 768px) {
@@ -632,7 +606,7 @@
         .flip-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1px;
+            gap: 0.5rem;
             background: var(--border);
         }
 
@@ -681,7 +655,7 @@
         }
 
         .flip-front {
-            background: var(--ink-mid);
+            background: rgba(255, 255, 255, 0.5);
             border: 1px solid var(--border);
         }
 
@@ -694,8 +668,8 @@
 
         .flip-front .number {
             font-size: 36px;
-            font-weight: 800;
-            color: rgba(255, 255, 255, 0.6);
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
             letter-spacing: -0.04em;
             line-height: 1;
         }
@@ -708,22 +682,10 @@
         }
 
         .flip-front .bottom h3 {
-            font-size: 17px;
             font-weight: 700;
             letter-spacing: -0.01em;
-            color: var(--white);
+            color: var(--secondary);
             margin-bottom: 12px;
-        }
-
-        .flip-front .bottom .explore {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--white);
         }
 
         .flip-back {
@@ -732,25 +694,13 @@
             color: var(--white);
         }
 
-        .icon-wrap {
+        .icon-wrap svg {
+            color: var(--white);
             width: 36px;
             height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: var(--radius);
-            color: var(--white);
-        }
-
-        .flip-back .icon-wrap svg {
-            color: var(--white);
-            width: 18px;
-            height: 18px;
         }
 
         .flip-back h3 {
-            font-size: 16px;
             font-weight: 700;
             margin-bottom: 12px;
         }
@@ -807,8 +757,7 @@
         .leaders-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1px;
-            background: var(--border);
+            gap: 1rem;
         }
 
         @media (min-width: 640px) {
@@ -832,7 +781,6 @@
         }
 
         .leaders-card:hover {
-            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
             z-index: 2;
         }
@@ -859,7 +807,7 @@
         .leaders-photo .gradient {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, transparent 55%);
+            background: linear-gradient(to top, white 0%, transparent 25%);
         }
 
         .leaders-photo .industry {
@@ -892,7 +840,6 @@
         }
 
         .peer-info h3 {
-            font-size: 17px;
             font-weight: 700;
             letter-spacing: -0.01em;
             color: var(--ink);
@@ -1409,10 +1356,9 @@
             <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
                 alt="AUB Campus" />
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-overlay-2"></div>
+        <!-- <div class="hero-overlay"></div>
+        <div class="hero-overlay-2"></div> -->
         <div class="hero-grid"></div>
-        <div class="hero-rule"></div>
 
         <div class="hero-content">
             <h1>
@@ -1422,8 +1368,8 @@
             </h1>
 
             <p>
-                An elite 15-month Executive MBA rooted in Beirut's intellectual heritage —
-                designed for senior leaders ready to operate at the highest level.
+                An elite 15-month Executive MBA rooted in Beirut's intellectual heritage.
+                Designed for senior leaders ready to operate at the highest level.
             </p>
 
             <div class="hero-actions">
@@ -1445,13 +1391,6 @@
                     Watch Overview
                 </button>
             </div>
-        </div>
-
-        <div class="scroll-cue">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
         </div>
     </section>
 
@@ -1512,22 +1451,82 @@
                 </a>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">96%</div>
-                    <div class="stat-label">Career Advancement Rate</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">38</div>
-                    <div class="stat-label">Avg. Years of Experience</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">22+</div>
-                    <div class="stat-label">Industries Represented</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">12,000+</div>
-                    <div class="stat-label">Global Alumni Network</div>
+            <style>
+                .hero__stats-card {
+                    padding: 42px;
+                    background: rgba(245, 245, 245, .95);
+                    -webkit-backdrop-filter: blur(18px);
+                    backdrop-filter: blur(18px);
+
+                    box-shadow:
+                        0 30px 80px rgba(0, 0, 0, .08),
+                        inset 0 1px 0 rgba(255, 255, 255, .7);
+                }
+
+                .hero__stats-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.5rem;
+                }
+
+                .hero__stat {
+                    padding: 24px 22px;
+                    background: rgba(255, 255, 255, .75);
+                    border: 1px solid rgba(255, 255, 255, .9);
+                    transition: .3s ease;
+                }
+
+                .hero__stat:hover {
+                    background: #fff;
+                    transform: translateY(-2px);
+                }
+
+                .hero__stat .num {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    line-height: 1;
+                    margin-bottom: 12px;
+                    color: #111;
+                }
+
+                .hero__stat .label {
+                    font-size: 18px;
+                    line-height: 1.45;
+                }
+
+                .card-label {
+                    margin-bottom: 30px;
+                    color: #6d0028;
+                    font-size: 22px;
+                    font-weight: 700;
+                    letter-spacing: .18em;
+                    text-transform: uppercase;
+                }
+            </style>
+
+            <div class="hero__stats-card">
+                <div class="card-label">Program at a glance</div>
+
+                <div class="hero__stats-grid">
+                    <div class="hero__stat">
+                        <div class="num">#1</div>
+                        <div class="label">Ranked in the MENA region</div>
+                    </div>
+
+                    <div class="hero__stat">
+                        <div class="num">2</div>
+                        <div class="label">Full-time or part-time study paths</div>
+                    </div>
+
+                    <div class="hero__stat">
+                        <div class="num">2</div>
+                        <div class="label">Fall &amp; Spring intake periods</div>
+                    </div>
+
+                    <div class="hero__stat">
+                        <div class="num">100%</div>
+                        <div class="label">In-person, on campus in Beirut</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1540,7 +1539,7 @@
         <div class="container">
             <div class="flip-header">
                 <div>
-                    <h2 class="section-title" style="color: var(--secondary-light);">
+                    <h2 class="section-title" style="color: white;">
                         One Executive MBA.<br />
                         Built in Beirut. <span class="highlight">Connected Globally.</span>
                     </h2>
@@ -1554,27 +1553,16 @@
                         <div class="flip-front">
                             <div class="top">
                                 <div class="icon-wrap">
-                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <circle cx="12" cy="8" r="6"></circle>
                                         <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
                                     </svg>
                                 </div>
-                                <span class="number">01</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>Leadership Development</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1601,27 +1589,16 @@
                         <div class="flip-front">
                             <div class="top">
                                 <div class="icon-wrap">
-                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                                     </svg>
                                 </div>
-                                <span class="number">02</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>Strategic Business Learning</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1648,8 +1625,8 @@
                         <div class="flip-front">
                             <div class="top">
                                 <div class="icon-wrap">
-                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M12 2v4"></path>
                                         <path d="M12 18v4"></path>
@@ -1661,20 +1638,9 @@
                                         <path d="M16.24 7.76l2.83-2.83"></path>
                                     </svg>
                                 </div>
-                                <span class="number">03</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>Applied Business Impact</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1707,8 +1673,8 @@
                         <div class="flip-front">
                             <div class="top">
                                 <div class="icon-wrap">
-                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="9" cy="7" r="4"></circle>
@@ -1716,20 +1682,9 @@
                                         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                     </svg>
                                 </div>
-                                <span class="number">04</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>Executive Network</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1758,8 +1713,8 @@
                         <div class="flip-front">
                             <div class="top">
                                 <div class="icon-wrap">
-                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
                                         <circle cx="12" cy="12" r="10"></circle>
                                         <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -1768,20 +1723,9 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <span class="number">05</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>International Residency</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1821,20 +1765,9 @@
                                         <line x1="2" y1="16" x2="22" y2="16"></line>
                                     </svg>
                                 </div>
-                                <span class="number">06</span>
                             </div>
                             <div class="bottom">
-                                <div class="line"></div>
                                 <h3>AUB Ecosystem & Alumni Network</h3>
-                                <div class="explore">
-                                    Explore
-                                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </div>
                             </div>
                         </div>
                         <div class="flip-back">
@@ -1881,7 +1814,7 @@
                 <!-- 1. Executive Peers (Who are learning) -->
                 <div class="leaders-card">
                     <div class="leaders-photo">
-                        <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e2d0?w=600&h=450&fit=crop&auto=format&q=80"
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=450&fit=crop&auto=format&q=80"
                             alt="Students in discussion – executive peers" />
                         <div class="gradient"></div>
                         <div class="industry">Who are learning</div>
@@ -1937,7 +1870,7 @@
                 <!-- 4. Global Leadership Immersion (How they expand their global perspective) -->
                 <div class="leaders-card">
                     <div class="leaders-photo">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&h=450&fit=crop&auto=format&q=80"
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=450&fit=crop&auto=format&q=80"
                             alt="Global residency – global perspective" />
                         <div class="gradient"></div>
                         <div class="industry">How they expand their global perspective</div>
@@ -1967,10 +1900,55 @@
         </div>
     </section>
 
+
     <!-- ============================================
     FOOTER
     ============================================ -->
     <footer class="footer">
+        <!-- Floating buttons - START-->
+        <div class="floating-buttons">
+            <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" target="_blank"
+                class="floating-btn box-shadow download">
+                <span class="icon">
+                    <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
+                        </path>
+                    </svg>
+                </span>
+                <span class="text hide-on-mobile">Download Brochure</span>
+                <span class="text hide-on-desktop">View Brochure</span>
+            </a>
+            <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=apply" target="_blank"
+                class="floating-btn box-shadow apply">
+                <span class="icon">
+                    <svg class="icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z 
+                 M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z 
+                 M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                            transform="translate(-363 -199)"></path>
+                    </svg>
+                </span>
+                <span class="text">Apply Here</span>
+            </a>
+            <a href="https://outlook.office365.com/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true"
+                target="_blank" class="floating-btn box-shadow contact">
+                <span class="icon">
+                    <!--?xml version="1.0" encoding="utf-8"?-->
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="miter"
+                            stroke-linecap="butt">
+                            <rect x="1" y="4" width="22" height="16"></rect>
+                            <polyline points="1 4 12 13 23 4"></polyline>
+                        </g>
+                    </svg>
+                </span>
+                <span class="text">Get in Touch</span>
+            </a>
+
+        </div>
+        <!-- Floating buttons - END-->
         <div class="container">
             <div class="footer__accred">
                 <img alt="Accreditations" decoding="async" loading="lazy" src="images/AUB-OSB-accreditations.png" />

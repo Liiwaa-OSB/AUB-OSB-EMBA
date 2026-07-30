@@ -214,90 +214,128 @@
   background-size: contain;
 }
 
-/* ===== STICKY CTA BUTTONS ===== */
-.sticky-cta {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/*****************
+* Floating Buttons Styling - START
+*****************/
+/* Floating Buttons – Desktop Layout */
+.floating-buttons {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
 }
 
-.sticky-cta__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  background-color: var(--color-accent);
-  border-radius: 50%;
-  transition:
-    background-color 0.2s,
-    transform 0.2s;
-  position: relative;
-  color: #fff;
-  /* icon color */
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+/* Buttons – Base */
+.floating-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 55px;
+    height: 55px;
+    padding: 0 18px;
+    overflow: hidden;
+
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+
+    border-radius: 30px 0 0 30px;
+    border: 3px solid transparent;
+
+    transition:
+        width 0.4s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.sticky-cta__btn:hover {
-  background-color: var(--color-accent-dark);
-  transform: scale(1.05);
+/* Icon Wrapper */
+.floating-btn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.sticky-cta__icon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-  stroke: currentColor;
-  display: block;
+
+/* SVG Icons */
+.icon {
+    width: 22px;
+    max-width: 22px;
+    height: 22px;
+    fill: currentColor;
+    transition: fill 0.3s ease;
 }
 
-.sticky-cta__label {
-  position: absolute;
-  right: 100%;
-  /* position to the left of the button */
-  margin-right: 12px;
-  background: var(--color-gray-bg);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* Force paths to inherit color */
+.icon path {
+    fill: currentColor;
 }
 
-.sticky-cta__btn:hover .sticky-cta__label {
-  opacity: 1;
+/* cards ul */
+.card ul {
+    padding-left: 1rem;
+ }
+/* Hidden Text */
+.floating-btn .text {
+    margin-left: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    @media (max-width: 768px) {
+        white-space: normal;
+    }
 }
 
-/* optional adjustment for smaller screens */
-@media (max-width: 640px) {
-  .sticky-cta {
-    bottom: 20px;
-    right: 20px;
-    gap: 12px;
-  }
+/* Hover → Expand BOTH buttons */
+.floating-buttons:hover .floating-btn {
+    width: 240px;
+}
 
-  .sticky-cta__btn {
-    width: 42px;
-    height: 42px;
-  }
+.floating-buttons:hover .floating-btn .text {
+    opacity: 1;
+}
 
-  .sticky-cta__icon {
-    width: 18px;
-    height: 18px;
-  }
+/* Button Colors – Default **/
+.floating-btn.download {
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    color: #fff;
+}
 
-  .sticky-cta__label {
-    font-size: 13px;
-    padding: 4px 10px;
-  }
+.floating-btn.apply {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    color: #fff;
+}
+
+.floating-btn.contact {
+    background-color: var(--color-text-muted);
+    border: 1px solid var(--color-text-muted);
+    color: #fff;
+}
+
+/* Button Hover States */
+.floating-btn.download:hover,
+.floating-btn.apply:hover,
+.floating-btn.contact:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile: hide desktop-only element */
+@media (max-width: 1045px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+/* Desktop: hide mobile-only element */
+@media (min-width: 1044px) {
+    .hide-on-desktop {
+        display: none !important;
+    }
 }

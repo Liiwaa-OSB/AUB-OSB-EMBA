@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUB Executive MBA · Beirut</title>
+    <title>AUB Executive MBA</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,8 +14,7 @@
         rel="stylesheet" />
 
     <link href="css/main.css" rel="stylesheet" />
-
-            <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/menu.css" rel="stylesheet" />
     <link href="css/footer.css" rel="stylesheet" />
 
     <style>
@@ -31,11 +30,10 @@
         }
     </style>
 
-
     <style>
         /* ============================================
-       ROOT VARIABLES
-       ============================================ */
+                   ROOT VARIABLES — Brand Identity
+                   ============================================ */
         :root {
             --primary: #840132;
             --primary-dark: #6a132c;
@@ -54,13 +52,15 @@
             --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
             --radius: 4px;
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            --font: 'Inter', sans-serif;
+            --font: "Roboto", sans-serif;
         }
 
         /* ============================================
-       RESET & BASE
-       ============================================ */
-        * {
+                   RESET & BASE
+                   ============================================ */
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -69,13 +69,13 @@
         html {
             scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
             font-family: var(--font);
             background: var(--bg);
             line-height: 1.6;
-            color: var(--ink);
         }
 
         img {
@@ -93,9 +93,13 @@
             list-style: none;
         }
 
+        h3 {
+            font-size: clamp(1rem, 4vw, 1.4rem);
+        }
+
         /* ============================================
-       UTILITY
-       ============================================ */
+                   UTILITY CLASSES
+                   ============================================ */
         .container {
             width: min(100% - 2rem, 1280px);
             margin: 0 auto;
@@ -124,6 +128,7 @@
             }
         }
 
+        /* Section Label */
         .section-label {
             display: flex;
             align-items: center;
@@ -147,6 +152,7 @@
             color: var(--primary);
         }
 
+        /* Section Titles */
         .section-title {
             font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 700;
@@ -159,22 +165,6 @@
             color: var(--primary);
         }
 
-        /* ============================================
-        SECTION SUBTITLE — use after .section-title
-        ============================================ */
-        .section-subtitle {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--ink);
-            max-width: 640px;
-            margin-top: 0.75rem;
-        }
-
-        /* Light variant for dark backgrounds */
-        .section-subtitle.light {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
         .title-underline {
             width: 56px;
             height: 3px;
@@ -182,6 +172,7 @@
             margin: 20px 0 24px;
         }
 
+        /* Buttons */
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -228,6 +219,7 @@
             gap: 14px;
         }
 
+        /* SVG Icons */
         .icon {
             width: 20px;
             height: 20px;
@@ -244,9 +236,10 @@
             height: 34px;
         }
 
+
         /* ============================================
-       HERO
-       ============================================ */
+                   HERO SECTION
+                   ============================================ */
         .hero {
             position: relative;
             min-height: 70vh;
@@ -266,6 +259,18 @@
             height: 100%;
             object-fit: cover;
             opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 16, 32, 0.55) 0%, rgba(10, 16, 32, 0.3) 40%, rgba(10, 16, 32, 0.92) 100%);
+        }
+
+        .hero-overlay-2 {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(132, 1, 50, 0.18) 0%, transparent 60%);
         }
 
         .hero-grid {
@@ -331,6 +336,7 @@
 
         .hero-content p {
             font-size: 18px;
+            font-weight: 300;
             line-height: 1.8;
             color: white;
             max-width: 520px;
@@ -386,97 +392,77 @@
             fill: white;
         }
 
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
         /* ============================================
-        BRIEF SECTION — The Executive MBA, in brief.
-        ============================================ */
-        .brief-section {
-            background: var(--bg);
-            padding: 80px 0;
+                   PROGRAM SNAPSHOT
+                   ============================================ */
+        .snapshot {
+            background: linear-gradient(180deg, transparent, var(--secondary));
+            height: 84px;
+            margin-top: -84px;
+            position: relative;
         }
 
-        .brief-header {
-            margin-bottom: 48px;
-        }
-
-        .brief-grid {
+        .snapshot-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
         }
 
-        @media (min-width: 640px) {
-            .brief-grid {
-                grid-template-columns: repeat(3, 1fr);
+        @media (min-width: 768px) {
+            .snapshot-grid {
+                grid-template-columns: repeat(5, 1fr);
             }
         }
 
-        @media (min-width: 1024px) {
-            .brief-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .brief-card {
-            background: var(--white);
-            padding: 28px 20px 24px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            transition: all var(--transition);
+        .snapshot-item {
+            padding: 20px 16px;
             text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .brief-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-            border-color: var(--primary);
+        .snapshot-item:last-child {
+            border-right: none;
         }
 
-        .brief-card__value {
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
+        @media (max-width: 767px) {
+            .snapshot-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .snapshot-item:nth-child(4) {
+                border-right: none;
+            }
+        }
+
+        .snapshot-item .value {
             font-weight: 700;
-            color: var(--primary);
-            line-height: 1.2;
+            font-size: 15px;
+            color: var(--white);
             margin-bottom: 4px;
         }
 
-        .brief-card__label {
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.15em;
+        .snapshot-item .label {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--secondary);
-            margin-bottom: 8px;
-        }
-
-        .brief-card__desc {
-            font-size: 0.8rem;
-            line-height: 1.5;
-            color: var(--ink);
-        }
-
-        @media (max-width: 480px) {
-            .brief-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.75rem;
-            }
-
-            .brief-card {
-                padding: 20px 12px 18px;
-            }
-
-            .brief-card__value {
-                font-size: 1rem;
-            }
-
-            .brief-card__desc {
-                font-size: 0.7rem;
-            }
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* ============================================
-       VALUE PROP
-       ============================================ */
+                   VALUE PROPOSITION
+                   ============================================ */
         .value-prop {
             background: var(--bg);
             padding: 80px 0;
@@ -510,6 +496,8 @@
 
         .value-text p {
             font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.95;
             max-width: 580px;
         }
 
@@ -519,7 +507,7 @@
             gap: 8px;
             margin-top: 32px;
             font-size: 13px;
-            font-weight: 800;
+            font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--primary);
@@ -530,348 +518,372 @@
             gap: 14px;
         }
 
-        /* stats card */
-        .hero__stats-card {
-            padding: 32px 28px;
-            background: rgba(245, 245, 245, 0.95);
-            backdrop-filter: blur(18px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-        }
-
-        .hero__stats-grid {
+        /* Stats Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
+            grid-template-columns: 1fr 1fr;
+            background: var(--border);
+            gap: 1px;
         }
 
-        .hero__stat {
-            padding: 20px 16px;
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            transition: 0.3s ease;
+        .stat-item {
+            padding: 40px 32px;
+            background: var(--white);
+            transition: background var(--transition);
         }
 
-        .hero__stat:hover {
-            background: #fff;
-            transform: translateY(-2px);
+        .stat-item:nth-child(2),
+        .stat-item:nth-child(4) {
+            background: var(--bg-alt);
         }
 
-        .hero__stat .num {
-            font-size: 2.4rem;
+        .stat-item:hover {
+            background: var(--white) !important;
+        }
+
+        .stat-number {
+            font-size: clamp(2.4rem, 4vw, 3.4rem);
             font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--primary);
             line-height: 1;
-            margin-bottom: 6px;
-            color: #111;
+            margin-bottom: 8px;
         }
 
-        .hero__stat .label {
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .card-label {
-            margin-bottom: 24px;
-            color: #6d0028;
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+        .stat-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
+            color: var(--ink-light);
         }
 
         /* ============================================
-       PILLARS (What you gain)
-       ============================================ */
-        .pillars-section {
+                   FLIP CARDS SECTION
+                   ============================================ */
+        .flip-section {
             background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 45, 102, 0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg);
-            color: var(--white);
             padding: 80px 0;
         }
 
-        .pillars-section .section-title {
-            color: var(--white);
-        }
-
-        .pillars-section .section-title .highlight {
+        .flip-section .section-title .highlight {
             color: var(--secondary-light);
         }
 
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-top: 2.5rem;
+        @media (min-width: 768px) {
+            .flip-section {
+                padding: 100px 0;
+            }
         }
 
-        @media (min-width: 640px) {
-            .pillars-grid {
+        @media (min-width: 1024px) {
+            .flip-section {
+                padding: 120px 0;
+            }
+        }
+
+        .flip-header {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .flip-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+        }
+
+        .flip-header .sub {
+            font-size: 14px;
+            color: var(--ink-mid);
+            max-width: 320px;
+        }
+
+        .flip-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+            background: var(--border);
+        }
+
+        @media (min-width: 768px) {
+            .flip-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (min-width: 1024px) {
-            .pillars-grid {
+            .flip-grid {
                 grid-template-columns: 1fr 1fr 1fr;
             }
         }
 
-        .pillar-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 28px 24px;
-            transition: all 0.25s;
-            backdrop-filter: blur(2px);
+        /* Flip Card */
+        .flip-card {
+            perspective: 1100px;
+            height: 250px;
+            cursor: pointer;
+            position: relative;
         }
 
-        .pillar-card:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
         }
 
-        .pillar-card .num {
-            font-size: 2.2rem;
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flip-front {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border);
+        }
+
+        .flip-front .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+
+        .flip-front .number {
+            font-size: 36px;
             font-weight: 700;
-            opacity: 0.5;
-            line-height: 1;
-            margin-bottom: 10px;
-            color: var(--secondary-light);
-        }
-
-        .pillar-card h3 {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-        }
-
-        .pillar-card p {
-            font-size: 0.9rem;
-            line-height: 1.7;
             color: rgba(255, 255, 255, 0.9);
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+
+        .flip-front .bottom .line {
+            width: 32px;
+            height: 2px;
+            background: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .flip-front .bottom h3 {
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .flip-back {
+            transform: rotateY(180deg);
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .icon-wrap svg {
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+        }
+
+        .flip-back h3 {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .flip-back p {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.75;
+            color: var(--white);
         }
 
         /* ============================================
-       PEOPLE (Executive Peers)
-       ============================================ */
-        .people-section {
+                   PEERS SECTION
+                   ============================================ */
+        .light-section {
             background: var(--bg);
             padding: 80px 0;
         }
 
-        .people-grid {
+        @media (min-width: 768px) {
+            .light-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .light-section {
+                padding: 120px 0;
+            }
+        }
+
+        .peers-header {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 1024px) {
+            .peers-header {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                align-items: flex-end;
+            }
+        }
+
+        .peers-header p {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.85;
+            color: var(--ink-mid);
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
 
         @media (min-width: 640px) {
-            .people-grid {
+            .leaders-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
         @media (min-width: 1024px) {
-            .people-grid {
-                grid-template-columns: 1fr 1fr;
+            .leaders-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
             }
         }
 
-        .people-card {
+        /* Peer Card */
+        .leaders-card {
             background: var(--white);
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.25s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .people-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
-        .people-card .photo {
-            height: 200px;
-            background: #ccc;
-            overflow: hidden;
+            transition: all var(--transition);
             position: relative;
         }
 
-        .people-card .photo img {
+        .leaders-card:hover {
+            box-shadow: var(--shadow-md);
+            z-index: 2;
+        }
+
+        .leaders-photo {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .leaders-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s;
+            object-position: top;
+            transition: transform 0.7s ease;
         }
 
-        .people-card:hover .photo img {
-            transform: scale(1.03);
+        .leaders-card:hover .leaders-photo img {
+            transform: scale(1.05);
         }
 
-        .people-card .photo .tag {
+        .leaders-photo .gradient {
             position: absolute;
-            top: 14px;
+            inset: 0;
+            background: linear-gradient(to top, white 0%, transparent 25%);
+        }
+
+        .leaders-photo .industry {
+            position: absolute;
+            top: 16px;
             left: 0;
-            padding: 4px 16px;
+            padding: 6px 16px;
             background: var(--secondary);
-            color: white;
-            font-size: 0.65rem;
+            color: var(--white);
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
         }
 
-        .people-card .info {
-            padding: 22px 24px 26px;
-            flex: 1;
+        .peer-info {
+            padding: 24px 28px 28px;
         }
 
-        .people-card .info .line {
-            width: 28px;
+        .peer-info .line {
+            width: 24px;
             height: 2px;
             background: var(--primary);
-            margin-bottom: 16px;
-            transition: width 0.3s;
+            margin-bottom: 20px;
+            transition: width var(--transition);
         }
 
-        .people-card:hover .info .line {
+        .leaders-card:hover .peer-info .line {
             width: 48px;
         }
 
-        .people-card .info h3 {
+        .peer-info h3 {
             font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .people-card .info .role {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .people-card .info .desc {
-            font-size: 0.9rem;
-            line-height: 1.6;
+            letter-spacing: -0.01em;
             color: var(--ink);
+            margin-bottom: 2px;
         }
 
-        /* ============================================
-       WHY CHOOSE
-       ============================================ */
-        .why-section {
-            background: var(--white);
-            padding: 80px 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .why-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .why-item {
-            padding: 28px 20px;
-            background: var(--bg-alt);
-            border-radius: var(--radius);
-            text-align: center;
-            transition: all 0.25s;
-            border: 1px solid transparent;
-        }
-
-        .why-item:hover {
-            background: var(--white);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
-        .why-item .big {
-            font-size: 2.6rem;
-            font-weight: 600;
-            color: var(--primary);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .why-item .label {
-            font-weight: 800;
-            color: var(--secondary);
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-
-        .why-item .sub {
-            font-size: 0.85rem;
+        .peer-info .title {
+            font-size: 13px;
+            font-weight: 500;
             color: var(--ink-mid);
-            line-height: 1.4;
+            margin-bottom: 2px;
         }
+
+        .peer-info .company {
+            font-size: 12px;
+            color: var(--ink-light);
+            margin-bottom: 20px;
+        }
+
+        .peer-info .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .peer-info .meta .exp {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .peer-info .meta .tag {
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
 
         /* ============================================
-       FINAL CTA
-       ============================================ */
-        .cta-lead-section {
-            background: #808080;
-            text-align: center;
-            padding: 3rem 1rem;
-            color: white;
-        }
-
-        .cta-lead-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-lead-title {
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            color: white !important;
-            margin-bottom: 1rem;
-        }
-
-        .cta-lead-text {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            color: white;
-            margin: 0 auto 2rem auto;
-            max-width: 600px;
-        }
-
-        .cta-lead-button-wrapper {
-            margin-top: 0.5rem;
-        }
-
-        .cta-lead-button {
-            display: inline-block;
-            background: white !important;
-            color: var(--secondary) !important;
-            padding: 12px 36px;
-            font-size: 1.15rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: 2px solid transparent;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .cta-lead-button:hover {
-            transform: scale(1.02);
-            opacity: 0.92;
-        }
-
-        /* ============================================
-       RESPONSIVE
-       ============================================ */
+                   RESPONSIVE TWEAKS
+                   ============================================ */
         @media (max-width: 767px) {
             .hero-content h1 {
                 font-size: clamp(2.2rem, 10vw, 3.2rem);
@@ -881,6 +893,21 @@
                 font-size: 16px;
             }
 
+            .stat-item {
+                padding: 28px 20px;
+            }
+
+            .flip-front,
+            .flip-back {
+                padding: 24px;
+            }
+
+            .leaders-photo {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
             .hero-content {
                 padding: 140px 16px 60px;
             }
@@ -898,31 +925,100 @@
                 justify-content: center;
             }
 
-            .pillar-card {
-                padding: 20px 16px;
+            .flip-card {
+                height: 240px;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
+            .peer-info {
+                padding: 20px;
+            }
+        }
+
+
+        /* ============================================
+   CTA SECTION — Ready to Lead the Future?
+   ============================================ */
+        .cta-lead-section {
+            background-color: #808080;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--color-white, #ffffff);
+        }
+
+        .cta-lead-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-lead-title {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #ffffff !important;
+            margin-bottom: 1rem;
+        }
+
+        .cta-lead-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0 auto 2rem auto;
+            max-width: 600px;
+        }
+
+        .cta-lead-button-wrapper {
+            margin-top: 0.5rem;
+        }
+
+        .cta-lead-button {
+            display: inline-block;
+            background-color: #ffffff !important;
+            color: var(--color-secondary, #0f2b5e) !important;
+            padding: 12px 36px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .cta-lead-button:hover {
+            transform: scale(1.02);
+            opacity: 0.92;
+        }
+
+        /* ============================================
+        RESPONSIVE TWEAKS
+        ============================================ */
+        @media (max-width: 768px) {
+            .cta-lead-section {
+                padding: 2.5rem 1rem;
+            }
+
+            .cta-lead-text {
+                font-size: 1.1rem;
+                padding: 0 0.5rem;
+            }
+
+            .cta-lead-button {
+                padding: 10px 28px;
+                font-size: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero__stats-grid {
-                grid-template-columns: 1fr;
+            .cta-lead-title {
+                font-size: 1.6rem;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .people-grid {
-                grid-template-columns: 1fr;
+            .cta-lead-text {
+                font-size: 1rem;
             }
         }
     </style>
     <script defer="" src="js/menu.js"></script>
-
 </head>
 
 <body>
@@ -1260,116 +1356,173 @@
             <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
                 alt="AUB Campus" />
         </div>
+        <!-- <div class="hero-overlay"></div>
+        <div class="hero-overlay-2"></div> -->
         <div class="hero-grid"></div>
 
         <div class="hero-content">
-            <div class="label"><span>Executive MBA · On campus, Beirut</span></div>
             <h1>
                 Lead Beyond<br />
                 <span class="accent">Experience.</span><br />
-                Shape What’s Next.
+                Shape What's Next.
             </h1>
+
             <p>
-                Built for experienced professionals ready to lead at a higher strategic level, through immersive
-                residencies, a global learning experience, and a dedicated leadership journey.
+                An elite 15-month Executive MBA rooted in Beirut's intellectual heritage.
+                Designed for senior leaders ready to operate at the highest level.
             </p>
+
             <div class="hero-actions">
                 <a href="#" class="btn-primary">
-                    Explore the program →
+                    Download Brochure
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                 </a>
+
+                <button class="hero-watch">
+                    <span class="play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </span>
+                    Watch Overview
+                </button>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-     THE EXECUTIVE MBA, IN BRIEF.
-     ============================================ -->
-    <section class="brief-section">
+    PROGRAM SNAPSHOT
+    ============================================ -->
+    <section class="snapshot">
         <div class="container">
-            <!-- header -->
-            <div class="brief-header">
-                <h2 class="section-title">The Executive MBA, <span class="highlight">in brief.</span></h2>
-            </div>
-
-            <!-- 6 cards in a grid — 3 per row on mobile, 6 per row on desktop -->
-            <div class="brief-grid">
-                <!-- 1. Duration -->
-                <div class="brief-card">
-                    <div class="brief-card__label">Duration</div>
-                    <div class="brief-card__value">15 Months</div>
-                    <div class="brief-card__desc">Residency-based, delivered around every six weeks.</div>
+            <div class="snapshot-grid">
+                <div class="snapshot-item">
+                    <div class="value">15 Months</div>
+                    <div class="label">Duration</div>
                 </div>
-                <!-- 2. Format -->
-                <div class="brief-card">
-                    <div class="brief-card__label">Format</div>
-                    <div class="brief-card__value">Blended</div>
-                    <div class="brief-card__desc">Immersive on-campus residencies at AUB Beirut.</div>
+                <div class="snapshot-item">
+                    <div class="value">Blended</div>
+                    <div class="label">Format</div>
                 </div>
-                <!-- 3. Global -->
-                <div class="brief-card">
-                    <div class="brief-card__label">International Residency</div>
-                    <div class="brief-card__value">Global</div>
-                    <div class="brief-card__desc">An integrated residency at a partner business school.</div>
+                <div class="snapshot-item">
+                    <div class="value">AUB Beirut</div>
+                    <div class="label">Campus</div>
                 </div>
-                <!-- 4. Campus -->
-                <div class="brief-card">
-                    <div class="brief-card__label">Campus</div>
-                    <div class="brief-card__value">AUB, Beirut</div>
-                    <div class="brief-card__desc">The region’s leading academic ecosystem.</div>
+                <div class="snapshot-item">
+                    <div class="value">International</div>
+                    <div class="label">Residency</div>
                 </div>
-                <!-- 5. Capstone -->
-                <div class="brief-card">
-                    <div class="brief-card__label">Finish with</div>
-                    <div class="brief-card__value">Capstone Project</div>
-                    <div class="brief-card__desc">Real challenges, measurable business outcomes.</div>
-                </div>
-                <!-- 6. Start date -->
-                <div class="brief-card">
-                    <div class="brief-card__label">Start date</div>
-                    <div class="brief-card__value">September 2026</div>
-                    <div class="brief-card__desc">Applications reviewed on a rolling basis.</div>
+                <div class="snapshot-item">
+                    <div class="value">Sept 2026</div>
+                    <div class="label">Start Date</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-  VALUE PROPOSITION
-  ============================================ -->
+    VALUE PROPOSITION
+    ============================================ -->
     <section class="value-prop">
         <div class="container">
             <div class="value-text">
+
                 <div class="title-underline"></div>
                 <p>
-                <h3>Leadership capital that extends far beyond graduation.</h3>
-                The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
-                ready to lead at a higher strategic level. Through immersive residencies, a global learning
-                experience, and a dedicated leadership development journey, participants strengthen their ability to
-                navigate complexity, drive transformation, and create measurable business impact.
+                    The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
+                    ready to lead at a higher strategic level. Through immersive residencies, a global learning
+                    experience, and a dedicated leadership development journey, participants strengthen their ability to
+                    navigate complexity, drive transformation, and create measurable business impact. Beyond the
+                    academic experience, participants gain access to a powerful executive ecosystem of peers, faculty,
+                    industry leaders, and the wider AUB alumni network, building strategic relationships and leadership
+                    capital that extend far beyond graduation.
                 </p>
-                <p style="margin-top: 1.2rem;">
-                    Beyond the academic experience, participants gain access to a powerful executive ecosystem of peers,
-                    faculty, industry leaders, and the wider AUB alumni network, building strategic relationships and
-                    leadership capital that extend far beyond graduation.
-                </p>
-                <a href="#" class="value-link">Explore the program →</a>
+                <a href="#" class="value-link">
+                    Explore the Curriculum
+                    <svg class="icon-sm" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
+
+            <style>
+                .hero__stats-card {
+                    padding: 42px;
+                    background: rgba(245, 245, 245, .95);
+                    -webkit-backdrop-filter: blur(18px);
+                    backdrop-filter: blur(18px);
+
+                    box-shadow:
+                        0 30px 80px rgba(0, 0, 0, .08),
+                        inset 0 1px 0 rgba(255, 255, 255, .7);
+                }
+
+                .hero__stats-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.5rem;
+                }
+
+                .hero__stat {
+                    padding: 24px 22px;
+                    background: rgba(255, 255, 255, .75);
+                    border: 1px solid rgba(255, 255, 255, .9);
+                    transition: .3s ease;
+                }
+
+                .hero__stat:hover {
+                    background: #fff;
+                    transform: translateY(-2px);
+                }
+
+                .hero__stat .num {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    line-height: 1;
+                    margin-bottom: 12px;
+                    color: #111;
+                }
+
+                .hero__stat .label {
+                    font-size: 18px;
+                    line-height: 1.45;
+                }
+
+                .card-label {
+                    margin-bottom: 30px;
+                    color: #6d0028;
+                    font-size: 22px;
+                    font-weight: 700;
+                    letter-spacing: .18em;
+                    text-transform: uppercase;
+                }
+            </style>
 
             <div class="hero__stats-card">
                 <div class="card-label">Program at a glance</div>
+
                 <div class="hero__stats-grid">
                     <div class="hero__stat">
                         <div class="num">#1</div>
                         <div class="label">Ranked in the MENA region</div>
                     </div>
+
                     <div class="hero__stat">
                         <div class="num">2</div>
                         <div class="label">Full-time or part-time study paths</div>
                     </div>
+
                     <div class="hero__stat">
                         <div class="num">2</div>
                         <div class="label">Fall &amp; Spring intake periods</div>
                     </div>
+
                     <div class="hero__stat">
                         <div class="num">100%</div>
                         <div class="label">In-person, on campus in Beirut</div>
@@ -1380,124 +1533,261 @@
     </section>
 
     <!-- ============================================
-  PILLARS — What you gain
-  ============================================ -->
-    <section class="pillars-section">
+    FLIP CARDS
+    ============================================ -->
+    <section class="flip-section">
         <div class="container">
-            <h2 class="section-title" style="color:white;">One Executive MBA. Built in Beirut. <span
-                    class="highlight">Connected Globally.</span></h2>
-            <p style="color:rgba(255,255,255,0.9); margin-top: 0.5rem; max-width: 600px;">Six pillars define the
-                experience, and what it means for your leadership.</p>
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="num">01</div>
-                    <h3>Leadership Development</h3>
-                    <p>A dedicated journey to strengthen executive presence, self-awareness, communication, and
-                        strategic influence.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">02</div>
-                    <h3>Strategic Business Learning</h3>
-                    <p>An integrated business perspective across strategy, finance, operations, marketing, and
-                        leadership, enabling stronger decisions and immediate workplace application.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">03</div>
-                    <h3>Applied Business Impact</h3>
-                    <p>Translate learning into actionable insight through real business challenges, case-based
-                        discussions, and practical frameworks you can apply directly.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">04</div>
-                    <h3>Executive Network</h3>
-                    <p>Build strategic relationships with accomplished peers, faculty, and industry leaders that extend
-                        your professional influence and leadership.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">05</div>
-                    <h3>International Residency</h3>
-                    <p>Gain global exposure through an immersive residency at a partner business school, broadening your
-                        view of international markets and leadership practice.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">06</div>
-                    <h3>AUB Ecosystem &amp; Alumni Network</h3>
-                    <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of your
-                        Executive MBA well beyond graduation.</p>
+            <div class="flip-header">
+                <div>
+                    <h2 class="section-title" style="color: white;">
+                        One Executive MBA.<br />
+                        Built in Beirut. <span class="highlight">Connected Globally.</span>
+                    </h2>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ============================================
-  PEOPLE — One Executive MBA. Shaped by Leaders.
-  ============================================ -->
-    <section class="people-section">
-        <div class="container">
-            <h2 class="section-title">One Executive MBA. <span class="highlight">Shaped by Leaders.</span></h2>
-            <p style="margin-top: 0.5rem; color: var(--ink); max-width: 600px;">You learn with, and from, a
-                community of accomplished leaders, peers, faculty, industry voices, and a global network.</p>
-            <div class="people-grid">
-                <!-- 1 -->
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Executive Peers" />
-                        <div class="tag">Who you learn with</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who you learn with</div>
-                        <h3>Executive Peers</h3>
-                        <div class="desc">Learn alongside accomplished senior professionals from diverse industries,
-                            bringing real-world challenges, strategic perspectives, and leadership insight into every
-                            discussion.</div>
-                    </div>
-                </div>
-                <!-- 2 -->
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Faculty Leaders" />
-                        <div class="tag">Who guide the journey</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who guide the journey</div>
-                        <h3>Faculty Leaders</h3>
-                        <div class="desc">Engage with world-class faculty and thought leaders who combine academic
-                            excellence with practical business expertise, bridging theory with real market realities.
+            <div class="flip-grid">
+                <!-- Card 1 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="8" r="6"></circle>
+                                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>Leadership Development</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="6"></circle>
+                                    <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Leadership Development</h3>
+                                <p>A dedicated journey to strengthen executive presence, self-awareness, communication,
+                                    and strategic influence.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- 3 -->
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Industry Leaders" />
-                        <div class="tag">Who challenge your thinking</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who challenge your thinking</div>
-                        <h3>Industry Leaders</h3>
-                        <div class="desc">Interact with guest speakers, executives, and sector experts who bring current
-                            market insight, emerging trends, and leadership perspectives into the room.</div>
+
+                <!-- Card 2 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>Strategic Business Learning</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Strategic Business Learning</h3>
+                                <p>Develop an integrated business perspective across strategy, finance, operations,
+                                    marketing, and leadership—enabling stronger strategic decision-making.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- 4 -->
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Global Leadership Immersion" />
-                        <div class="tag">How you widen your lens</div>
+
+                <!-- Card 3 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 2v4"></path>
+                                        <path d="M12 18v4"></path>
+                                        <path d="M4.93 4.93l2.83 2.83"></path>
+                                        <path d="M16.24 16.24l2.83 2.83"></path>
+                                        <path d="M2 12h4"></path>
+                                        <path d="M18 12h4"></path>
+                                        <path d="M4.93 19.07l2.83-2.83"></path>
+                                        <path d="M16.24 7.76l2.83-2.83"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>Applied Business Impact</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 2v4"></path>
+                                    <path d="M12 18v4"></path>
+                                    <path d="M4.93 4.93l2.83 2.83"></path>
+                                    <path d="M16.24 16.24l2.83 2.83"></path>
+                                    <path d="M2 12h4"></path>
+                                    <path d="M18 12h4"></path>
+                                    <path d="M4.93 19.07l2.83-2.83"></path>
+                                    <path d="M16.24 7.76l2.83-2.83"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Applied Business Impact</h3>
+                                <p>Translate learning into actionable insights through real business challenges,
+                                    case-based discussions, and practical frameworks.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">How you widen your lens</div>
-                        <h3>Global Leadership Immersion</h3>
-                        <div class="desc">Expand your strategic perspective through direct engagement with global
-                            business environments, international faculty, and cross-market leadership insight.</div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>Executive Network</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>Executive Network</h3>
+                                <p>Build strategic relationships with accomplished peers, faculty, and industry leaders
+                                    that extend your professional influence and leadership.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon-lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>International Residency</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path
+                                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>International Residency</h3>
+                                <p>Gain global exposure through an immersive residency at a partner business school,
+                                    broadening your understanding of international markets and leadership practices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-front">
+                            <div class="top">
+                                <div class="icon-wrap">
+                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                        <line x1="8" y1="2" x2="8" y2="22"></line>
+                                        <line x1="16" y1="2" x2="16" y2="22"></line>
+                                        <line x1="2" y1="8" x2="22" y2="8"></line>
+                                        <line x1="2" y1="16" x2="22" y2="16"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                            </div>
+                        </div>
+                        <div class="flip-back">
+                            <div class="icon-wrap">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="2.18"></rect>
+                                    <line x1="8" y1="2" x2="8" y2="22"></line>
+                                    <line x1="16" y1="2" x2="16" y2="22"></line>
+                                    <line x1="2" y1="8" x2="22" y2="8"></line>
+                                    <line x1="2" y1="16" x2="22" y2="16"></line>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3>AUB Ecosystem & Alumni Network</h3>
+                                <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of
+                                    your Executive MBA well beyond graduation.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1505,108 +1795,160 @@
     </section>
 
     <!-- ============================================
-  WHY CHOOSE
-  ============================================ -->
-    <section class="why-section">
+    EXECUTIVE PEERS
+    ============================================ -->
+    <section class="light-section">
         <div class="container">
-            <h2 class="section-title">Why Choose <span class="highlight">OSB’s Executive MBA?</span></h2>
-            <p style="margin-top: 0.5rem; color: var(--ink-mid); max-width: 600px;">A distinguished business school, a
-                160-year legacy, and a network that opens doors across the region and the world.</p>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="big">AACSB</div>
-                    <div class="label">Accredited business school</div>
-                    <div class="sub">A globally recognized mark of business-school quality.</div>
+            <!-- header: exactly as provided -->
+            <div class="peers-header">
+                <div>
+                    <h2 class="section-title">
+                        One Executive MBA.<br />
+                        <span class="highlight">Shaped by Leaders.</span>
+                    </h2>
                 </div>
-                <div class="why-item">
-                    <div class="big">1866</div>
-                    <div class="label">160+ years of AUB legacy</div>
-                    <div class="sub">Educating the region's leaders for over a century and a half.</div>
+            </div>
+
+            <!-- grid: 4 cards, using ONLY the text you provided below -->
+            <div class="leaders-grid">
+                <!-- 1. Executive Peers (Who are learning) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Students in discussion – executive peers" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who are learning</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Executive Peers</h3>
+                        <div class="desc">
+                            Learn alongside accomplished senior professionals from diverse industries, bringing
+                            real-world challenges, strategic perspectives, and leadership insights into every
+                            discussion.
+                        </div>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <div class="big">Global</div>
-                    <div class="label">International reach</div>
-                    <div class="sub">An International Residency and a network spanning the region and the world.</div>
+
+                <!-- 2. Faculty Leaders (Who guides their journey) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Faculty in class – guides their journey" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who guides their journey</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Faculty Leaders</h3>
+                        <div class="desc">
+                            Engage with world-class faculty and thought leaders who combine academic excellence
+                            with practical business expertise, bridging theory with real market realities.
+                        </div>
+                    </div>
                 </div>
-                <div class="why-item">
-                    <div class="big">Alumni</div>
-                    <div class="label">Lifelong community</div>
-                    <div class="sub">A powerful executive network across industries and markets.</div>
+
+                <!-- 3. Industry Leaders (Who challenges their thinking) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Guest speaker – industry leaders" />
+                        <div class="gradient"></div>
+                        <div class="industry">Who challenges their thinking</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Industry Leaders</h3>
+                        <div class="desc">
+                            Interact with Gain exposure to guest speakers, business executives, and sector experts
+                            who bring current market insights, emerging trends, and leadership perspectives into
+                            the learning experience.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Global Leadership Immersion (How they expand their global perspective) -->
+                <div class="leaders-card">
+                    <div class="leaders-photo">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=450&fit=crop&auto=format&q=80"
+                            alt="Global residency – global perspective" />
+                        <div class="gradient"></div>
+                        <div class="industry">How they expand their global perspective</div>
+                    </div>
+                    <div class="peer-info">
+                        <div class="line"></div>
+                        <h3>Global Leadership Immersion</h3>
+                        <div class="desc">
+                            Expand your strategic perspective through direct engagement with global business
+                            environments, international faculty, and cross-market leadership insights.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-  FINAL CTA
-  ============================================ -->
+    <!-- ========== CTA SECTION: Ready to Lead the Future? ========== -->
     <section class="cta-lead-section">
         <div class="cta-lead-container">
-            <h2 class="cta-lead-title">Lead at your next level.</h2>
-            <p class="cta-lead-text">Speak with our team, request the brochure, or begin your Executive MBA application
-                at AUB OSB.</p>
-            <div class="cta-lead-button-wrapper"
-                style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-                <a href="#" class="cta-lead-button"
-                    style="background:var(--primary) !important; color:white !important;">Start your application</a>
-                <a href="#" class="cta-lead-button"
-                    style="background:transparent !important; color:white !important; border-color:white;">Request
-                    information</a>
+            <h2 class="cta-lead-title">Ready to Lead the Future?</h2>
+            <p class="cta-lead-text">Join the next cohort of executive leaders shaping the future of business in Dubai
+                and beyond.</p>
+            <div class="cta-lead-button-wrapper">
+                <a href="#0" class="cta-lead-button">Explore The Program ➔</a>
             </div>
         </div>
     </section>
 
-
-    <!-- Floating buttons - START-->
-    <div class="floating-buttons">
-        <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" target="_blank"
-            class="floating-btn box-shadow download">
-            <span class="icon">
-                <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path
-                        d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
-                    </path>
-                </svg>
-            </span>
-            <span class="text hide-on-mobile">Download Brochure</span>
-            <span class="text hide-on-desktop">View Brochure</span>
-        </a>
-        <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=apply" target="_blank"
-            class="floating-btn box-shadow apply">
-            <span class="icon">
-                <svg class="icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path
-                        d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z 
-                 M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z 
-                 M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
-                        transform="translate(-363 -199)"></path>
-                </svg>
-            </span>
-            <span class="text">Apply Here</span>
-        </a>
-        <a href="https://outlook.office365.com/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true" target="_blank"
-            class="floating-btn box-shadow contact">
-            <span class="icon">
-                <!--?xml version="1.0" encoding="utf-8"?-->
-                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="miter"
-                        stroke-linecap="butt">
-                        <rect x="1" y="4" width="22" height="16"></rect>
-                        <polyline points="1 4 12 13 23 4"></polyline>
-                    </g>
-                </svg>
-            </span>
-            <span class="text">Get in Touch</span>
-        </a>
-
-    </div>
-    <!-- Floating buttons - END-->
 
     <!-- ============================================
     FOOTER
     ============================================ -->
     <footer class="footer">
+        <!-- Floating buttons - START-->
+        <div class="floating-buttons">
+            <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" target="_blank"
+                class="floating-btn box-shadow download">
+                <span class="icon">
+                    <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
+                        </path>
+                    </svg>
+                </span>
+                <span class="text hide-on-mobile">Download Brochure</span>
+                <span class="text hide-on-desktop">View Brochure</span>
+            </a>
+            <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=apply" target="_blank"
+                class="floating-btn box-shadow apply">
+                <span class="icon">
+                    <svg class="icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z 
+                 M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z 
+                 M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                            transform="translate(-363 -199)"></path>
+                    </svg>
+                </span>
+                <span class="text">Apply Here</span>
+            </a>
+            <a href="https://outlook.office365.com/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true"
+                target="_blank" class="floating-btn box-shadow contact">
+                <span class="icon">
+                    <!--?xml version="1.0" encoding="utf-8"?-->
+                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="miter"
+                            stroke-linecap="butt">
+                            <rect x="1" y="4" width="22" height="16"></rect>
+                            <polyline points="1 4 12 13 23 4"></polyline>
+                        </g>
+                    </svg>
+                </span>
+                <span class="text">Get in Touch</span>
+            </a>
 
+        </div>
+        <!-- Floating buttons - END-->
         <div class="container">
             <div class="footer__accred">
                 <img alt="Accreditations" decoding="async" loading="lazy" src="images/AUB-OSB-accreditations.png" />
@@ -1729,6 +2071,70 @@
             </ul>
         </div>
     </footer>
+    <!-- SCRIPTS -->
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let scrolled = false;
+
+        window.addEventListener('scroll', () => {
+            const isScrolled = window.scrollY > 50;
+            if (isScrolled !== scrolled) {
+                scrolled = isScrolled;
+                navbar.classList.toggle('scrolled', scrolled);
+            }
+        });
+
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let menuOpen = false;
+
+        toggleBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+
+            // Update icon
+            toggleBtn.innerHTML = menuOpen ?
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>` :
+                `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuOpen = false;
+                toggleBtn.innerHTML =
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`;
+            });
+        });
+
+        // Flip cards - support both hover and click (for touch devices)
+        document.querySelectorAll('.flip-card').forEach(card => {
+            const inner = card.querySelector('.flip-card-inner');
+
+            // Hover for desktop
+            card.addEventListener('mouseenter', () => {
+                inner.style.transform = 'rotateY(180deg)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                inner.style.transform = 'rotateY(0deg)';
+            });
+
+            // Click for touch devices
+            card.addEventListener('click', () => {
+                const current = inner.style.transform;
+                inner.style.transform = current === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            });
+        });
+    </script>
+
 </body>
 
 </html>

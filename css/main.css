@@ -75,7 +75,7 @@ ul {
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 120px 0;
+    padding: 100px 0;
   }
 }
 
@@ -223,6 +223,10 @@ ul {
 .bg-secondary .section-title,
 .bg-dark .section-title,
 [class*="dark-bg"] .section-title {
+  color: var(--color-white);
+}
+
+.bg-dark .section-label span {
   color: var(--color-white);
 }
 
@@ -837,12 +841,6 @@ ul {
   margin: 24px 0 36px;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: center;
-}
 
 .hero-watch {
   display: inline-flex;
@@ -898,11 +896,6 @@ ul {
 
   .hero-content {
     padding: 140px 16px 60px;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
   }
 
   .hero-watch {
@@ -1032,7 +1025,7 @@ ul {
 
 @media (min-width: 1024px) {
   .inner-p-intro {
-    padding: 120px 0;
+    padding: 100px 0;
   }
 }
 

@@ -15,10 +15,10 @@
     <!-- Main CSS -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
-    
+
     <script defer src="js/menu.js"></script>
 
-    
+
     <style>
         /* Nav overrides */
         .nav-osb-links .osb-nav-item>a#career-impact-link {
@@ -31,7 +31,7 @@
             text-underline-offset: 6px;
         }
     </style>
-    
+
     <style>
         /* ============================================
            PAGE-SPECIFIC STYLES — Career Impact
@@ -51,7 +51,7 @@
 
         @media (min-width: 1024px) {
             .in-practice {
-                padding: 120px 0;
+                padding: 100px 0;
             }
         }
 
@@ -118,78 +118,6 @@
             color: var(--color-ink-mid);
         }
 
-        /* ---------- TRANSFORMATION CAPABILITIES ---------- */
-        .capabilities-section {
-            background: var(--color-bg);
-            padding: 80px 0;
-        }
-
-        @media (min-width: 768px) {
-            .capabilities-section {
-                padding: 100px 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .capabilities-section {
-                padding: 120px 0;
-            }
-        }
-
-        .capabilities-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-
-        @media (min-width: 640px) {
-            .capabilities-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .capabilities-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
-        }
-
-        .capability-card {
-            background: var(--color-white);
-            padding: 28px 24px;
-            border-radius: var(--radius);
-            border: 1px solid var(--color-border);
-            transition: all var(--transition);
-        }
-
-        .capability-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-            border-color: var(--color-primary);
-        }
-
-        .capability-card .num {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--color-primary);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .capability-card h3 {
-            font-size: 1.05rem;
-            font-weight: 800;
-            color: var(--color-ink);
-            margin-bottom: 6px;
-        }
-
-        .capability-card p {
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: var(--color-ink-mid);
-        }
 
         /* ============================================
         ALUMNI & NETWORK
@@ -207,7 +135,7 @@
 
         @media (min-width: 1024px) {
             .alumni-section {
-                padding: 120px 0;
+                padding: 100px 0;
             }
         }
 
@@ -712,7 +640,8 @@
                         </li>
 
                         <li class="osb-nav-item mba-nav-item">
-                            <a href="class-profile-network.html" id="class-profile-network-link">Class Profile &amp; Network</a>
+                            <a href="class-profile-network.html" id="class-profile-network-link">Class Profile &amp;
+                                Network</a>
                         </li>
 
                         <li class="osb-nav-item mba-nav-item">
@@ -766,7 +695,7 @@
             <div class="container">
                 <!-- Breadcrumb -->
                 <div class="breadcrumb">
-                    <a href="/index.html">Home</a>
+                    <a href="./index.html">Home</a>
                     <span>/</span>
                     <span>Career Impact</span>
                 </div>
@@ -774,7 +703,7 @@
                 <!-- Hero Text -->
                 <h1>
                     Leadership Transformed.<br />
-                    <span class="highlight">Impact Amplified.</span>
+                    Impact Amplified.
                 </h1>
                 <p class="hero-sub">
                     Sharper strategic thinking, greater confidence under complexity,
@@ -841,41 +770,47 @@
     <!-- ============================================
     TRANSFORMATION CAPABILITIES
     ============================================ -->
-    <section class="capabilities-section">
+    <section class="section-padding bg-dark"
+        style="background-image:linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,45,102,0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg); background-size:cover; background-position:center;">
         <div class="container">
             <div class="section-label">
                 <span>Transformation capabilities</span>
             </div>
-            <h2 class="section-title">Six capabilities <span class="highlight">you carry forward.</span></h2>
-            <p class="section-subtitle">Every part of the experience is designed to change how you lead.</p>
+            <h2 class="section-title">Six capabilities you carry forward.</h2>
+            <p class="section-subtitle light">Every part of the experience is designed to change how you lead.</p>
 
-            <div class="capabilities-grid">
-                <div class="capability-card">
+            <div class="pillars-grid">
+                <div class="pillar-card">
                     <div class="num">01</div>
                     <h3>Strategic Thinking</h3>
                     <p>Ability to make high-level business decisions across functions.</p>
                 </div>
-                <div class="capability-card">
+
+                <div class="pillar-card">
                     <div class="num">02</div>
                     <h3>Executive Presence</h3>
                     <p>Stronger communication, influence, and leadership confidence.</p>
                 </div>
-                <div class="capability-card">
+
+                <div class="pillar-card">
                     <div class="num">03</div>
                     <h3>Cross-Functional Leadership</h3>
                     <p>Broader understanding across finance, strategy, operations, marketing, and people management.</p>
                 </div>
-                <div class="capability-card">
+
+                <div class="pillar-card">
                     <div class="num">04</div>
                     <h3>Decision-Making Under Complexity</h3>
                     <p>Leading through uncertainty, ambiguity, and change.</p>
                 </div>
-                <div class="capability-card">
+
+                <div class="pillar-card">
                     <div class="num">05</div>
                     <h3>Innovation &amp; Transformation</h3>
                     <p>Driving change and business growth.</p>
                 </div>
-                <div class="capability-card">
+
+                <div class="pillar-card">
                     <div class="num">06</div>
                     <h3>Global Perspective</h3>
                     <p>Exposure to international business practices and leadership models.</p>
@@ -980,10 +915,10 @@ ALUMNI & NETWORK
                 at AUB OSB.</p>
             <div class="cta-lead-button-wrapper"
                 style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
-                <a href="#" class="cta-lead-button"
+                <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" class="cta-lead-button"
                     style="background:var(--color-primary) !important; color:white !important;">Start your
                     application</a>
-                <a href="#" class="cta-lead-button"
+                <a href="https://bookings.cloud.microsoft/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true" class="cta-lead-button"
                     style="background:transparent !important; color:white !important; border-color:white;">Request
                     information</a>
             </div>

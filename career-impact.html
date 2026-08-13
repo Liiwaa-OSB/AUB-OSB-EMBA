@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUB Executive MBA · Beirut</title>
+    <title>AUB Executive MBA · Career Impact</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,33 +12,429 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet" />
 
-    <style>
-
-    </style>
-
-    <!-- External CSS (keep as-is) -->
+    <!-- Main CSS -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    
+    <script defer src="js/menu.js"></script>
 
+    
     <style>
         /* Nav overrides */
-        .nav-osb-links .osb-nav-item>a#emba-homepage-link {
+        .nav-osb-links .osb-nav-item>a#career-impact-link {
             color: var(--color-primary);
         }
 
-        body.nav-scrolled .nav-osb .osb-nav-item>a#emba-homepage-link {
+        body.nav-scrolled .nav-osb .osb-nav-item>a#career-impact-link {
             color: white;
             text-decoration: underline;
             text-underline-offset: 6px;
         }
     </style>
+    
+    <style>
+        /* ============================================
+           PAGE-SPECIFIC STYLES — Career Impact
+           ============================================ */
 
-    <script defer src="js/menu.js"></script>
+        /* ---------- IN PRACTICE SECTION (with video) ---------- */
+        .in-practice {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .in-practice {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .in-practice {
+                padding: 120px 0;
+            }
+        }
+
+        .in-practice .practice-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .in-practice .practice-wrapper {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+        }
+
+        .in-practice .practice-video {
+            background: var(--color-bg-alt);
+            border-radius: var(--radius);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--color-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .in-practice .practice-video .video-placeholder {
+            text-align: center;
+            color: var(--color-ink-light);
+        }
+
+        .in-practice .practice-video .video-placeholder .play-icon {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .in-practice .practice-video .video-placeholder .video-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-ink-light);
+        }
+
+        .in-practice .practice-text .section-label {
+            margin-bottom: 12px;
+        }
+
+        .in-practice .practice-text h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--color-ink);
+            margin-bottom: 16px;
+        }
+
+        .in-practice .practice-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-ink-mid);
+        }
+
+        /* ---------- TRANSFORMATION CAPABILITIES ---------- */
+        .capabilities-section {
+            background: var(--color-bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .capabilities-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .capabilities-section {
+                padding: 120px 0;
+            }
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .capability-card {
+            background: var(--color-white);
+            padding: 28px 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition);
+        }
+
+        .capability-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: var(--color-primary);
+        }
+
+        .capability-card .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .capability-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--color-ink);
+            margin-bottom: 6px;
+        }
+
+        .capability-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-ink-mid);
+        }
+
+        /* ============================================
+        ALUMNI & NETWORK
+        ============================================ */
+        .alumni-section {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .alumni-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .alumni-section {
+                padding: 120px 0;
+            }
+        }
+
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .alumni-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .alumni-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 3rem 2rem;
+            }
+        }
+
+        /* ---------- ALUMNI CARD ---------- */
+        .alumni-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .alumni-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .alumni-card .alumni-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 14px;
+            flex-shrink: 0;
+            border: 3px solid var(--color-bg-alt);
+            transition: all var(--transition);
+        }
+
+        .alumni-card:hover .alumni-photo {
+            border-color: var(--color-primary);
+        }
+
+        .alumni-card .alumni-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .alumni-card:hover .alumni-photo img {
+            transform: scale(1.05);
+        }
+
+        .alumni-card .alumni-name {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--color-ink);
+            margin-bottom: 2px;
+        }
+
+        .alumni-card .alumni-role {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .alumni-card .alumni-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-ink-mid);
+            max-width: 320px;
+            margin: 0 auto 16px;
+        }
+
+        .alumni-card .alumni-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--color-border);
+            margin: 0 auto 12px;
+        }
+
+        .alumni-card .alumni-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            transition: all var(--transition);
+        }
+
+        .alumni-card .alumni-link:hover {
+            color: var(--color-primary);
+            gap: 12px;
+        }
+
+        .alumni-card .alumni-link .in-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: var(--color-secondary);
+            color: white;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            transition: background var(--transition);
+        }
+
+        .alumni-card .alumni-link:hover .in-icon {
+            background: var(--color-primary);
+        }
+
+        /* ---------- ALUMNI CTA ---------- */
+        .alumni-cta-wrapper {
+            margin-top: 60px;
+            background: var(--color-primary);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .alumni-cta-wrapper {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                padding: 28px 40px;
+            }
+        }
+
+        .alumni-cta-wrapper .cta-text {
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .alumni-cta-wrapper .cta-text {
+                text-align: left;
+            }
+        }
+
+        .alumni-cta-wrapper .cta-text p {
+            font-size: 1.05rem;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .alumni-cta-wrapper .cta-text .cta-sub {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .alumni-cta-wrapper .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 28px;
+            background: var(--color-white);
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            font-weight: 800;
+            border-radius: var(--radius);
+            transition: all var(--transition);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .alumni-cta-wrapper .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 767px) {
+            .alumni-card .alumni-photo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .alumni-card .alumni-desc {
+                font-size: 0.9rem;
+            }
+
+            .alumni-cta-wrapper {
+                padding: 24px 20px;
+                text-align: center;
+            }
+
+            .alumni-cta-wrapper .cta-button {
+                width: 100%;
+                justify-content: center;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .alumni-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation (preserved structure) -->
+    <!-- ============================================
+    NAVBAR
+    ============================================ -->
     <div class="nav">
         <div class="nav-utility">
             <div class="nav-utility-container">
@@ -357,274 +753,219 @@
     </div>
 
     <!-- ============================================
-    HERO
+    INNER PAGE HERO — Career Impact
     ============================================ -->
-    <section class="hero">
+    <section class="inner-p-hero">
         <div class="hero-bg">
             <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
                 alt="AUB Campus" />
         </div>
-        <div class="hero-grid"></div>
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <div class="label"><span>Executive MBA · On campus, Beirut</span></div>
-            <h1>
-                Lead Beyond<br />
-                <span class="accent">Experience.</span><br />
-                Shape What's Next.
-            </h1>
-            <p>
-                Built for experienced professionals ready to lead at a higher strategic level, through immersive
-                residencies, a global learning experience, and a dedicated leadership journey.
-            </p>
-            <div class="hero-actions">
-                <a href="#" class="btn-primary">
-                    Explore the program →
-                </a>
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Career Impact</span>
+                </div>
+
+                <!-- Hero Text -->
+                <h1>
+                    Leadership Transformed.<br />
+                    <span class="highlight">Impact Amplified.</span>
+                </h1>
+                <p class="hero-sub">
+                    Sharper strategic thinking, greater confidence under complexity,
+                    and impact you apply the moment you return to work.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    BRIEF — The Executive MBA, in brief.
+    LEADERSHIP TRANSFORMATION
     ============================================ -->
-    <section class="section-padding bg-light">
+    <section class="inner-p-intro">
         <div class="container">
-            <div class="brief-header" style="margin-bottom:48px;">
-                <h2 class="section-title">The Executive MBA, <span class="highlight">in brief.</span></h2>
-            </div>
-            <div class="brief-grid">
-                <div class="brief-card">
-                    <div class="brief-card__label">Duration</div>
-                    <div class="brief-card__value">15 Months</div>
-                    <div class="brief-card__desc">Residency-based, delivered around every six weeks.</div>
+            <div class="intro-text-wrapper">
+                <div class="section-label">
+                    <span>Leadership transformation</span>
                 </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Format</div>
-                    <div class="brief-card__value">Blended</div>
-                    <div class="brief-card__desc">Immersive on-campus residencies at AUB Beirut.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">International Residency</div>
-                    <div class="brief-card__value">Global</div>
-                    <div class="brief-card__desc">An integrated residency at a partner business school.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Campus</div>
-                    <div class="brief-card__value">AUB, Beirut</div>
-                    <div class="brief-card__desc">The region's leading academic ecosystem.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Finish with</div>
-                    <div class="brief-card__value">Capstone Project</div>
-                    <div class="brief-card__desc">Real challenges, measurable business outcomes.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Start date</div>
-                    <div class="brief-card__value">September 2026</div>
-                    <div class="brief-card__desc">Applications reviewed on a rolling basis.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    VALUE PROPOSITION
-    ============================================ -->
-    <section class="section-padding value-prop bg-light">
-        <div class="container">
-            <div class="value-text">
-                <div class="title-underline"></div>
-                <h3>Leadership capital that extends far beyond graduation.</h3>
+                <h2>Learning you lead with, in real time.</h2>
                 <p>
-                    The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
-                    ready to lead at a higher strategic level. Through immersive residencies, a global learning
-                    experience, and a dedicated leadership development journey, participants strengthen their ability to
-                    navigate complexity, drive transformation, and create measurable business impact.
+                    The OSB Executive MBA equips experienced professionals to strengthen
+                    their leadership capacity, sharpen strategic thinking, and navigate
+                    complex business challenges with greater confidence and impact.
                 </p>
-                <p style="margin-top: 1.2rem;">
-                    Beyond the academic experience, participants gain access to a powerful executive ecosystem of peers,
-                    faculty, industry leaders, and the wider AUB alumni network, building strategic relationships and
-                    leadership capital that extend far beyond graduation.
+                <p>
+                    Participants apply learning directly to their organizations, leading
+                    strategic initiatives, driving transformation, improving operations,
+                    and addressing real business challenges in real time.
                 </p>
-                <a href="#" class="value-link">Explore the program →</a>
             </div>
+        </div>
+    </section>
 
-            <div class="stats-card">
-                <div class="card-label">Program at a glance</div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="num">#1</div>
-                        <div class="label">Ranked in the MENA region</div>
+    <!-- ============================================
+    IN PRACTICE (with video left, text right)
+    ============================================ -->
+    <section class="in-practice">
+        <div class="container">
+            <div class="practice-wrapper">
+                <!-- Video Placeholder (Left) -->
+                <div class="practice-video">
+                    <div class="video-placeholder">
+                        <span class="play-icon">▶</span>
+                        <div class="video-label">Testimonial video</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Full-time or part-time study paths</div>
+                </div>
+
+                <!-- Text Content (Right) -->
+                <div class="practice-text">
+                    <div class="section-label">
+                        <span>In practice</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Fall &amp; Spring intake periods</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">100%</div>
-                        <div class="label">In-person, on campus in Beirut</div>
-                    </div>
+                    <h2>Learning you apply Monday morning.</h2>
+                    <p>
+                        Every session is built to translate directly into your work,
+                        strategy you test, decisions you sharpen, and change you lead
+                        the moment you step back into the office.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PILLARS — What you gain (dark background)
+    TRANSFORMATION CAPABILITIES
     ============================================ -->
-    <section class="section-padding bg-dark"
-        style="background-image:linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,45,102,0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg); background-size:cover; background-position:center;">
+    <section class="capabilities-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. Built in Beirut. <span class="highlight">Connected
-                    Globally.</span></h2>
-            <p class="section-subtitle light">Six pillars define the experience, and what it means for your leadership.
-            </p>
-            <div class="pillars-grid">
-                <div class="pillar-card">
+            <div class="section-label">
+                <span>Transformation capabilities</span>
+            </div>
+            <h2 class="section-title">Six capabilities <span class="highlight">you carry forward.</span></h2>
+            <p class="section-subtitle">Every part of the experience is designed to change how you lead.</p>
+
+            <div class="capabilities-grid">
+                <div class="capability-card">
                     <div class="num">01</div>
-                    <h3>Leadership Development</h3>
-                    <p>A dedicated journey to strengthen executive presence, self-awareness, communication, and
-                        strategic influence.</p>
+                    <h3>Strategic Thinking</h3>
+                    <p>Ability to make high-level business decisions across functions.</p>
                 </div>
-                <div class="pillar-card">
+                <div class="capability-card">
                     <div class="num">02</div>
-                    <h3>Strategic Business Learning</h3>
-                    <p>An integrated business perspective across strategy, finance, operations, marketing, and
-                        leadership, enabling stronger decisions and immediate workplace application.</p>
+                    <h3>Executive Presence</h3>
+                    <p>Stronger communication, influence, and leadership confidence.</p>
                 </div>
-                <div class="pillar-card">
+                <div class="capability-card">
                     <div class="num">03</div>
-                    <h3>Applied Business Impact</h3>
-                    <p>Translate learning into actionable insight through real business challenges, case-based
-                        discussions, and practical frameworks you can apply directly.</p>
+                    <h3>Cross-Functional Leadership</h3>
+                    <p>Broader understanding across finance, strategy, operations, marketing, and people management.</p>
                 </div>
-                <div class="pillar-card">
+                <div class="capability-card">
                     <div class="num">04</div>
-                    <h3>Executive Network</h3>
-                    <p>Build strategic relationships with accomplished peers, faculty, and industry leaders that extend
-                        your professional influence and leadership.</p>
+                    <h3>Decision-Making Under Complexity</h3>
+                    <p>Leading through uncertainty, ambiguity, and change.</p>
                 </div>
-                <div class="pillar-card">
+                <div class="capability-card">
                     <div class="num">05</div>
-                    <h3>International Residency</h3>
-                    <p>Gain global exposure through an immersive residency at a partner business school, broadening your
-                        view of international markets and leadership practice.</p>
+                    <h3>Innovation &amp; Transformation</h3>
+                    <p>Driving change and business growth.</p>
                 </div>
-                <div class="pillar-card">
+                <div class="capability-card">
                     <div class="num">06</div>
-                    <h3>AUB Ecosystem &amp; Alumni Network</h3>
-                    <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of your
-                        Executive MBA well beyond graduation.</p>
+                    <h3>Global Perspective</h3>
+                    <p>Exposure to international business practices and leadership models.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PEOPLE — Shaped by Leaders
-    ============================================ -->
-    <section class="section-padding bg-light">
+ALUMNI & NETWORK
+============================================ -->
+    <section class="alumni-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. <span class="highlight">Shaped by Leaders.</span></h2>
-            <p class="section-subtitle">You learn with, and from, a community of accomplished leaders, peers, faculty,
-                industry voices, and a global network.</p>
-            <div class="people-grid">
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Executive Peers" />
-                        <div class="tag">Who you learn with</div>
+            <div class="section-label">
+                <span>Alumni &amp; Network</span>
+            </div>
+            <h2 class="section-title">See where <span class="highlight">our leaders go next.</span></h2>
+            <p class="section-subtitle">
+                Our graduates step into bigger mandates, new markets, and board-level influence,
+                supported by a network that keeps opening doors long after graduation.
+            </p>
+
+            <div class="alumni-grid">
+                <!-- Alumni 1 -->
+                <div class="alumni-card">
+                    <div class="alumni-photo">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&auto=format&q=80"
+                            alt="Alumni profile" />
                     </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who you learn with</div>
-                        <h3>Executive Peers</h3>
-                        <div class="desc">Learn alongside accomplished senior professionals from diverse industries,
-                            bringing real-world challenges, strategic perspectives, and leadership insight into every
-                            discussion.</div>
-                    </div>
+                    <h3 class="alumni-name">Lorem Ipsum</h3>
+                    <div class="alumni-role">Chief Executive Officer · Industry</div>
+                    <p class="alumni-desc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <div class="alumni-divider"></div>
+                    <a href="#" class="alumni-link">
+                        <span class="in-icon">in</span>
+                        View LinkedIn profile →
+                    </a>
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Faculty Leaders" />
-                        <div class="tag">Who guide the journey</div>
+
+                <!-- Alumni 2 -->
+                <div class="alumni-card">
+                    <div class="alumni-photo">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop&auto=format&q=80"
+                            alt="Alumni profile" />
                     </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who guide the journey</div>
-                        <h3>Faculty Leaders</h3>
-                        <div class="desc">Engage with world-class faculty and thought leaders who combine academic
-                            excellence with practical business expertise, bridging theory with real market realities.
-                        </div>
-                    </div>
+                    <h3 class="alumni-name">Lorem Ipsum</h3>
+                    <div class="alumni-role">Managing Director · Industry</div>
+                    <p class="alumni-desc">
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="alumni-divider"></div>
+                    <a href="#" class="alumni-link">
+                        <span class="in-icon">in</span>
+                        View LinkedIn profile →
+                    </a>
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Industry Leaders" />
-                        <div class="tag">Who challenge your thinking</div>
+
+                <!-- Alumni 3 -->
+                <div class="alumni-card">
+                    <div class="alumni-photo">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format&q=80"
+                            alt="Alumni profile" />
                     </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who challenge your thinking</div>
-                        <h3>Industry Leaders</h3>
-                        <div class="desc">Interact with guest speakers, executives, and sector experts who bring current
-                            market insight, emerging trends, and leadership perspectives into the room.</div>
-                    </div>
-                </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Global Leadership Immersion" />
-                        <div class="tag">How you widen your lens</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">How you widen your lens</div>
-                        <h3>Global Leadership Immersion</h3>
-                        <div class="desc">Expand your strategic perspective through direct engagement with global
-                            business environments, international faculty, and cross-market leadership insight.</div>
-                    </div>
+                    <h3 class="alumni-name">Lorem Ipsum</h3>
+                    <div class="alumni-role">VP, Strategy &amp; Transformation · Industry</div>
+                    <p class="alumni-desc">
+                        Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur.
+                    </p>
+                    <div class="alumni-divider"></div>
+                    <a href="#" class="alumni-link">
+                        <span class="in-icon">in</span>
+                        View LinkedIn profile →
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ============================================
-    WHY CHOOSE
-    ============================================ -->
-    <section class="section-padding bg-white">
-        <div class="container">
-            <h2 class="section-title">Why Choose <span class="highlight">OSB's Executive MBA?</span></h2>
-            <p class="section-subtitle">A distinguished business school, a 160-year legacy, and a network that opens
-                doors across the region and the world.</p>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="big">AACSB</div>
-                    <div class="label">Accredited business school</div>
-                    <div class="sub">A globally recognized mark of business-school quality.</div>
+            <!-- Alumni CTA -->
+            <div class="alumni-cta-wrapper">
+                <div class="cta-text">
+                    <p>Join a global AUB alumni community.</p>
+                    <div class="cta-sub">Connect, mentor, and grow with executives across industries and markets.</div>
                 </div>
-                <div class="why-item">
-                    <div class="big">1866</div>
-                    <div class="label">160+ years of AUB legacy</div>
-                    <div class="sub">Educating the region's leaders for over a century and a half.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Global</div>
-                    <div class="label">International reach</div>
-                    <div class="sub">An International Residency and a network spanning the region and the world.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Alumni</div>
-                    <div class="label">Lifelong community</div>
-                    <div class="sub">A powerful executive network across industries and markets.</div>
-                </div>
+                <a href="#" class="cta-button">
+                    Explore alumni on LinkedIn →
+                </a>
             </div>
         </div>
     </section>
@@ -697,6 +1038,7 @@
     ============================================ -->
     <div id="footer-placeholder"></div>
     <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+
 </body>
 
 </html>

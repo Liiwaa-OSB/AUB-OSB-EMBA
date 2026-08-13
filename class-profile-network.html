@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUB Executive MBA · Beirut</title>
+    <title>AUB Executive MBA · Class Profile & Network</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,33 +12,403 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
         rel="stylesheet" />
 
-    <style>
-
-    </style>
-
-    <!-- External CSS (keep as-is) -->
+    <!-- Main CSS -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    
+    <script defer src="js/menu.js"></script>
 
+    
     <style>
         /* Nav overrides */
-        .nav-osb-links .osb-nav-item>a#emba-homepage-link {
+        .nav-osb-links .osb-nav-item>a#class-profile-network-link {
             color: var(--color-primary);
         }
 
-        body.nav-scrolled .nav-osb .osb-nav-item>a#emba-homepage-link {
+        body.nav-scrolled .nav-osb .osb-nav-item>a#class-profile-network-link {
             color: white;
             text-decoration: underline;
             text-underline-offset: 6px;
         }
     </style>
+    
+    <style>
+        /* ============================================
+           PAGE-SPECIFIC STYLES — Class Profile & Network
+           ============================================ */
 
-    <script defer src="js/menu.js"></script>
+        /* ---------- CLASS PROFILE STATS CARDS ---------- */
+        .stats-cards-section {
+            background: var(--color-bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .stats-cards-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-cards-section {
+                padding: 120px 0;
+            }
+        }
+
+        .stats-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stats-card {
+            background: var(--color-white);
+            padding: 32px 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .stats-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: var(--color-primary);
+        }
+
+        .stats-card .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 6px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stats-card .stat-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+
+        .stats-card .stat-desc {
+            font-size: 0.9rem;
+            color: var(--color-ink-mid);
+            line-height: 1.4;
+        }
+
+        /* ---------- INDUSTRY REPRESENTATION (Table) ---------- */
+        .industry-section {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .industry-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .industry-section {
+                padding: 120px 0;
+            }
+        }
+
+        .industry-table-wrapper {
+            margin-top: 2.5rem;
+            overflow-x: auto;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .industry-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .industry-table thead {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .industry-table thead th {
+            padding: 14px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .industry-table thead th:nth-child(2),
+        .industry-table thead th:nth-child(4) {
+            text-align: right;
+        }
+
+        .industry-table tbody tr {
+            border-bottom: 1px solid var(--color-border);
+            transition: background var(--transition);
+        }
+
+        .industry-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .industry-table tbody td {
+            padding: 12px 20px;
+            vertical-align: middle;
+        }
+
+        .industry-table tbody td:first-child,
+        .industry-table tbody td:nth-child(3) {
+            color: var(--color-ink);
+        }
+
+        .industry-table tbody td:nth-child(2),
+        .industry-table tbody td:nth-child(4) {
+            text-align: right;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .industry-table tbody td:nth-child(1):hover,
+        .industry-table tbody td:nth-child(3):hover {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 767px) {
+            .industry-table {
+                font-size: 0.85rem;
+            }
+
+            .industry-table thead th,
+            .industry-table tbody td {
+                padding: 10px 14px;
+            }
+
+            .industry-table thead th {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .industry-table thead th,
+            .industry-table tbody td {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+
+            .industry-table thead th {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* ---------- GEOGRAPHIC REACH ---------- */
+        .geographic-section {
+            background: var(--color-bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .geographic-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .geographic-section {
+                padding: 120px 0;
+            }
+        }
+
+        .geographic-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-top: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .geographic-wrapper {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+        }
+
+        /* Left: Map Image */
+        .geographic-map {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        .geographic-map img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Right: Geographic List with Bars */
+        .geographic-list-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .geo-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 48px;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-border);
+            transition: all var(--transition);
+        }
+
+        .geo-item:last-child {
+            border-bottom: none;
+        }
+
+        .geo-item .geo-name {
+            font-size: 0.9rem;
+            color: var(--color-ink);
+        }
+
+        .geo-item .geo-bar-track {
+            height: 6px;
+            background: var(--color-white);
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+
+        .geo-item .geo-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        .geo-item .geo-percent {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            text-align: right;
+        }
+
+        /* Bar colors for geographic regions */
+        .geo-bar-lebanon {
+            background: var(--color-primary);
+        }
+
+        .geo-bar-ksa {
+            background: var(--color-secondary);
+        }
+
+        .geo-bar-europe {
+            background: #4a7c9e;
+        }
+
+        .geo-bar-uae {
+            background: #6d8ba0;
+        }
+
+        .geo-bar-jordan {
+            background: #8aa8b8;
+        }
+
+        .geo-bar-qatar {
+            background: #b0c4d0;
+        }
+
+        .geo-bar-africa {
+            background: #d0dce4;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 767px) {
+            .stats-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-card .stat-number {
+                font-size: 2.4rem;
+            }
+
+            /* .industry-table {
+                font-size: 0.85rem;
+            }
+
+            .industry-table thead th,
+            .industry-table tbody td {
+                padding: 10px 14px;
+            }
+
+            .industry-table .bar-cell {
+                min-width: 60px;
+            } */
+
+            .geo-item {
+                grid-template-columns: 60px 1fr 40px;
+                gap: 8px;
+            }
+
+            .geo-item .geo-name {
+                font-size: 0.85rem;
+            }
+
+            .geographic-wrapper {
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* .industry-table thead th,
+            .industry-table tbody td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+
+            .industry-table .bar-cell {
+                min-width: 40px;
+            } */
+
+            .geo-item {
+                grid-template-columns: 50px 1fr 36px;
+                gap: 6px;
+            }
+
+            .geo-item .geo-name {
+                font-size: 0.8rem;
+            }
+
+            .geo-item .geo-percent {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation (preserved structure) -->
+    <!-- ============================================
+    NAVBAR
+    ============================================ -->
     <div class="nav">
         <div class="nav-utility">
             <div class="nav-utility-container">
@@ -357,273 +727,206 @@
     </div>
 
     <!-- ============================================
-    HERO
+    INNER PAGE HERO — Class Profile & Network
     ============================================ -->
-    <section class="hero">
+    <section class="inner-p-hero">
         <div class="hero-bg">
             <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
                 alt="AUB Campus" />
         </div>
-        <div class="hero-grid"></div>
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <div class="label"><span>Executive MBA · On campus, Beirut</span></div>
-            <h1>
-                Lead Beyond<br />
-                <span class="accent">Experience.</span><br />
-                Shape What's Next.
-            </h1>
-            <p>
-                Built for experienced professionals ready to lead at a higher strategic level, through immersive
-                residencies, a global learning experience, and a dedicated leadership journey.
-            </p>
-            <div class="hero-actions">
-                <a href="#" class="btn-primary">
-                    Explore the program →
-                </a>
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Class Profile &amp; Network</span>
+                </div>
+
+                <h1>
+                    Diverse Industries.<br />
+                    <span class="highlight">Shared Leadership Ambition.</span>
+                </h1>
+                <p class="hero-sub">
+                    A cohort of senior professionals who challenge perspectives,
+                    exchange expertise, and grow through shared leadership experience.
+                </p>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    BRIEF — The Executive MBA, in brief.
+    CLASS PROFILE
     ============================================ -->
-    <section class="section-padding bg-light">
+    <section class="inner-p-intro">
         <div class="container">
-            <div class="brief-header" style="margin-bottom:48px;">
-                <h2 class="section-title">The Executive MBA, <span class="highlight">in brief.</span></h2>
-            </div>
-            <div class="brief-grid">
-                <div class="brief-card">
-                    <div class="brief-card__label">Duration</div>
-                    <div class="brief-card__value">15 Months</div>
-                    <div class="brief-card__desc">Residency-based, delivered around every six weeks.</div>
+            <div class="intro-text-wrapper">
+                <div class="section-label">
+                    <span>Class profile</span>
                 </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Format</div>
-                    <div class="brief-card__value">Blended</div>
-                    <div class="brief-card__desc">Immersive on-campus residencies at AUB Beirut.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">International Residency</div>
-                    <div class="brief-card__value">Global</div>
-                    <div class="brief-card__desc">An integrated residency at a partner business school.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Campus</div>
-                    <div class="brief-card__value">AUB, Beirut</div>
-                    <div class="brief-card__desc">The region's leading academic ecosystem.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Finish with</div>
-                    <div class="brief-card__value">Capstone Project</div>
-                    <div class="brief-card__desc">Real challenges, measurable business outcomes.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Start date</div>
-                    <div class="brief-card__value">September 2026</div>
-                    <div class="brief-card__desc">Applications reviewed on a rolling basis.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    VALUE PROPOSITION
-    ============================================ -->
-    <section class="section-padding value-prop bg-light">
-        <div class="container">
-            <div class="value-text">
-                <div class="title-underline"></div>
-                <h3>Leadership capital that extends far beyond graduation.</h3>
+                <h2>Senior peers.<br />Serious experience.</h2>
                 <p>
-                    The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
-                    ready to lead at a higher strategic level. Through immersive residencies, a global learning
-                    experience, and a dedicated leadership development journey, participants strengthen their ability to
-                    navigate complexity, drive transformation, and create measurable business impact.
+                    Join a cohort where senior professionals from diverse industries
+                    come together to challenge perspectives and grow as leaders.
                 </p>
-                <p style="margin-top: 1.2rem;">
-                    Beyond the academic experience, participants gain access to a powerful executive ecosystem of peers,
-                    faculty, industry leaders, and the wider AUB alumni network, building strategic relationships and
-                    leadership capital that extend far beyond graduation.
-                </p>
-                <a href="#" class="value-link">Explore the program →</a>
             </div>
-
-            <div class="stats-card">
-                <div class="card-label">Program at a glance</div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="num">#1</div>
-                        <div class="label">Ranked in the MENA region</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Full-time or part-time study paths</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Fall &amp; Spring intake periods</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">100%</div>
-                        <div class="label">In-person, on campus in Beirut</div>
-                    </div>
+        </div>
+        <div class="container">
+            <div class="stats-cards-grid">
+                <div class="stats-card">
+                    <div class="stat-number" data-count="43">0</div>
+                    <div class="stat-label">Average age</div>
+                    <div class="stat-desc">A room of established, senior leaders.</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stat-number" data-count="34">0%</div>
+                    <div class="stat-label">Female representation</div>
+                    <div class="stat-desc">A balanced, diverse cohort.</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stat-number" data-count="16">0+</div>
+                    <div class="stat-label">Years of experience</div>
+                    <div class="stat-desc">Leadership and management, on average.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PILLARS — What you gain (dark background)
+    INDUSTRY REPRESENTATION (Table)
     ============================================ -->
-    <section class="section-padding bg-dark"
-        style="background-image:linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,45,102,0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg); background-size:cover; background-position:center;">
+    <section class="industry-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. Built in Beirut. <span class="highlight">Connected
-                    Globally.</span></h2>
-            <p class="section-subtitle light">Six pillars define the experience, and what it means for your leadership.
+            <div class="section-label">
+                <span>Industry representation</span>
+            </div>
+            <h2 class="section-title">Diverse Industries.<br /><span class="highlight">Shared Leadership
+                    Ambition.</span></h2>
+            <p class="section-subtitle">
+                Executives join from across ten-plus sectors, so no single industry lens dominates the room.
             </p>
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="num">01</div>
-                    <h3>Leadership Development</h3>
-                    <p>A dedicated journey to strengthen executive presence, self-awareness, communication, and
-                        strategic influence.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">02</div>
-                    <h3>Strategic Business Learning</h3>
-                    <p>An integrated business perspective across strategy, finance, operations, marketing, and
-                        leadership, enabling stronger decisions and immediate workplace application.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">03</div>
-                    <h3>Applied Business Impact</h3>
-                    <p>Translate learning into actionable insight through real business challenges, case-based
-                        discussions, and practical frameworks you can apply directly.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">04</div>
-                    <h3>Executive Network</h3>
-                    <p>Build strategic relationships with accomplished peers, faculty, and industry leaders that extend
-                        your professional influence and leadership.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">05</div>
-                    <h3>International Residency</h3>
-                    <p>Gain global exposure through an immersive residency at a partner business school, broadening your
-                        view of international markets and leadership practice.</p>
-                </div>
-                <div class="pillar-card">
-                    <div class="num">06</div>
-                    <h3>AUB Ecosystem &amp; Alumni Network</h3>
-                    <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of your
-                        Executive MBA well beyond graduation.</p>
-                </div>
+
+            <div class="industry-table-wrapper">
+                <table class="industry-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Percentage (%)</th>
+                            <th>Category</th>
+                            <th>Percentage (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Technology &amp; Telecommunications</td>
+                            <td class="value-cell">16%</td>
+                            <td>Energy, Industrial &amp; Manufacturing</td>
+                            <td class="value-cell">9%</td>
+                        </tr>
+                        <tr>
+                            <td>Banking, Finance &amp; Investments</td>
+                            <td class="value-cell">15%</td>
+                            <td>Retail &amp; Commercial Services</td>
+                            <td class="value-cell">8%</td>
+                        </tr>
+                        <tr>
+                            <td>Healthcare &amp; Life Sciences</td>
+                            <td class="value-cell">12%</td>
+                            <td>Education &amp; Professional Development</td>
+                            <td class="value-cell">7%</td>
+                        </tr>
+                        <tr>
+                            <td>Consulting &amp; Legal Services</td>
+                            <td class="value-cell">11%</td>
+                            <td>Logistics &amp; Transportation</td>
+                            <td class="value-cell">7%</td>
+                        </tr>
+                        <tr>
+                            <td>Construction, Engineering &amp; Real Estate</td>
+                            <td class="value-cell">10%</td>
+                            <td>Hospitality &amp; Lifestyle</td>
+                            <td class="value-cell">5%</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PEOPLE — Shaped by Leaders
+    GEOGRAPHIC REACH
     ============================================ -->
-    <section class="section-padding bg-light">
+    <section class="geographic-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. <span class="highlight">Shaped by Leaders.</span></h2>
-            <p class="section-subtitle">You learn with, and from, a community of accomplished leaders, peers, faculty,
-                industry voices, and a global network.</p>
-            <div class="people-grid">
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Executive Peers" />
-                        <div class="tag">Who you learn with</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who you learn with</div>
-                        <h3>Executive Peers</h3>
-                        <div class="desc">Learn alongside accomplished senior professionals from diverse industries,
-                            bringing real-world challenges, strategic perspectives, and leadership insight into every
-                            discussion.</div>
-                    </div>
+            <div class="section-label">
+                <span>Geographic reach</span>
+            </div>
+            <h2 class="section-title">Regionally Rooted.<br /><span class="highlight">Globally Connected.</span></h2>
+            <p class="section-subtitle">
+                Rooted in the region and connected to the world, from Lebanon and the GCC
+                to Europe and Africa, our cohort forms a cross-border executive network.
+            </p>
+
+            <div class="geographic-wrapper">
+                <!-- Left: Map Image -->
+                <div class="geographic-map">
+                    <img src="images/AUB-OSB-EMBA-geographic-reach.png" alt="Geographic Reach Map" />
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Faculty Leaders" />
-                        <div class="tag">Who guide the journey</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who guide the journey</div>
-                        <h3>Faculty Leaders</h3>
-                        <div class="desc">Engage with world-class faculty and thought leaders who combine academic
-                            excellence with practical business expertise, bridging theory with real market realities.
+
+                <!-- Right: Geographic List with Bars -->
+                <div>
+                    <div class="geographic-list-wrapper">
+                        <div class="geo-item">
+                            <span class="geo-name">Lebanon</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-lebanon" style="width: 0%;" data-width="34"></div>
+                            </div>
+                            <span class="geo-percent">34%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">KSA</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-ksa" style="width: 0%;" data-width="22"></div>
+                            </div>
+                            <span class="geo-percent">22%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">Europe</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-europe" style="width: 0%;" data-width="12"></div>
+                            </div>
+                            <span class="geo-percent">12%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">UAE</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-uae" style="width: 0%;" data-width="12"></div>
+                            </div>
+                            <span class="geo-percent">12%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">Jordan</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-jordan" style="width: 0%;" data-width="8"></div>
+                            </div>
+                            <span class="geo-percent">8%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">Qatar</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-qatar" style="width: 0%;" data-width="6"></div>
+                            </div>
+                            <span class="geo-percent">6%</span>
+                        </div>
+                        <div class="geo-item">
+                            <span class="geo-name">Africa</span>
+                            <div class="geo-bar-track">
+                                <div class="geo-bar-fill geo-bar-africa" style="width: 0%;" data-width="6"></div>
+                            </div>
+                            <span class="geo-percent">6%</span>
                         </div>
                     </div>
-                </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Industry Leaders" />
-                        <div class="tag">Who challenge your thinking</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who challenge your thinking</div>
-                        <h3>Industry Leaders</h3>
-                        <div class="desc">Interact with guest speakers, executives, and sector experts who bring current
-                            market insight, emerging trends, and leadership perspectives into the room.</div>
-                    </div>
-                </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Global Leadership Immersion" />
-                        <div class="tag">How you widen your lens</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">How you widen your lens</div>
-                        <h3>Global Leadership Immersion</h3>
-                        <div class="desc">Expand your strategic perspective through direct engagement with global
-                            business environments, international faculty, and cross-market leadership insight.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    WHY CHOOSE
-    ============================================ -->
-    <section class="section-padding bg-white">
-        <div class="container">
-            <h2 class="section-title">Why Choose <span class="highlight">OSB's Executive MBA?</span></h2>
-            <p class="section-subtitle">A distinguished business school, a 160-year legacy, and a network that opens
-                doors across the region and the world.</p>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="big">AACSB</div>
-                    <div class="label">Accredited business school</div>
-                    <div class="sub">A globally recognized mark of business-school quality.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">1866</div>
-                    <div class="label">160+ years of AUB legacy</div>
-                    <div class="sub">Educating the region's leaders for over a century and a half.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Global</div>
-                    <div class="label">International reach</div>
-                    <div class="sub">An International Residency and a network spanning the region and the world.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Alumni</div>
-                    <div class="label">Lifelong community</div>
-                    <div class="sub">A powerful executive network across industries and markets.</div>
                 </div>
             </div>
         </div>
@@ -697,6 +1000,98 @@
     ============================================ -->
     <div id="footer-placeholder"></div>
     <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+
+    <!-- ============================================
+    COUNT-UP ANIMATION SCRIPT
+    ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ---------- Count-up Animation for Stats Cards ----------
+            const statNumbers = document.querySelectorAll('.stat-number');
+
+            function animateCountUp(element) {
+                const target = parseInt(element.getAttribute('data-count'));
+                const suffix = element.textContent.includes('%') ? '%' :
+                    element.textContent.includes('+') ? '+' : '';
+                const duration = 1500;
+                const startTime = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(progress * target);
+
+                    if (suffix === '%') {
+                        element.textContent = current + '%';
+                    } else if (suffix === '+') {
+                        element.textContent = current + '+';
+                    } else {
+                        element.textContent = current;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        if (suffix === '%') {
+                            element.textContent = target + '%';
+                        } else if (suffix === '+') {
+                            element.textContent = target + '+';
+                        } else {
+                            element.textContent = target;
+                        }
+                    }
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            // Intersection Observer for stats cards
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        animateCountUp(element);
+                        statsObserver.unobserve(element);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            statNumbers.forEach(el => statsObserver.observe(el));
+
+            // ---------- Bar Animation for Industry Table ----------
+            const barFills = document.querySelectorAll('.bar-fill');
+
+            const barObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width + '%';
+                        barObserver.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            barFills.forEach(el => barObserver.observe(el));
+
+            // ---------- Bar Animation for Geographic Reach ----------
+            const geoBarFills = document.querySelectorAll('.geo-bar-fill');
+
+            const geoBarObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const bar = entry.target;
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width + '%';
+                        geoBarObserver.unobserve(bar);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            geoBarFills.forEach(el => geoBarObserver.observe(el));
+        });
+    </script>
+
 </body>
 
 </html>

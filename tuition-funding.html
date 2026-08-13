@@ -4,41 +4,352 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUB Executive MBA · Beirut</title>
+    <title>AUB Executive MBA · Tuition & Funding</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,800;1,400&display=swap"
         rel="stylesheet" />
 
-    <style>
-
-    </style>
-
-    <!-- External CSS (keep as-is) -->
+    <!-- Main CSS -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    
+    <script defer src="js/menu.js"></script>
 
+    
     <style>
         /* Nav overrides */
-        .nav-osb-links .osb-nav-item>a#emba-homepage-link {
+        .nav-osb-links .osb-nav-item>a#tuition-funding-link {
             color: var(--color-primary);
         }
 
-        body.nav-scrolled .nav-osb .osb-nav-item>a#emba-homepage-link {
+        body.nav-scrolled .nav-osb .osb-nav-item>a#tuition-funding-link {
             color: white;
             text-decoration: underline;
             text-underline-offset: 6px;
         }
     </style>
+    
+    <style>
+        /* ============================================
+           PAGE-SPECIFIC STYLES — Tuition & Funding
+           ============================================ */
 
-    <script defer src="js/menu.js"></script>
+        /* ---------- TUITION COVERS SECTION ---------- */
+        .tuition-section {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .tuition-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .tuition-section {
+                padding: 120px 0;
+            }
+        }
+
+        /* Tuition Fee Bar */
+        .tuition-fee-card {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+            background: var(--color-bg);
+            padding: 22px 28px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--color-primary);
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tuition-fee-card .fee-label-top {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-ink-mid);
+        }
+
+        .tuition-fee-card .fee-amount {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .tuition-fee-card .fee-note {
+            font-size: 0.9rem;
+            color: var(--color-ink-mid);
+        }
+
+        /* What's Included List - 2 columns */
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .included-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .included-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 20px 22px;
+            background: var(--color-white);
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition);
+        }
+
+        .included-item:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .included-check {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .included-item h4 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 2px;
+        }
+
+        .included-item p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: var(--color-ink-mid);
+        }
+
+        /* Note box - matches scholarship note */
+        .tuition-note {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: var(--color-bg);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--color-primary);
+            font-size: 0.95rem;
+            color: var(--color-ink-mid);
+        }
+
+        .tuition-note strong {
+            color: var(--color-ink);
+        }
+
+        /* ---------- SCHOLARSHIPS SECTION ---------- */
+        .scholarships-section {
+            background: var(--color-bg);
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .scholarships-section {
+                padding: 100px 0;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .scholarships-section {
+                padding: 120px 0;
+            }
+        }
+
+        /* Flagship Award Card */
+        .scholarship-flagship {
+            background: var(--color-primary);
+            padding: 32px 36px;
+            border-radius: var(--radius);
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .flagship-badge {
+            display: inline-block;
+            background: var(--color-white);
+            color: var(--color-primary);
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 999px;
+            margin-bottom: 16px;
+        }
+
+        .flagship-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-secondary-light);
+            margin-bottom: 6px;
+        }
+
+        .flagship-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--color-white);
+            margin-bottom: 10px;
+        }
+
+        .flagship-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-secondary-light);
+            max-width: 640px;
+        }
+
+        /* Scholarship Grid */
+        .scholarships-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .scholarships-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .scholarships-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .scholarship-card {
+            background: var(--color-white);
+            padding: 26px 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-primary);
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scholarship-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .scholarship-card .scholarship-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-secondary);
+            margin-bottom: 6px;
+        }
+
+        .scholarship-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .scholarship-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-ink-mid);
+            flex: 1;
+        }
+
+        /* Scholarship Note */
+        .scholarship-note {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: var(--color-white);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--color-primary);
+            font-size: 0.95rem;
+            color: var(--color-ink-mid);
+        }
+
+        .scholarship-note strong {
+            color: var(--color-ink);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 767px) {
+            .tuition-fee-card {
+                padding: 18px 20px;
+            }
+
+            .tuition-fee-card .fee-amount {
+                font-size: 1rem;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .included-item {
+                padding: 16px 18px;
+            }
+
+            .scholarship-flagship {
+                padding: 26px 22px;
+            }
+
+            .flagship-title {
+                font-size: 1.2rem;
+            }
+
+            .scholarships-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scholarship-card {
+                padding: 22px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tuition-note {
+                padding-left: 16px;
+                font-size: 0.85rem;
+            }
+
+            .scholarship-note {
+                padding-left: 16px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation (preserved structure) -->
+    <!-- ============================================
+    NAVBAR
+    ============================================ -->
     <div class="nav">
         <div class="nav-utility">
             <div class="nav-utility-container">
@@ -357,274 +668,189 @@
     </div>
 
     <!-- ============================================
-    HERO
+    INNER PAGE HERO — Tuition & Funding
     ============================================ -->
-    <section class="hero">
+    <section class="inner-p-hero">
         <div class="hero-bg">
             <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&h=1080&fit=crop&auto=format&q=85"
                 alt="AUB Campus" />
         </div>
-        <div class="hero-grid"></div>
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <div class="label"><span>Executive MBA · On campus, Beirut</span></div>
-            <h1>
-                Lead Beyond<br />
-                <span class="accent">Experience.</span><br />
-                Shape What's Next.
-            </h1>
-            <p>
-                Built for experienced professionals ready to lead at a higher strategic level, through immersive
-                residencies, a global learning experience, and a dedicated leadership journey.
-            </p>
-            <div class="hero-actions">
-                <a href="#" class="btn-primary">
-                    Explore the program →
-                </a>
-            </div>
-        </div>
-    </section>
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Tuition &amp; Funding</span>
+                </div>
 
-    <!-- ============================================
-    BRIEF — The Executive MBA, in brief.
-    ============================================ -->
-    <section class="section-padding bg-light">
-        <div class="container">
-            <div class="brief-header" style="margin-bottom:48px;">
-                <h2 class="section-title">The Executive MBA, <span class="highlight">in brief.</span></h2>
-            </div>
-            <div class="brief-grid">
-                <div class="brief-card">
-                    <div class="brief-card__label">Duration</div>
-                    <div class="brief-card__value">15 Months</div>
-                    <div class="brief-card__desc">Residency-based, delivered around every six weeks.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Format</div>
-                    <div class="brief-card__value">Blended</div>
-                    <div class="brief-card__desc">Immersive on-campus residencies at AUB Beirut.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">International Residency</div>
-                    <div class="brief-card__value">Global</div>
-                    <div class="brief-card__desc">An integrated residency at a partner business school.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Campus</div>
-                    <div class="brief-card__value">AUB, Beirut</div>
-                    <div class="brief-card__desc">The region's leading academic ecosystem.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Finish with</div>
-                    <div class="brief-card__value">Capstone Project</div>
-                    <div class="brief-card__desc">Real challenges, measurable business outcomes.</div>
-                </div>
-                <div class="brief-card">
-                    <div class="brief-card__label">Start date</div>
-                    <div class="brief-card__value">September 2026</div>
-                    <div class="brief-card__desc">Applications reviewed on a rolling basis.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    VALUE PROPOSITION
-    ============================================ -->
-    <section class="section-padding value-prop bg-light">
-        <div class="container">
-            <div class="value-text">
-                <div class="title-underline"></div>
-                <h3>Leadership capital that extends far beyond graduation.</h3>
-                <p>
-                    The OSB Executive MBA at the American University of Beirut is designed for experienced professionals
-                    ready to lead at a higher strategic level. Through immersive residencies, a global learning
-                    experience, and a dedicated leadership development journey, participants strengthen their ability to
-                    navigate complexity, drive transformation, and create measurable business impact.
+                <h1>
+                    A Long-Term Investment.<br />
+                    <span class="highlight">A Fully Integrated Experience.</span>
+                </h1>
+                <p class="hero-sub">
+                    Your tuition covers world-class executive education, and the experiences
+                    and resources that support your leadership development.
                 </p>
-                <p style="margin-top: 1.2rem;">
-                    Beyond the academic experience, participants gain access to a powerful executive ecosystem of peers,
-                    faculty, industry leaders, and the wider AUB alumni network, building strategic relationships and
-                    leadership capital that extend far beyond graduation.
-                </p>
-                <a href="#" class="value-link">Explore the program →</a>
-            </div>
-
-            <div class="stats-card">
-                <div class="card-label">Program at a glance</div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="num">#1</div>
-                        <div class="label">Ranked in the MENA region</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Full-time or part-time study paths</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">2</div>
-                        <div class="label">Fall &amp; Spring intake periods</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="num">100%</div>
-                        <div class="label">In-person, on campus in Beirut</div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PILLARS — What you gain (dark background)
+    WHAT TUITION COVERS
     ============================================ -->
-    <section class="section-padding bg-dark"
-        style="background-image:linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,45,102,0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg); background-size:cover; background-position:center;">
+    <section class="tuition-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. Built in Beirut. <span class="highlight">Connected
-                    Globally.</span></h2>
-            <p class="section-subtitle light">Six pillars define the experience, and what it means for your leadership.
+            <div class="section-label">
+                <span>What tuition covers</span>
+            </div>
+            <h2 class="section-title">Included in <span class="highlight">your investment.</span></h2>
+            <p class="section-subtitle">
+                The Executive MBA is designed as a complete experience. Your tuition covers each of the following.
             </p>
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="num">01</div>
-                    <h3>Leadership Development</h3>
-                    <p>A dedicated journey to strengthen executive presence, self-awareness, communication, and
-                        strategic influence.</p>
+
+            <!-- Fee Bar -->
+            <div class="tuition-fee-card">
+                <span class="fee-label-top">Total tuition fee</span>
+                <span class="fee-amount">US$59,950</span>
+                <span class="fee-note">Flexible payment plans available</span>
+            </div>
+
+            <!-- Included Items (2 columns) -->
+            <div class="included-grid">
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>Full curriculum access</h4>
+                        <p>Every course, session, and learning resource across the 15-month program.</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <div class="num">02</div>
-                    <h3>Strategic Business Learning</h3>
-                    <p>An integrated business perspective across strategy, finance, operations, marketing, and
-                        leadership, enabling stronger decisions and immediate workplace application.</p>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>Eight on-campus residencies</h4>
+                        <p>Immersive, in-person learning blocks at AUB Beirut.</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <div class="num">03</div>
-                    <h3>Applied Business Impact</h3>
-                    <p>Translate learning into actionable insight through real business challenges, case-based
-                        discussions, and practical frameworks you can apply directly.</p>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>Meals during residencies</h4>
+                        <p>Catering throughout each on-campus residency.</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <div class="num">04</div>
-                    <h3>Executive Network</h3>
-                    <p>Build strategic relationships with accomplished peers, faculty, and industry leaders that extend
-                        your professional influence and leadership.</p>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>Executive networking dinners</h4>
+                        <p>Curated dinners that build your peer and faculty network.</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <div class="num">05</div>
-                    <h3>International Residency</h3>
-                    <p>Gain global exposure through an immersive residency at a partner business school, broadening your
-                        view of international markets and leadership practice.</p>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>AUB campus ecosystem access</h4>
+                        <p>Libraries, facilities, and the wider AUB academic community.</p>
+                    </div>
                 </div>
-                <div class="pillar-card">
-                    <div class="num">06</div>
-                    <h3>AUB Ecosystem &amp; Alumni Network</h3>
-                    <p>Access AUB's academic ecosystem and lifelong alumni community, extending the value of your
-                        Executive MBA well beyond graduation.</p>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>AUB alumni status</h4>
+                        <p>Lifelong membership in the AUB alumni network.</p>
+                    </div>
                 </div>
+                <div class="included-item">
+                    <span class="included-check">&#10003;</span>
+                    <div>
+                        <h4>International Residency</h4>
+                        <p>Travel, accommodation, and transportation for the global residency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note - same style as scholarship note -->
+            <div class="tuition-note">
+                <strong>International Residency costs</strong> exclude visa-related expenses.
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    PEOPLE — Shaped by Leaders
+    FUNDING & SCHOLARSHIPS
     ============================================ -->
-    <section class="section-padding bg-light">
+    <section class="scholarships-section">
         <div class="container">
-            <h2 class="section-title">One Executive MBA. <span class="highlight">Shaped by Leaders.</span></h2>
-            <p class="section-subtitle">You learn with, and from, a community of accomplished leaders, peers, faculty,
-                industry voices, and a global network.</p>
-            <div class="people-grid">
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Executive Peers" />
-                        <div class="tag">Who you learn with</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who you learn with</div>
-                        <h3>Executive Peers</h3>
-                        <div class="desc">Learn alongside accomplished senior professionals from diverse industries,
-                            bringing real-world challenges, strategic perspectives, and leadership insight into every
-                            discussion.</div>
-                    </div>
+            <div class="section-label">
+                <span>Funding &amp; scholarships</span>
+            </div>
+            <h2 class="section-title">Support for <span class="highlight">your investment.</span></h2>
+            <p class="section-subtitle">
+                OSB offers a portfolio of named, strategic scholarships, recognizing leadership,
+                impact, and potential across a range of executive profiles.
+            </p>
+
+            <!-- Flagship Award -->
+            <div class="scholarship-flagship">
+                <span class="flagship-badge">Flagship award</span>
+                <div class="flagship-eyebrow">Executive Leadership &amp; Merit</div>
+                <h3 class="flagship-title">Dean's Leadership Scholarship</h3>
+                <p class="flagship-desc">For senior executives demonstrating exceptional leadership, organizational
+                    impact, and strategic vision across all industries.</p>
+            </div>
+
+            <div class="scholarships-grid">
+                <!-- 1. Women in Leadership -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Women in Leadership</div>
+                    <h3>Women in Leadership Scholarship</h3>
+                    <p>Women executives with strong leadership potential and a commitment to advancing women in business
+                        and society.</p>
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Faculty Leaders" />
-                        <div class="tag">Who guide the journey</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who guide the journey</div>
-                        <h3>Faculty Leaders</h3>
-                        <div class="desc">Engage with world-class faculty and thought leaders who combine academic
-                            excellence with practical business expertise, bridging theory with real market realities.
-                        </div>
-                    </div>
+
+                <!-- 2. Entrepreneurship & Family Business -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Entrepreneurship &amp; Family Business</div>
+                    <h3>Entrepreneurship &amp; Family Enterprise Scholarship</h3>
+                    <p>Founders, entrepreneurs, SME owners, family-business successors, innovation leaders, and business
+                        owners driving growth and transformation.</p>
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Industry Leaders" />
-                        <div class="tag">Who challenge your thinking</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">Who challenge your thinking</div>
-                        <h3>Industry Leaders</h3>
-                        <div class="desc">Interact with guest speakers, executives, and sector experts who bring current
-                            market insight, emerging trends, and leadership perspectives into the room.</div>
-                    </div>
+
+                <!-- 3. Public Sector Leadership -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Public Sector Leadership</div>
+                    <h3>Public Sector &amp; Government Leadership Scholarship</h3>
+                    <p>Leaders from government ministries, municipalities, regulatory authorities, public institutions,
+                        healthcare, education, and international organizations.</p>
                 </div>
-                <div class="people-card">
-                    <div class="photo">
-                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=400&fit=crop&auto=format&q=80"
-                            alt="Global Leadership Immersion" />
-                        <div class="tag">How you widen your lens</div>
-                    </div>
-                    <div class="info">
-                        <div class="line"></div>
-                        <div class="role">How you widen your lens</div>
-                        <h3>Global Leadership Immersion</h3>
-                        <div class="desc">Expand your strategic perspective through direct engagement with global
-                            business environments, international faculty, and cross-market leadership insight.</div>
-                    </div>
+
+                <!-- 4. Need-Based -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Need-Based</div>
+                    <h3>Executive Opportunity Scholarship</h3>
+                    <p>Outstanding self-funded executives with strong leadership potential and professional achievement
+                        who would benefit from financial assistance.</p>
+                </div>
+
+                <!-- 5. Alumni Excellence -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Alumni Excellence</div>
+                    <h3>Alumni Excellence Scholarship</h3>
+                    <p>AUB alumni demonstrating the professional achievement to enroll in and enrich the program.</p>
+                </div>
+
+                <!-- 6. Corporate Partnership -->
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">Corporate Partnership</div>
+                    <h3>Corporate Partnership Scholarship</h3>
+                    <p>Employees nominated or sponsored by a company investing in their executive development.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ============================================
-    WHY CHOOSE
-    ============================================ -->
-    <section class="section-padding bg-white">
-        <div class="container">
-            <h2 class="section-title">Why Choose <span class="highlight">OSB's Executive MBA?</span></h2>
-            <p class="section-subtitle">A distinguished business school, a 160-year legacy, and a network that opens
-                doors across the region and the world.</p>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="big">AACSB</div>
-                    <div class="label">Accredited business school</div>
-                    <div class="sub">A globally recognized mark of business-school quality.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">1866</div>
-                    <div class="label">160+ years of AUB legacy</div>
-                    <div class="sub">Educating the region's leaders for over a century and a half.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Global</div>
-                    <div class="label">International reach</div>
-                    <div class="sub">An International Residency and a network spanning the region and the world.</div>
-                </div>
-                <div class="why-item">
-                    <div class="big">Alumni</div>
-                    <div class="label">Lifelong community</div>
-                    <div class="sub">A powerful executive network across industries and markets.</div>
-                </div>
+            <div class="scholarship-note">
+                <strong>Scholarships are awarded on the basis of eligibility criteria and program policies.</strong>
+                Early applicants receive maximum consideration.
             </div>
         </div>
     </section>
@@ -697,6 +923,7 @@
     ============================================ -->
     <div id="footer-placeholder"></div>
     <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+
 </body>
 
 </html>

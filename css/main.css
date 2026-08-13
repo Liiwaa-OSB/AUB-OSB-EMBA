@@ -455,7 +455,7 @@ ul {
 }
 
 .people-card .photo {
-  height: 200px;
+  height: 330px;
   background: #ccc;
   overflow: hidden;
   position: relative;
@@ -808,20 +808,12 @@ ul {
   margin-bottom: 24px;
 }
 
-.hero-content .label::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 2px;
-  background: var(--color-primary);
-}
-
 .hero-content .label span {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .hero-content h1 {
@@ -945,13 +937,13 @@ ul {
 }
 
 .breadcrumb a {
-  color: var(--color-primary);
-  font-weight: 500;
+  color: var(--color-white);
+  font-weight: 800;
   transition: color var(--transition);
 }
 
 .breadcrumb a:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-secondary-light);
 }
 
 .breadcrumb span {

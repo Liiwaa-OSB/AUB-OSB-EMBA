@@ -38,6 +38,7 @@ body {
   background: var(--color-bg);
   line-height: 1.6;
   color: var(--color-ink);
+  text-wrap: pretty;
 }
 
 img {
@@ -57,7 +58,7 @@ ul {
 
 /* ---------- UTILITY: CONTAINER ---------- */
 .container {
-  width: min(100% - 2rem, var(--container-max-width));
+  width: min(100% - 1rem, var(--container-max-width));
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -244,21 +245,10 @@ ul {
 
 /* ---------- COMPONENT: BRIEF CARD ---------- */
 .brief-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
-}
-
-@media (min-width: 640px) {
-  .brief-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .brief-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .brief-card {
@@ -269,6 +259,10 @@ ul {
   border: 1px solid var(--color-border);
   transition: all var(--transition);
   text-align: center;
+  flex: 0 1 calc(33.333% - 1.25rem);
+  /* 3 cards per row */
+  min-width: 200px;
+  max-width: 380px;
 }
 
 .brief-card:hover {
@@ -300,14 +294,28 @@ ul {
   color: var(--color-ink);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .brief-grid {
-    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .brief-card {
+    flex: 0 1 calc(50% - 0.75rem);
+    padding: 20px 12px 18px;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .brief-grid {
     gap: 0.75rem;
   }
 
   .brief-card {
+    flex: 0 1 100%;
     padding: 20px 12px 18px;
+    min-width: auto;
   }
 
   .brief-card__value {
@@ -510,13 +518,6 @@ ul {
   font-weight: 800;
   margin-bottom: 4px;
   color: var(--color-ink);
-}
-
-.people-card .info .role {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin-bottom: 10px;
 }
 
 .people-card .info .desc {
@@ -821,7 +822,7 @@ ul {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  font-size: clamp(2.2rem, 10vw, 3.2rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -835,9 +836,8 @@ ul {
 
 .hero-content p {
   font-size: 18px;
-  line-height: 1.8;
   color: white;
-  max-width: 520px;
+  max-width: 700px;
   margin: 24px 0 36px;
 }
 
@@ -947,7 +947,7 @@ ul {
 /* ---------- HERO SECTION (with background image) ---------- */
 .inner-p-hero {
   position: relative;
-  height:  calc(100vh - 300px);
+  height: calc(100vh - 300px);
   min-height: calc(100vh - 300px);
   display: flex;
   align-items: center;

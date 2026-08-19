@@ -821,7 +821,7 @@ ul {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.2rem, 10vw, 3.5rem);
+  font-size: clamp(2.8rem, 10vw, 4rem);
   font-weight: 800;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -991,7 +991,7 @@ ul {
 }
 
 .inner-p-hero .hero-content h1 {
-  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -1056,7 +1056,7 @@ ul {
   }
 
   .inner-p-hero .hero-content h1 {
-    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-size: clamp(2rem, 10vw, 2.8rem);
   }
 
   .inner-p-hero .hero-content .hero-sub {
@@ -1119,7 +1119,6 @@ ul {
   justify-content: center;
 }
 
-
 /* SVG Icons */
 .icon {
   width: 22px;
@@ -1161,8 +1160,8 @@ ul {
 
 /* Button Colors – Default **/
 .floating-btn.download {
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
   color: #fff;
 }
 
@@ -1187,14 +1186,54 @@ ul {
 
 /* Mobile: hide desktop-only element */
 @media (max-width: 1045px) {
-  .hide-on-mobile {
-    display: none !important;
-  }
+    .hide-on-mobile {
+        display: none !important;
+    }
 }
 
 /* Desktop: hide mobile-only element */
 @media (min-width: 1044px) {
-  .hide-on-desktop {
-    display: none !important;
+    .hide-on-desktop {
+        display: none !important;
+    }
+}
+
+.box-shadow {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/*******************************
+* Mobile Layout – Bottom Fixed
+*******************************/
+@media (max-width: 768px) {
+  .floating-buttons {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transform: none;
+
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .floating-btn {
+    width: 33.33%;
+    height: 60px;
+    border-radius: 0;
+    justify-content: center;
+  }
+
+  .floating-btn .text {
+    opacity: 1;
+    margin-left: 10px;
+  }
+
+  .floating-buttons:hover .floating-btn {
+    width: 33.33%;
   }
 }
+
+/*****************
+* Floating Buttons Styling - END
+*****************/

@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AUB Executive MBA · Faculty Profile</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/menu.css" rel="stylesheet" />
+
+    <script defer src="../js/menu.js"></script>
+
+    <style>
+        /* Nav overrides */
+        .nav-osb-links .osb-nav-item>a#class-profile-network-link {
+            color: var(--color-primary);
+        }
+
+        body.nav-scrolled .nav-osb .osb-nav-item>a#class-profile-network-link {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        .profile-breadcrumb {
+            position: relative;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(90deg, var(--color-primary-dark), var(--color-ink));
+        }
+
+        /* ============================================
+           PROFILE PAGE STYLES
+           ============================================ */
+        .profile-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 48px;
+            padding: 60px 0 80px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-wrapper {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 40px 0 60px;
+            }
+        }
+
+        /* ---- Sidebar ---- */
+        .profile-sidebar {
+            text-align: center;
+        }
+
+        .profile-sidebar .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            background: var(--color-bg-alt);
+            border: 4px solid var(--color-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .profile-sidebar .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-sidebar .photo .initials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 4rem;
+            font-weight: 800;
+        }
+
+        .profile-sidebar .name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--color-ink);
+            margin-bottom: 4px;
+        }
+
+        .profile-sidebar .role {
+            font-size: 0.95rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .profile-sidebar .back-link {
+            display: inline-block;
+            padding: 10px 28px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transition);
+        }
+
+        .profile-sidebar .back-link:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(132, 1, 50, 0.25);
+        }
+
+        @media (max-width: 480px) {
+            .profile-sidebar .photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-sidebar .name {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ---- Content ---- */
+        .profile-content h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-border);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .profile-content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .profile-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-ink-mid);
+            margin-bottom: 16px;
+        }
+
+        .profile-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px;
+        }
+
+        .profile-content ul li {
+            padding: 10px 0 10px 24px;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-ink-mid);
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .profile-content ul li::before {
+            content: "•";
+            color: var(--color-primary);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .profile-content ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* ---- Not Found ---- */
+        .not-found {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .not-found h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .not-found p {
+            color: var(--color-ink-mid);
+            margin-bottom: 24px;
+        }
+
+        .not-found .back-link {
+            display: inline-block;
+            padding: 10px 28px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transition);
+        }
+
+        .not-found .back-link:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ---- Responsive adjustments ---- */
+        @media (max-width: 768px) {
+            .profile-content h2 {
+                font-size: 1rem;
+            }
+
+            .profile-content p {
+                font-size: 0.95rem;
+            }
+
+            .profile-content ul li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+    NAVBAR (same as program.html)
+    ============================================ -->
+    <div class="nav">
+        <div class="nav-utility">
+            <div class="nav-utility-container">
+                <a href="/Pages/AZ.aspx" class="nav-utility-link">A - Z</a><span class="nav-utility-separator">|</span>
+                <a href="/Search/Pages/People.aspx" class="nav-utility-link">Find People</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://aubmc.org.lb/" class="nav-utility-link" target="_blank">AUBMC</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="/libraries" class="nav-utility-link">Libraries</a><span class="nav-utility-separator">|</span>
+                <a href="/Employment" class="nav-utility-link">Jobs</a><span class="nav-utility-separator">|</span>
+                <a href="http://alumni.aub.edu.lb/s/1716/start.aspx?gid=2&pgid=61" class="nav-utility-link"
+                    target="_blank">Alumni</a><span class="nav-utility-separator">|</span>
+                <a href="https://online.aub.edu.lb" class="nav-utility-link" target="_blank">AUB Online</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://www.aubmed.ac.cy/" class="nav-utility-link" target="_blank">AUB – Mediterraneo</a><span
+                    class="nav-utility-separator">|</span>
+                <a href="https://myaubhealth.aubmc.org.lb/mychartprd/Authentication/Login" class="nav-utility-link"
+                    target="_blank">Telehealth</a><span class="nav-utility-separator">|</span>
+                <a href="/advancement/Development/Pages/HowToMakeAGift.aspx" class="nav-utility-link">Give</a>
+            </div>
+        </div>
+        <div class="nav-main-header" id="mainHeader">
+            <div class="nav-main-container">
+                <div class="nav-logo"><a href="https://www.aub.edu.lb/osb/Pages/default.aspx"><img
+                            src="../images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB OSB Logo" /></a></div>
+                <div class="nav-desktop">
+                    <!-- About AUB -->
+                    <div class="nav-item"><button>About AUB<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>About AUB</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/AboutUs/Pages/default.aspx">Overview</a></li>
+                                        <li><a href="/aboutus/Pages/history.aspx">History</a></li>
+                                        <li><a href="/aboutus/Pages/mission.aspx">Mission and Vision</a></li>
+                                        <li><a href="/aboutus/Pages/facts.aspx">Facts and Figures</a></li>
+                                        <li><a href="/President/oeo-titleix">Title IX</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/AboutUs/Pages/leadership.aspx">AUB Leadership</a></li>
+                                        <li><a href="/president">Office of the President</a></li>
+                                        <li><a href="/nyo">New York Office</a></li>
+                                        <li><a href="/maingate">The MainGate Magazine</a></li>
+                                        <li><a href="/advancement">Office of Advancement</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/aboutus/Pages/campus.aspx">Campus</a></li>
+                                        <li><a href="/aboutus/Pages/beirut-lb.aspx">About Beirut and Lebanon</a></li>
+                                        <li><a href="/accreditation">Accreditation</a></li>
+                                        <li><a href="https://150.aub.edu.lb/" target="_blank">AUB 150</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Academics -->
+                    <div class="nav-item"><button>Academics<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>ACADEMICS</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/academics/Pages/faculties.aspx">Faculties</a></li>
+                                        <li><a href="/Pages/AZ.aspx">Departments and Centers</a></li>
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
+                                        <li><a href="https://www-banner.aub.edu.lb/pls/weba/bwckctlg.p_disp_dyn_ctlg"
+                                                target="_blank">Search
+                                                for a Course</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/theinstitute">Institute for Academic Innovation and
+                                                Development</a></li>
+                                        <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                        <li><a href="/generaleducation">General Education Program</a></li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/provost">Office of the Provost</a></li>
+                                        <li><a href="/registrar">Office of the Registrar</a></li>
+                                        <li><a href="/libraries">Libraries</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Admissions -->
+                    <div class="nav-item"><button>Admissions<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>ADMISSIONS</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/admissions">Admissions</a></li>
+                                        <li><a href="/faid">Financial Aid</a></li>
+                                        <li><a href="http://www.aub.edu.lb/admissions/Pages/TC/index.html"
+                                                target="_blank">Tuition and Fees
+                                                Calculator</a></li>
+                                        <li><a href="https://www.aub.edu.lb/admissions/applications/Pages/SpecialVisiting.aspx"
+                                                target="_blank">Visiting Student</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/faid/Pages/Scholarships.aspx">Scholarships</a></li>
+                                        <li><a href="/lead">LEAD scholarship opportunities</a></li>
+                                        <li><a href="/sao">Office of Student Affairs</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/academics/pages/majors_programs.aspx">Majors and Programs</a></li>
+                                        <li><a href="/graduatecouncil">Graduate Council</a></li>
+                                        <li><a href="/oip">Office of International Programs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Research -->
+                    <div class="nav-item"><button>Research<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Research</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/research">Office of Research</a></li>
+                                        <li><a href="/Pages/ResearchbyFaculty.aspx">Research by Faculty/School</a></li>
+                                        <li><a href="/Pages/ResearchCenters.aspx">Interfaculty Research Centers</a></li>
+                                        <li><a href="/urb">University Research Board</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/Pages/ResearchSupport.aspx">Research Funding</a></li>
+                                        <li><a href="/urb/Pages/Researchintegrity.aspx">Research Integrity</a></li>
+                                        <li><a href="/irb">Human Research Protection Program / Institutional Review
+                                                Board</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/MRVP">Medical Research Volunteer Program</a></li>
+                                        <li><a href="/provost/urvp">Undergraduate Research Volunteer Program</a></li>
+                                        <li><a href="/articles/Pages/research.aspx">Research News</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Outreach -->
+                    <div class="nav-item"><button>Outreach<svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Outreach</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/CCE">Community Engagement</a></li>
+                                        <li><a href="/Neighborhood">Neighborhood Initiative</a></li>
+                                        <li><a href="/natureconservation">Nature Conservation</a></li>
+                                        <li><a href="/seniors">University for Seniors</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="/ifi">Issam Fares Institute</a></li>
+                                        <li><a href="https://sites.aub.edu.lb/ipark/" target="_blank">iPark</a></li>
+                                        <li><a href="/k2p">Knowledge to Policy Center</a></li>
+                                        <li><a href="/masri_institute">The Munib and Angela Masri Institute of Energy
+                                                and Natural
+                                                Resources</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="https://www.aub.edu.lb/hub/Pages/default.aspx" target="_blank">AI
+                                                Hub</a></li>
+                                        <li><a href="/fafs/esdu">Environment and Sustainable Development</a></li>
+                                        <li><a href="https://ghi.aub.edu.lb/" target="_blank">Global Health
+                                                Institute</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Boldly Campaign -->
+                    <div class="nav-item"><button>Boldly Campaign<svg width="12" height="12" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg></button>
+                        <div class="nav-mega">
+                            <h4>Boldly Campaign</h4>
+                            <div class="nav-mega-grid">
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/" target="_blank">Campaign Overview</a>
+                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/impact-stories/" target="_blank">Impact
+                                                Stories</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/campaign-objectives/"
+                                                target="_blank">Campaign Objectives</a>
+                                        </li>
+                                        <li><a href="http://boldly.aub.edu.lb/ways-to-support/" target="_blank">Ways to
+                                                Support</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-mega-column">
+                                    <ul class="nav-mega-links">
+                                        <li><a href="http://boldly.aub.edu.lb/#funding-v2" target="_blank">Campaign
+                                                Progress</a></li>
+                                        <li><a href="https://secureca.imodules.com/s/1716/interior.aspx?sid=1716&gid=2&pgid=618&cid=2462"
+                                                target="_blank">Join the Campaign</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-mobile-btn" id="burgerBtn" aria-label="Menu"><svg width="28" height="28"
+                        viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg></button>
+            </div>
+
+        </div>
+        <div class="nav-osb" id="embaOsbRow">
+            <div class="nav-osb-container">
+                <div class="nav-osb-logo"><a href="/"><img src="../images/logos/AUB+OSB-Merged-Logo-white.png"
+                            alt="AUB OSB Logo" /></a>
+                </div>
+                <div class="nav-osb-links">
+                    <ul class="osb-nav mba-nav">
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="https://www.aub.edu.lb/osb" id="about-osb-link">About OSB</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="index.html" id="emba-homepage-link">Executive MBA</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="program.html" id="the-program-link">The Program</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="career-impact.html" id="career-impact-link">Career Impact</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="class-profile-network.html" id="class-profile-network-link">Class Profile &amp;
+                                Network</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="admissions.html" id="admissions-link">Admissions</a>
+                        </li>
+
+                        <li class="osb-nav-item mba-nav-item">
+                            <a href="tuition-funding.html" id="tuition-funding-link">Tuition &amp; Funding</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-mobile-overlay" id="mobileOverlay">
+        <div class="mobile-overlay-header">
+            <div class="mobile-logo"><img src="../images/logos/AUB+OSB-Merged-Logo-white.png" alt="AUB" /></div><button
+                class="mobile-close-btn" id="closeOverlayBtn"><svg width="28" height="28" viewBox="0 0 24 24"
+                    fill="none" stroke="white" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></button>
+        </div>
+        <div class="mobile-menu-sections">
+            <div class="mobile-section">
+                <div class="mobile-section-title">Quick Links</div>
+                <div class="mobile-utility-grid" id="mobileUtilityGrid"></div>
+            </div>
+            <div class="mobile-section">
+                <div class="mobile-section-title">Main Navigation</div>
+                <div id="mobileMainNav"></div>
+            </div>
+            <div class="mobile-section">
+                <div class="mobile-section-title">OSB School - MBA</div>
+                <div id="mobileOsbNav"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    Breadcrumb SECTION
+    ============================================ -->
+    <section class="profile-breadcrumb">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="./index.html">Home</a>
+                <span>/</span>
+                <a href="class-profile-network.html">Class Profile &amp; Network</a>
+                <span>/</span>
+                <span id="breadcrumbName">Faculty Profile</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================
+    PROFILE CONTENT
+    ============================================ -->
+    <section class="inner-p-intro">
+        <div class="container">
+            <div id="profileContainer">
+                <!-- Rendered by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CTA SECTION (same as program.html)
+    ============================================ -->
+    <section class="cta-lead-section">
+        <div class="cta-lead-container">
+            <h2 class="cta-lead-title">Lead at your next level.</h2>
+            <p class="cta-lead-text">Speak with our team, request the brochure, or begin your Executive MBA application
+                at AUB OSB.</p>
+            <div class="cta-lead-button-wrapper"
+                style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+                <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" class="cta-lead-button"
+                    style="background:var(--color-primary) !important; color:white !important;">Start your
+                    application</a>
+                <a href="https://bookings.cloud.microsoft/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true"
+                    class="cta-lead-button"
+                    style="background:transparent !important; color:white !important; border-color:white;">Request
+                    information</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FLOATING BUTTONS (same as program.html)
+    ============================================ -->
+    <div class="floating-buttons">
+        <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" target="_blank"
+            class="floating-btn box-shadow download">
+            <span class="icon">
+                <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                        d="M7 5.222V0h2v5.193l1.107-1.107L11.52 5.5 7.986 9.036 4.45 5.5l1.414-1.414L7 5.222zM16 11v5H0v-5h2v3h12v-3h2z">
+                    </path>
+                </svg>
+            </span>
+            <span class="text hide-on-mobile">Download Brochure</span>
+            <span class="text hide-on-desktop">View Brochure</span>
+        </a>
+        <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=apply" target="_blank"
+            class="floating-btn box-shadow apply">
+            <span class="icon">
+                <svg class="icon" viewBox="0 -0.5 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path
+                        d="M384,209.210475 L384,219 L363,219 L363,199.42095 L373.5,199.42095 L373.5,201.378855 L365.1,201.378855 L365.1,217.042095 L381.9,217.042095 L381.9,209.210475 L384,209.210475 Z 
+                 M370.35,209.51395 L378.7731,201.64513 L380.4048,203.643172 L371.88195,212.147332 L370.35,212.147332 L370.35,209.51395 Z 
+                 M368.25,214.105237 L372.7818,214.105237 L383.18415,203.64513 L378.8298,199 L368.25,208.687714 L368.25,214.105237 Z"
+                        transform="translate(-363 -199)"></path>
+                </svg>
+            </span>
+            <span class="text">Apply Here</span>
+        </a>
+        <a href="https://outlook.office365.com/book/JadKhiami@mail.aub.edu/?ismsaljsauthenabled=true" target="_blank"
+            class="floating-btn box-shadow contact">
+            <span class="icon">
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <g fill="none" stroke="currentColor" stroke-width="2.8" stroke-linejoin="miter"
+                        stroke-linecap="butt">
+                        <rect x="1" y="4" width="22" height="16"></rect>
+                        <polyline points="1 4 12 13 23 4"></polyline>
+                    </g>
+                </svg>
+            </span>
+            <span class="text">Get in Touch</span>
+        </a>
+    </div>
+
+    <!-- ============================================
+    FOOTER (same as program.html)
+    ============================================ -->
+    <div id="footer-placeholder"></div>
+    <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+
+    <!-- ============================================
+    PROFILE JAVASCRIPT
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. ALL FACULTY DATA
+        // ============================================
+        const facultyData = [
+            {
+                id: "yusuf-sidani",
+                name: "Yusuf Sidani",
+                role: "Dean and Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dean-Dr-Yousef-Sidani.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – University of Mississippi",
+                    "Master Of Business Administration (MBA) – Indiana University"
+                ],
+                overview: [
+                    "Dr. Yusuf Sidani serves as Dean of the Suliman S. Olayan School of Business (OSB) and Professor of Leadership and Business Ethics at the American University of Beirut (AUB). He is a distinguished academic and practitioner in the fields of management, leadership, and organizational behavior.",
+                    "Dr. Sidani holds advanced degrees in management and has built a robust scholarly profile through extensive research and publication in the areas of leadership, ethics, corporate social responsibility, and management. His research has appeared in leading academic journals and has contributed to advancing the understanding of responsible leadership and organizational effectiveness, particularly in the Middle East and emerging economies.",
+                    "In addition to his academic contribution, Dr. Sidani brings extensive practical and executive education experience. He has designed and delivered executive education programs for senior professionals across diverse industries, including healthcare, public sector institutions, and multinational organizations. His work focuses on leadership development, decision-making, change management, and executive effectiveness, helping leaders navigate complex organizational challenges.",
+                    "Dr. Sidani has also been actively involved in consultancy and advisory engagements, working closely with organizations to enhance leadership capacity, strengthen governance practices, and support strategic transformation initiatives. His ability to bridge theory and practice has made him a sought-after facilitator and advisor in executive education settings.",
+                    "Throughout his career, Dr. Sidani has demonstrated a strong commitment to developing responsible leaders who can create sustainable impact in their organizations and communities. His work reflects a deep understanding of the regional and global business environment, combined with a practical orientation toward real-world application."
+                ]
+            },
+            {
+                id: "ibrahim-jamali",
+                name: "Ibrahim Jamali",
+                role: "Associate Professor and Director of the Executive MBA",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Ibrahim-Jamali.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Concordia University",
+                    "Master of Arts (MA) – Concordia University"
+                ],
+                overview: [
+                    "Dr. Jamali's research lies primarily in the areas of futures markets, international finance, and predictability in asset markets. His research has been published in leading academic journals and featured in the Wall Street Journal and on Risk.net (centralbanking.com).",
+                    "Dr. Jamali's policy research has also been featured in international, regional and local press (CNN, Washington Post, Wall Street Journal, US News, among others) and published in the World Bank's economic monitors, the International Monetary Fund's country reports, the Federal Reserve of Atlanta's notes from the vault as well as in local policy research outlets.",
+                    "He previously worked as an economist at the World Bank where his duties consisted of monitoring and conducting analytical work on the Lebanese economy."
+                ]
+            },
+            {
+                id: "henry-azzam",
+                name: "Henry Azzam",
+                role: "Senior Lecturer and Director of the AUB Academic and Executive Hub in Dubai",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Henry-Azzam.jpg",
+                education: [
+                    "Ph.D. in Financial Economics – University of Southern California",
+                    "M.A. – American University of Beirut"
+                ],
+                overview: [
+                    "Dr. Azzam is the Director of the newly established AUB Academic and Executive Hub in Dubai. He joined AUB in 2014 and served as Director of the Master's in Finance program of the Olayan Business School for ten years.",
+                    "Prior to joining AUB, he held senior leadership positions in the UAE including Chief Executive Officer of Deutsche Bank for the MENA Region (DIFC), Chairman of Dubai International Financial Exchange (now Bourse Dubai), and Chairman of Rasmala Investment Bank, DIFC.",
+                    "Dr. Azzam held the position of AGM and Chief Economist of Saudi National Bank, Vice President of Gulf International Bank, Bahrain and Senior Analyst at the Arab fund in Kuwait. He was a Co-founder of Middle East Capital Group in Beirut and Founder/CEO of Amwal invest.",
+                    "Dr Azzam was a board member of several institutions including Emirates Investment Bank, Aramex, Majid Al Futaim Trust, Arabtec, Royal Jordanian Airlines, Arab Jordan Investment Bank, and Byblos Bank. He also served on the International Advisory Board of the Saudi Stock Exchange (Tadawul).",
+                    "He holds a PhD in Financial Economics from the University of Southern California and BA and MA from the American University of Beirut. Served on the Boards of Aramex, Emirates Investment Bank, Majid Al Futaim Trust."
+                ]
+            },
+            {
+                id: "victor-araman",
+                name: "Victor Araman",
+                role: "Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Victor-Araman.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Stanford University",
+                    "Master of Science (MS) – Stanford University",
+                    "Master of Science (MS) – Ecole Centrale"
+                ],
+                overview: [
+                    "Victor Araman's research interest is on stochastic modeling of contemporary issues in the broad world of operations, ranging from experimentation and learning, to pricing analytics, matching and double-sided platforms. His previous work on Media Revenue Management was awarded the 2012 M&SOM Best Paper Award. Professor Araman has published in leading academic journals such as Management Science, Operations Research, and Manufacturing, Services and Operations Management, and he currently serves on the editorial board of some of these journals. He teaches a broad range of courses in the full-time MBA, Executive MBA and undergraduate programs. He received the AUB Teaching Excellence Award in 2014.",
+                    "Professor Araman has intensive professional experience. He previously worked with Altera Corporation in San Jose, California and McKinsey & Company in Paris. He has advised leading organizations but also start-ups in the MENA region and Europe, developing for them pricing algorithms and re-engineering some of their strategic processes."
+                ]
+            },
+            {
+                id: "bijan-azad",
+                name: "Bijan Azad",
+                role: "Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Bijan-Azad.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Massachusetts Institute of Technology",
+                    "Master of Science (MS) – Massachusetts Institute of Technology"
+                ],
+                overview: [
+                    "Bijan Azad is full Professor of Innovation and Strategy at the Olayan School of Business (OSB), American University of Beirut and the Director of Samih Darwazah Center for Innovation Management and Entrepreneurship.",
+                    "Before joining AUB, Dr Azad has had 25 years of industry experience in managing innovation, digital transformation, change initiatives and strategic problem solving in the corporate world both private and public sectors.",
+                    "Dr. Azad holds Master's and Doctorate degrees from Massachusetts Institute of Technology. He teaches in OSB's Executive MBA (Masters in Business Administration), Executive Education as well as MBA and MSBA (Masters of Science in Business Analytics) programs.",
+                    "Dr. Azad also teaches Executives in the private and public sectors on many topics including: innovation management, strategy development, strategy implementation, change management, operational excellence, strategic decision making, structured problem solving, strategic mindset development as well as and startup business model validation and startup venture building.",
+                    "Dr. Azad, in 1988 was co-founder of a successful map technology startup in Cambridge, Massachusetts, GIS/Trans, which was acquired later by Google Maps.",
+                    "In 2001 he co-founded another successful map technology startup International Land Information Systems acquired by ARCADIS by 2003, in Arnhem, Netherlands."
+                ]
+            },
+            {
+                id: "assem-safieddine",
+                name: "Assem Safieddine",
+                role: "Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Assem-Safieddine.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Boston College",
+                    "Master Of Business Administration (MBA) – University of California, Riverside"
+                ],
+                overview: [
+                    "Dr. Assem Safieddine is a leading financial expert in the region. He has been a professor of finance for almost 25 years at the Olayan School of Business at the American University of Beirut. He chaired the Corporate Governance Program, served as the associate dean for faculty affairs and academic programs and as an associate dean for graduate programs for years. He is the founding president of the Lebanese CFA Society and the founding president of the Lebanese Risk Management Society.",
+                    "He served as a member of the CFA Institute speaker retainer program and has been invited to speak on Corporate Governance, corporate restructuring, capital acquisition and other financial topics at investment firms worldwide. He has worked with several multinational and regional companies including Al Badie Group, Abu Dhabi Chamber of Commerce, Sorouh, Al Qudra, Union of Investment Companies in Kuwait, Banking Control Commission in Lebanon, Aramco, Qatar investment Authority, Saudi Ministry of Trade among many others. He has been engaged in restructuring the governance frameworks at some of the largest regional companies and was instrumental in guiding and advising companies on major investment and financing decisions. He served on the governance committee of Al Hilal Bank for more than six years and wrote the governance code for the Lebanese banking sector.",
+                    "Dr. Safieddine holds a Ph.D. in finance from Boston College. He held faculty positions at Michigan State University and as visiting faculty at Harvard University Summer School. His research has been cited more than 4600 times, amongst the top finance professors in the middle east, published in esteemed finance journals such as the Journal of Finance, Journal of Financial Economics, Journal of Financial and Quantitative Analysis, to list a few. He ranks among the top ten in the world in Securities Regulation, Equity Issuance, Mergers and Acquisition and in the top 20 in Private Equity according to Google Scholar. His research focuses on risk management, corporate restructuring, capital acquisition, mergers and acquisition, and corporate governance. His research has been profiled in Business Week, Harvard Business Review, CFA Digest and the National Bureau of Economic Research along with others. He has authored many case studies covering the governance practices of leading firms in the Middle East, several articles in Harvard Business Review Arabia and co-authored the corporate governance reading of the Chartered Financial Analyst (CFA), Level I curriculum."
+                ]
+            },
+            {
+                id: "krzysztof-fleszar",
+                name: "Krzysztof Fleszar",
+                role: "Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Krzysztof-Fleszar.jpg",
+                education: [
+                    "Ph.D. and D.Sc. – Warsaw University of Technology"
+                ],
+                overview: [
+                    "Dr. Krzysztof Fleszar currently serves as Professor of Management Science and Chair of the Business Information & Decision Systems Track at the Olayan School of Business. He brings extensive academic expertise and research experience in the fields of management science, operations, and supply chain management.",
+                    "Dr. Fleszar teaches Management Science, Operations Management, and Supply Chain Management across undergraduate, graduate, and executive education programs. His teaching approach combines analytical rigor with practical business applications, supporting professionals and students in strengthening data-driven decision-making and operational effectiveness.",
+                    "Dr. Fleszar's research focuses on the development of advanced methods for discrete optimization problems arising in operations and supply chain management, as well as broader business applications. His scholarly work is about developing methods for discrete optimization problems occurring in operations and supply chain management as well as in other business applications. He holds both a PhD and a Doctor of Science (D.Sc.) from the Warsaw University of Technology."
+                ]
+            },
+            {
+                id: "lama-moussawi",
+                name: "Lama Moussawi",
+                role: "Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Lama-Moussawi.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – University of Texas at Dallas",
+                    "Master of Science (MS) – University of Texas at Dallas",
+                    "Master Of Business Administration (MBA) – University of Texas at Dallas"
+                ],
+                overview: [
+                    "Lama Moussawi is a tenured Professor of Management Science in the Suliman S. Olayan School of Business at the American University of Beirut (AUB).",
+                    "Lama earned her Ph.D. in Management Science from the University of Texas at Dallas and is currently the Associate Dean for Research and Faculty Development. She served as the director and co-founder of the Center for Inclusive Business and Leadership for Women where she led many U.S.-funded grants focusing on women's economic empowerment in the Middle East and North Africa (MENA) region. Under her leadership, the Center received the AACSB innovation that inspires award.",
+                    "Lama is also the recipient of the OSB award for leadership, impact, and innovation. She served as the Interim Director of the Master of Science in Business Analytics program at OSB. Her research focuses on developing applications of Operations Research for various business applications including inventory management, supply chain management, and revenue management.",
+                    "Lama is on the editorial board of many prestigious international journals in the field. She has been repeatedly invited as a speaker at several international conferences including the National Academies of Sciences, Engineering, and Medicine, and Wilson Center's Middle East Program. She is the founding chair and director of the Women in Data Science at AUB (WiDS @AUB) program and serves on the advisory board of WiDS Worldwide, a U.S. based organization with a mission to elevate women and address societal challenges using data science."
+                ]
+            },
+            {
+                id: "ahmad-ismail",
+                name: "Ahmad Ismail",
+                role: "Associate Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr-Ahmad-Ismail.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Warwick Business School, University of Warwick",
+                    "Master Of Business Administration (MBA) – University of Hull"
+                ],
+                overview: [
+                    "Dr. Ismail has over 25 years of experience in academia, financial services, and executive education. He was a senior executive at HSBC, specializing in corporate lending and trade services across Lebanon and Syria and won the service quality prize. He led restructuring efforts, enhanced bank profitability, and received the service quality award.",
+                    "His research work gained international recognition via citation by leading finance professors from elite business schools in the world and by leading consultancy firms such as Boston Consulting Group. His research work has been featured in international conferences and International business press and practitioner's journals such as: The CFA Digest.",
+                    "Dr. Ismail's empirical research work focuses on corporate finance areas such as mergers and acquisitions, capital structure, corporate governance and emerging markets and has been published in top international academic journals such as Journal of Corporate Finance, Journal of Banking and Finance, Financial Management among others.",
+                    "Dr. Ismail is a recipient of: Outstanding Research Award (FBE, UAEU, 2012 and 2013), Highly commended Paper Prize in the 10th international conference on corporate governance in Birmingham Business School (UK) in 2012, and Merit Incentive Awards at AUB for publishing in top journals every year since 2017."
+                ]
+            },
+            {
+                id: "imad-bou-hamad",
+                name: "Imad Bou-Hamad",
+                role: "Associate Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr-Imad-Bou-Hamad.jpg",
+                education: [
+                    "Ph.D. in Business Administration with a concentration in Business Intelligence – HEC Montréal",
+                    "Master of Science (MS) – Université de Montréal"
+                ],
+                overview: [
+                    "Dr. Bou-Hamad's research focuses on statistical modeling and data analytics, particularly in predictive analytics.",
+                    "His work involves both the development of new analytical frameworks and the practical application of these methods to address challenges in real-world contexts. His research focuses on statistical modeling and data analytics, particularly in predictive analytics. His research niche includes applications in consumer behavior, youth studies, and wellbeing, where he explores how statistical and data analytics can provide valuable insights and solutions.",
+                    "In addition to his academic contributions, Dr. Bou-Hamad created and hosts Researcher, a scientific infotainment show aired on LBCI, which has been recognized by AACSB in its \"Innovations That Inspire\" category for its unique approach to science communication."
+                ]
+            },
+            {
+                id: "mostafa-harakeh",
+                name: "Mostafa Harakeh",
+                role: "Associate Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Mostafa-Harakeh.jpg",
+                education: [
+                    "Ph.D. in Accounting and Finance – University of Manchester",
+                    "MBA, Accounting – Lebanese American University"
+                ],
+                overview: [
+                    "Before joining AUB in 2023, Dr. Harakeh served at the University of Leeds at the Lebanese American University. His work has been published in internationally recognized accounting and finance journals, and he has extensive teaching experience in both undergraduate and graduate levels.",
+                    "Dr. Harakeh contributes actively in the academic community as a regular reviewer for several high-quality accounting/finance journals. He currently serve as a Screening Editor for the Journal of International Accounting, Auditing & Taxation and as an Associate Editor for Accounting Open, an official journal of the American Accounting Association.",
+                    "His research addresses issues in financial reporting and corporate finance with policy implications. He is interested in capital market accounting research that tackles the economic consequences of accounting on different aspects of corporate governance. Specifically, his research examines the role that financial reporting plays in shaping corporate decisions and performance.",
+                    "He is interested in lecturing on subjects in financial accounting, management and cost accounting, financial statement analysis, and corporate finance. He also teaches research methods for accounting and finance graduates."
+                ]
+            },
+            {
+                id: "fouad-zablith",
+                name: "Fouad Zablith",
+                role: "Associate Professor",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Fouad-Zablith.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – Knowledge Media Institute (KMi), The Open University",
+                    "Master of Science (MS) – British University in Dubai & University of Edinburgh"
+                ],
+                overview: [
+                    "Fouad Zablith is a tenured Associate Professor of Business Information and Decision Systems and the Associate Dean for Online Learning and Program Development at the Suliman S. Olayan School of Business, American University of Beirut.",
+                    "Dr. Zablith's research focuses on information and knowledge systems that enable individuals and organizations to achieve their goals through advanced analytics and innovative digital approaches. His work has been published in leading journals such as Artificial Intelligence, Long Range Planning, Information Systems Frontiers, Knowledge Engineering Review, Applied Mathematical Modelling, Information Polity, Interactive Learning Environments, Business Process Management, and Educational Technology Research and Development.",
+                    "He has also presented his work at major conferences, including the Academy of Management, the Americas Conference on Information Systems, and the World Wide Web Conference Companion, where he received the Best Paper Award, as well as at the International Semantic Web Conference and the Conference on Knowledge Engineering and Knowledge Management.",
+                    "Dr. Zablith teaches across undergraduate, master's, EMBA, and executive education programs, focusing on business analytics and the strategic use of emerging technologies. His courses combine data-driven decision-making with human-centered innovation to help executives translate digital and AI capabilities into organizational value.",
+                    "Beyond his research and teaching, Dr. Zablith serves on the program committees of several leading international conferences, including The Web Conference, the International Semantic Web Conference, the Association for the Advancement of Artificial Intelligence Conference, the International Joint Conference on Artificial Intelligence, and the Extended Semantic Web Conference."
+                ]
+            },
+            {
+                id: "leila-khauli",
+                name: "Leila Khauli",
+                role: "Senior Lecturer",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Mrs.Leila-Khauli.jpg",
+                education: [
+                    "Master Of Business Administration (MBA) – Bowling Green State University",
+                    "Bachelor of Science (BS) – Bowling Green State University"
+                ],
+                overview: [
+                    "Leila Khauli is the Academic Director of the MBA and Online MBA (OMBA) programs at the Suliman S. Olayan School of Business (OSB) at the American University of Beirut, where she also serves as a Senior Lecturer in the Marketing, Management, and entrepreneurial track.",
+                    "With over two decades of academic and industry experience, she specializes in Strategic Marketing, Digital Marketing, and Branding, teaching across undergraduate, graduate and executive programs. She has been instrumental in shaping innovative curricula and advancing experiential learning within business education.",
+                    "Leila's work sits at the intersection of academia and practice. She is a communication consultant who has advised leading regional organizations across sectors including FMCG, healthcare, banking, and food and beverage. She is also an active mentor in the entrepreneurial ecosystem, supporting startups through initiatives such as IM Ventures, Confideo, and Tasmu (Qatar), with a focus on brand strategy and go-to-market execution.",
+                    "Leila serves on several regional boards for both profit and non profit organisations. A frequent speaker and workshop facilitator, Leila delivers sessions on branding, digital transformation, and managing professional presence in an increasingly digital world. Her insights are grounded in both academic and real-world application, particularly within the MENA context.",
+                    "She holds an MBA from Bowling Green State University, Ohio."
+                ]
+            },
+            {
+                id: "riad-dimechkie",
+                name: "Riad Dimechkie",
+                role: "Senior Lecturer",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Mr.Riad-Dimechkie.jpg",
+                education: [
+                    "MBA – INSEAD",
+                    "B.A. in Economics – American University of Beirut"
+                ],
+                overview: [
+                    "Riad Dimechkie served as the Executive Director of the Executive MBA at AUB between 2007 and 2017. He teaches courses in Judgment and Decision Making, Influence and Persuasion and Strategic Management to MBAs and EMBA's.",
+                    "Prior to AUB, Mr. Dimechkie was the Chief Executive Officer of two multi-million-dollar US-based companies for ten years (1985 to 1994). He acquired The Wood Company in 1985 and grew it from $60M to $300M in eight years and increased the company value by $110 million. He then acquired and later sold another mid-sized firm in the U.S.",
+                    "Mr. Dimechkie also had a career in strategic management consulting in Europe and in the U.S. His consulting practice focused on top management strategic issues for several major U.S.-based corporations including Kellogg, Heinz and Nestle. He also undertook consulting assignments in the MENA region (in Morocco, Europe, KSA, Lebanon)."
+                ]
+            },
+            {
+                id: "marwan-wahbi",
+                name: "Marwan Wahbi",
+                role: "Senior Lecturer",
+                photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Marwan-Wahbi.jpg",
+                education: [
+                    "Doctor of Philosophy (PhD) – University of Paris",
+                    "Master of Science (MS) – University of Paris",
+                    "Bachelor of Science (BS) – American University of Beirut"
+                ],
+                overview: [
+                    "Dr. Marwan Wahbi is a Senior Lecturer of Finance at the Suliman S. Olayan School of Business, American University of Beirut.",
+                    "He holds a PhD in Finance from the University of Paris. His expertise focuses on investment management, financial markets, and portfolio theory.",
+                    "Dr. Wahbi has extensive industry experience in investment management and financial analysis. He has worked with leading financial institutions in the region.",
+                    "He teaches courses in investment analysis, portfolio management, and financial markets. His teaching is known for its practical orientation and focus on developing financial leaders.",
+                    "Dr. Wahbi is committed to developing financial professionals who can navigate complex financial markets and create value for their organizations."
+                ]
+            }
+        ];
+        // ============================================
+        // 2. RENDER PROFILE
+        // ============================================
+        function renderProfile(id) {
+            const container = document.getElementById('profileContainer');
+
+            // Find the faculty member
+            const faculty = facultyData.find(f => f.id === id);
+
+            if (!faculty) {
+                container.innerHTML = `
+                    <div class="not-found">
+                        <h1>Professor Not Found</h1>
+                        <p>The faculty member you're looking for doesn't exist.</p>
+                        <a href="class-profile-network.html" class="back-link">← Back to all faculty</a>
+                    </div>
+                `;
+                // Update breadcrumb
+                document.getElementById('breadcrumbName').textContent = 'Not Found';
+                return;
+            }
+
+            // Generate initials if no photo
+            const initials = faculty.name.split(' ').map(n => n[0]).join('');
+
+            const photoHtml = faculty.photo ?
+                `<img src="${faculty.photo}" alt="${faculty.name}">` :
+                `<div class="initials">${initials}</div>`;
+
+            // Build education HTML
+            let educationHtml = '';
+            if (faculty.education && faculty.education.length > 0) {
+                educationHtml = `<h2>Education</h2><ul>`;
+                faculty.education.forEach(item => {
+                    educationHtml += `<li>${item}</li>`;
+                });
+                educationHtml += `</ul>`;
+            }
+
+            // Build overview HTML
+            let overviewHtml = '';
+            if (faculty.overview && faculty.overview.length > 0) {
+                overviewHtml = `<h2>Overview</h2>`;
+                faculty.overview.forEach(para => {
+                    overviewHtml += `<p>${para}</p>`;
+                });
+            }
+
+            // Update page title
+            document.title = `AUB Executive MBA · ${faculty.name}`;
+
+            // Update breadcrumb
+            document.getElementById('breadcrumbName').textContent = faculty.name;
+
+            // Render the profile
+            container.innerHTML = `
+                <div class="profile-wrapper">
+                    <div class="profile-sidebar">
+                        <div class="photo">${photoHtml}</div>
+                        <h1 class="name">${faculty.name}</h1>
+                        <p class="role">${faculty.role}</p>
+                        <a href="class-profile-network.html" class="back-link">← View All Faculty</a>
+                    </div>
+
+                    <div class="profile-content">
+                        ${educationHtml}
+                        ${overviewHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ============================================
+        // 3. GET ID FROM URL
+        // ============================================
+        function getProfileId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+
+        // ============================================
+        // 4. INITIALIZE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function () {
+            const id = getProfileId();
+
+            if (!id) {
+                // No ID provided - show error
+                document.getElementById('profileContainer').innerHTML = `
+                    <div class="not-found">
+                        <h1>No Profile Selected</h1>
+                        <p>Please select a faculty member from the <a href="class-profile-network.html" style="color:var(--color-primary);">Class Profile page</a>.</p>
+                    </div>
+                `;
+                document.getElementById('breadcrumbName').textContent = 'Select a Profile';
+            } else {
+                renderProfile(id);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

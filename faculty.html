@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AUB Executive MBA · Career Impact</title>
+    <title>AUB Executive MBA · Faculty &amp; Leadership</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,347 +18,214 @@
 
     <script defer src="js/menu.js"></script>
 
-
     <style>
-        /* Nav overrides */
-        .nav-osb-links .osb-nav-item>a#career-impact-link {
-            color: var(--color-primary);
-        }
-
-        body.nav-scrolled .nav-osb .osb-nav-item>a#career-impact-link {
-            color: white;
-            text-decoration: underline;
-            text-underline-offset: 6px;
-        }
-    </style>
-
-    <style>
-        /* ============================================
-           PAGE-SPECIFIC STYLES — Career Impact
-           ============================================ */
-
-        /* ---------- IN PRACTICE SECTION (with video) ---------- */
-        .in-practice {
+        /* ---------- FACULTY SECTION ---------- */
+        .faculty-section {
             background: var(--color-white);
             padding: 80px 0;
         }
 
         @media (min-width: 768px) {
-            .in-practice {
+            .faculty-section {
                 padding: 100px 0;
             }
         }
 
-        @media (min-width: 1024px) {
-            .in-practice {
-                padding: 100px 0;
-            }
-        }
-
-        .in-practice .practice-wrapper {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .in-practice .practice-wrapper {
-                grid-template-columns: 1fr 1fr;
-                gap: 64px;
-            }
-        }
-
-        .in-practice .practice-video {
-            background: var(--color-bg-alt);
-            border-radius: var(--radius);
-            aspect-ratio: 16/9;
+        /* Faculty grid – same responsive logic as alumni grid */
+        .faculty-grid {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             justify-content: center;
-            border: 2px dashed var(--color-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .in-practice .practice-video .video-placeholder {
-            text-align: center;
-            color: var(--color-ink-light);
-        }
-
-        .in-practice .practice-video .video-placeholder .play-icon {
-            font-size: 3rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .in-practice .practice-video .video-placeholder .video-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-ink-light);
-        }
-
-        .in-practice .practice-text .section-label {
-            margin-bottom: 12px;
-        }
-
-        .in-practice .practice-text h2 {
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--color-ink);
-            margin-bottom: 16px;
-        }
-
-        .in-practice .practice-text p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--color-ink-mid);
-        }
-
-
-        /* ============================================
-        ALUMNI & NETWORK
-        ============================================ */
-        .alumni-section {
-            background: var(--color-white);
-            padding: 80px 0;
-        }
-
-        @media (min-width: 768px) {
-            .alumni-section {
-                padding: 100px 0;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .alumni-section {
-                padding: 100px 0;
-            }
-        }
-
-        .alumni-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2.5rem 2rem;
             margin-top: 2.5rem;
         }
 
-        @media (min-width: 768px) {
-            .alumni-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem 2rem;
+        .faculty-grid .faculty-card {
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .faculty-grid .faculty-card {
+                width: calc((100% - 2rem) / 2);
             }
         }
 
         @media (min-width: 1024px) {
-            .alumni-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-                gap: 3rem 2rem;
+            .faculty-grid .faculty-card {
+                width: calc((100% - 2 * 2rem) / 3);
             }
         }
 
-        /* ---------- ALUMNI CARD ---------- */
-        .alumni-card {
+        @media (min-width: 1280px) {
+            .faculty-grid .faculty-card {
+                width: calc((100% - 3 * 2rem) / 4);
+            }
+        }
+
+        /* ---------- FACULTY CARD ---------- */
+        .faculty-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
             transition: all var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .alumni-card:hover {
+        /* Card hover: image zooms (inside fixed container) + button bg/color change */
+        .faculty-card:hover {
             transform: translateY(-4px);
         }
 
-        .alumni-card .alumni-photo {
-            width: 100px;
-            height: 100px;
+        .faculty-card .faculty-photo {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             overflow: hidden;
-            margin-bottom: 14px;
+            margin-bottom: 20px;
             flex-shrink: 0;
-            border: 3px solid var(--color-bg-alt);
+            background: var(--color-bg-alt);
+            /* no border */
+            border: none;
             transition: all var(--transition);
         }
 
-        .alumni-card:hover .alumni-photo {
-            border-color: var(--color-primary);
-        }
-
-        .alumni-card .alumni-photo img {
+        .faculty-card .faculty-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s;
+            display: block;
         }
 
-        .alumni-card:hover .alumni-photo img {
-            transform: scale(1.05);
+        /* zoom on card hover (image scales inside fixed container) */
+        .faculty-card:hover .faculty-photo img {
+            transform: scale(1.08);
         }
 
-        .alumni-card .alumni-name {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--color-ink);
-            margin-bottom: 2px;
-        }
-
-        .alumni-card .alumni-role {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-primary);
-            margin-bottom: 10px;
-        }
-
-        .alumni-card .alumni-desc {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--color-ink-mid);
-            max-width: 320px;
-            margin: 0 auto 16px;
-        }
-
-        .alumni-card .alumni-divider {
-            width: 40px;
-            height: 2px;
-            background: var(--color-border);
-            margin: 0 auto 12px;
-        }
-
-        .alumni-card .alumni-link {
-            display: inline-flex;
+        .faculty-card .faculty-photo .initials {
+            display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: var(--color-secondary-light);
             color: var(--color-secondary);
-            transition: all var(--transition);
+            font-size: 2.8rem;
+            font-weight: 800;
         }
 
-        .alumni-card .alumni-link:hover {
+        .faculty-card .faculty-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 4px;
+            letter-spacing: -0.01em;
+        }
+
+        .faculty-card .faculty-role {
+            font-size: 0.85rem;
+            font-weight: 400;
             color: var(--color-primary);
-            gap: 12px;
+            margin-bottom: 16px;
+            line-height: 1.4;
+            max-width: 280px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .alumni-card .alumni-link .in-icon {
+        /* ---------- VIEW PROFILE BUTTON ---------- */
+        .faculty-card .faculty-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 20px;
-            background: var(--color-secondary);
-            color: white;
-            border-radius: 3px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            flex-shrink: 0;
-            transition: background var(--transition);
-        }
-
-        .alumni-card .alumni-link:hover .in-icon {
-            background: var(--color-primary);
-        }
-
-        /* ---------- ALUMNI CTA ----------
-        .alumni-cta-wrapper {
-            margin-top: 60px;
-            background: var(--color-primary);
-            border-radius: var(--radius);
-            padding: 28px 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: center;
-        }
-
-        @media (min-width: 768px) {
-            .alumni-cta-wrapper {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                padding: 28px 40px;
-            }
-        }
-
-        .alumni-cta-wrapper .cta-text {
-            color: var(--color-white);
-            text-align: center;
-        }
-
-        @media (min-width: 768px) {
-            .alumni-cta-wrapper .cta-text {
-                text-align: left;
-            }
-        }
-
-        .alumni-cta-wrapper .cta-text p {
-            font-size: 1.05rem;
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        .alumni-cta-wrapper .cta-text .cta-sub {
+            padding: 8px 28px;
             font-size: 0.9rem;
-            opacity: 0.85;
-            font-weight: 400;
-            margin-top: 2px;
-        } */
-
-        .alumni-cta-text {
-            margin: 0.5rem 0 1rem 0;
-        }
-
-        .alumni-cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 28px;
-            background: var(--color-bg-alt);
+            font-weight: 800;
+            text-transform: uppercase;
             color: var(--color-primary);
-            font-size: 0.9rem;
-            font-weight: 800;
+            background: var(--color-white);
+            border: 2px solid var(--color-primary);
             border-radius: var(--radius);
             transition: all var(--transition);
-            white-space: nowrap;
-            flex-shrink: 0;
+            text-decoration: none;
+            cursor: pointer;
+            min-width: 140px;
         }
 
-        .alumni-cta-button:hover {
+        /* Button hover: bg primary, text white (also applied on card hover via .faculty-card:hover .faculty-btn) */
+        .faculty-card:hover .faculty-btn {
+            background: var(--color-primary);
+            color: var(--color-white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 16px rgba(132, 1, 50, 0.2);
         }
 
-        /* ---------- RESPONSIVE ---------- */
+        /* Make whole card clickable */
+        .faculty-card-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 8px 12px;
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            transition: all var(--transition);
+            border-radius: 8px;
+        }
+
+        .faculty-card-link:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Bottom spacer */
+        .faculty-card .faculty-bottom {
+            margin-top: 4px;
+            padding-top: 4px;
+        }
+
         @media (max-width: 767px) {
-            .alumni-card .alumni-photo {
-                width: 90px;
-                height: 90px;
+            .faculty-card .faculty-photo {
+                width: 110px;
+                height: 110px;
             }
 
-            .alumni-card .alumni-desc {
-                font-size: 0.9rem;
+            .faculty-card .faculty-name {
+                font-size: 1.1rem;
             }
 
-            /* .alumni-cta-wrapper {
-                padding: 24px 20px;
-                text-align: center;
-            } */
+            .faculty-card .faculty-role {
+                font-size: 0.85rem;
+            }
 
-            .alumni-cta-button {
-                width: 100%;
-                justify-content: center;
-                white-space: normal;
+            .faculty-card .faculty-btn {
+                padding: 6px 20px;
+                font-size: 0.65rem;
+                min-width: 110px;
+                border-radius: var(--radius);
+            }
+
+            .faculty-grid {
+                gap: 2rem 1.5rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .alumni-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
-            }
+        /* ---------- FACULTY HERO OVERRIDE ---------- */
+        .inner-p-hero .hero-content h1 {
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
+        }
+
+        .inner-p-hero .hero-content .hero-sub {
+            max-width: 720px;
         }
     </style>
 </head>
@@ -686,11 +553,11 @@
     </div>
 
     <!-- ============================================
-    INNER PAGE HERO — Career Impact
+    INNER PAGE HERO — Faculty
     ============================================ -->
     <section class="inner-p-hero">
         <div class="hero-bg">
-            <img src="images/AUB-OSB-EMBA-Career-Impact-banner.jpg" alt="AUB Campus" />
+            <img src="images/AUB-OSB-EMBA-Class-Profile-banner.jpg" alt="AUB Campus" />
         </div>
         <div class="hero-overlay"></div>
 
@@ -700,146 +567,52 @@
                 <div class="breadcrumb">
                     <a href="./index.html">Home</a>
                     <span>/</span>
-                    <span>Career Impact</span>
+                    <a href="./program.html">The Program</a>
+                    <span>/</span>
+                    <span>Faculty</span>
                 </div>
 
                 <!-- Hero Text -->
                 <h1>
-                    Leadership Transformed.<br />
-                    Impact Amplified.
+                    Learn from the best.
                 </h1>
                 <p class="hero-sub">
-                    Sharper strategic thinking, greater confidence under complexity,
-                    and impact you apply the moment you return to work.
+                    Our Executive MBA faculty are world-class scholars and practitioners
+                    who bring deep expertise, global perspective, and real-world business insight to the classroom.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- ============================================
-    Leadership transformation (with video left, text right)
+    FACULTY SECTION — Loaded via JavaScript
     ============================================ -->
-    <section class="in-practice">
-        <div class="container">
-            <div class="practice-wrapper">
-                <!-- Video Placeholder (Left) -->
-                <!-- lii - yara video - dr somthing -->
-                <div class="practice-video">
-                    <div class="video-placeholder">
-                        <span class="play-icon">▶</span>
-                        <div class="video-label">Testimonial video</div>
-                    </div>
-                </div>
-
-                <!-- Text Content (Right) -->
-                <div class="practice-text">
-                    <div class="section-label">
-                        <span>Leadership transformation</span>
-                    </div>
-                    <h2>Learning you lead with, in real time.</h2>
-                    <p>
-                        The OSB Executive MBA equips experienced professionals to strengthen
-                        their leadership capacity, sharpen strategic thinking, and navigate
-                        complex business challenges with greater confidence and impact.
-                    </p>
-                    <p>
-                        Participants apply learning directly to their organizations, leading
-                        strategic initiatives, driving transformation, improving operations,
-                        and addressing real business challenges in real time.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-    TRANSFORMATION CAPABILITIES
-    ============================================ -->
-    <section class="section-padding bg-dark"
-        style="background-image:linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,45,102,0.7) 100%), url(https://sites.aub.edu.lb/embadubai/files/2026/01/OSBD-Influence-black.jpg); background-size:cover; background-position:center;">
+    <section class="faculty-section">
         <div class="container">
             <div class="section-label">
-                <span>Transformation capabilities</span>
+                <span>Our Faculty</span>
             </div>
-            <h2 class="section-title">Six capabilities you carry forward.</h2>
-            <p class="section-subtitle light">Every part of the experience is designed to change how you lead.</p>
-
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="num">01</div>
-                    <h3>Strategic Thinking</h3>
-                    <p>Ability to make high-level business decisions across functions.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="num">02</div>
-                    <h3>Executive Presence</h3>
-                    <p>Stronger communication, influence, and leadership confidence.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="num">03</div>
-                    <h3>Cross-Functional Leadership</h3>
-                    <p>Broader understanding across finance, strategy, operations, marketing, and people management.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="num">04</div>
-                    <h3>Decision-Making Under Complexity</h3>
-                    <p>Leading through uncertainty, ambiguity, and change.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="num">05</div>
-                    <h3>Innovation &amp; Transformation</h3>
-                    <p>Driving change and business growth.</p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="num">06</div>
-                    <h3>Global Perspective</h3>
-                    <p>Exposure to international business practices and leadership models.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-ALUMNI & NETWORK
-============================================ -->
-    <section class="alumni-section">
-        <div class="container">
-            <div class="section-label">
-                <span>Alumni &amp; Network</span>
-            </div>
-            <h2 class="section-title">See where <span class="highlight">our leaders go next.</span></h2>
+            <h2 class="section-title">Meet the <span class="highlight">professors.</span></h2>
             <p class="section-subtitle">
-                Explore the professional journeys of our alumni and connect with a powerful network of executives across
-                industries and markets.
+                AUB OSB Executive MBA faculty are recognized leaders in their fields, dedicated to shaping the next
+                generation of global executives.
             </p>
 
-
-
-            <div class="alumni-cta-text">
-                <p>Join a global AUB alumni community.</p>
-                <div class="cta-sub">Connect, mentor, and grow with executives across industries and markets.</div>
+            <!-- Faculty Grid -->
+            <div class="faculty-grid" id="facultyGrid">
             </div>
-            <a href="./cohort.html" class="alumni-cta-button">
-                Checkout our alumni profiles →
-            </a>
         </div>
     </section>
 
     <!-- ============================================
-    FINAL CTA
+    FINAL CTA (identical to cohort)
     ============================================ -->
     <section class="cta-lead-section">
         <div class="cta-lead-container">
             <h2 class="cta-lead-title">Lead at your next level.</h2>
             <p class="cta-lead-text">Speak with our team, request the brochure, or begin your Executive MBA application
                 at AUB OSB.</p>
-            <div class="cta-lead-button-wrapper"
-                style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+            <div class="cta-lead-button-wrapper">
                 <a href="https://www.aub.edu.lb/osb/Landing/EMBA-Dubai-Web.html?source=brochure" class="cta-lead-button"
                     style="background:var(--color-primary) !important; color:white !important;">Start your
                     application</a>
@@ -899,6 +672,158 @@ ALUMNI & NETWORK
     ============================================ -->
     <div id="footer-placeholder"></div>
     <script src="https://liiwaa-osb.github.io/AUB-OSB-shared-components/footer-load-V.js"></script>
+
+    <!-- ============================================
+    FACULTY DATA & RENDER SCRIPT
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. FACULTY DATA — Edit this array to add/remove faculty
+        // ============================================
+
+        const facultyData = [
+    {
+        name: "Yusuf Sidani",
+        role: "Dean, Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dean-Dr-Yousef-Sidani.jpg",
+        profile: "./faculty/profile.html?id=yusuf-sidani"
+    },
+    {
+        name: "Ibrahim Jamali",
+        role: "Associate Professor and Director of the Executive MBA",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Ibrahim-Jamali.jpg",
+        profile: "./faculty/profile.html?id=ibrahim-jamali"
+    },
+    {
+        name: "Henry Azzam",
+        role: "Senior Lecturer and Director of the AUB Academic and Executive Hub in Dubai",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Henry-Azzam.jpg",
+        profile: "./faculty/profile.html?id=henry-azzam"
+    },
+    {
+        name: "Victor Araman",
+        role: "Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Victor-Araman.jpg",
+        profile: "./faculty/profile.html?id=victor-araman"
+    },
+    {
+        name: "Bijan Azad",
+        role: "Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Bijan-Azad.jpg",
+        profile: "./faculty/profile.html?id=bijan-azad"
+    },
+    {
+        name: "Assem Safieddine",
+        role: "Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Assem-Safieddine.jpg",
+        profile: "./faculty/profile.html?id=assem-safieddine"
+    },
+    {
+        name: "Krzysztof Fleszar",
+        role: "Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Krzysztof-Fleszar.jpg",
+        profile: "./faculty/profile.html?id=krzysztof-fleszar"
+    },
+    {
+        name: "Lama Moussawi",
+        role: "Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Lama-Moussawi.jpg",
+        profile: "./faculty/profile.html?id=lama-moussawi"
+    },
+    {
+        name: "Ahmad Ismail",
+        role: "Associate Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr-Ahmad-Ismail.jpg",
+        profile: "./faculty/profile.html?id=ahmad-ismail"
+    },
+    {
+        name: "Imad Bou-Hamad",
+        role: "Associate Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr-Imad-Bou-Hamad.jpg",
+        profile: "./faculty/profile.html?id=imad-bou-hamad"
+    },
+    {
+        name: "Mostafa Harakeh",
+        role: "Associate Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Mostafa-Harakeh.jpg",
+        profile: "./faculty/profile.html?id=mostafa-harakeh"
+    },
+    {
+        name: "Fouad Zablith",
+        role: "Associate Professor",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Fouad-Zablith.jpg",
+        profile: "./faculty/profile.html?id=fouad-zablith"
+    },
+    {
+        name: "Leila Khauli",
+        role: "Senior Lecturer",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Mrs.Leila-Khauli.jpg",
+        profile: "./faculty/profile.html?id=leila-khauli"
+    },
+    {
+        name: "Riad Dimechkie",
+        role: "Senior Lecturer",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Mr.Riad-Dimechkie.jpg",
+        profile: "./faculty/profile.html?id=riad-dimechkie"
+    },
+    {
+        name: "Marwan Wahbi",
+        role: "Senior Lecturer",
+        photo: "https://dubaihub.aub.edu.lb/files/2026/06/AUB-OSB-EMBA-Dubai-Dr.Marwan-Wahbi.jpg",
+        profile: "./faculty/profile.html?id=marwan-wahbi"
+    }
+];
+
+        // ============================================
+        // 2. RENDER FUNCTION
+        // ============================================
+        function renderFaculty(data) {
+            const grid = document.getElementById('facultyGrid');
+
+            if (!data || data.length === 0) {
+                grid.innerHTML = `
+                    <div style="text-align: center; padding: 40px 20px; color: var(--color-ink-mid);">
+                        <p style="font-size: 1.1rem;">No faculty profiles available at this time.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            data.forEach(faculty => {
+                // Generate initials if no photo
+                const initials = faculty.name.split(' ').map(n => n[0]).join('').slice(0, 3);
+
+                const photoHtml = faculty.photo
+                    ? `<img src="${faculty.photo}" alt="${faculty.name}" loading="lazy" />`
+                    : `<div class="initials">${initials}</div>`;
+
+                html += `
+                    <div class="faculty-card">
+                        <a href="${faculty.profile}" class="faculty-card-link" target="_blank">
+                            <div class="faculty-photo">
+                                ${photoHtml}
+                            </div>
+                            <h3 class="faculty-name">${faculty.name}</h3>
+                            <div class="faculty-role">${faculty.role}</div>
+                            <div class="faculty-bottom">
+                                <span class="faculty-btn">VIEW PROFILE</span>
+                            </div>
+                        </a>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        // ============================================
+        // 3. RENDER ON PAGE LOAD
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function () {
+            renderFaculty(facultyData);
+        });
+    </script>
 
 </body>
 

@@ -250,12 +250,96 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ---------- CURRICULUM OVERVIEW (new) ---------- */
+        .curriculum-section {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        .curriculum-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .curriculum-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .curriculum-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        .curriculum-card {
+            background: var(--color-bg);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            border: 1px solid var(--color-border);
+            transition: all var(--transition);
+        }
+
+        .curriculum-card:hover {
+            box-shadow: var(--shadow-sm);
+            border-color: var(--color-primary);
+        }
+
+        .curriculum-card .card-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .curriculum-card .card-head h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--color-ink);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .curriculum-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .curriculum-card ul li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            color: var(--color-ink-mid);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .curriculum-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .curriculum-card ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
     </style>
 </head>
 
 <body>
     <!-- ============================================
-    NAVBAR
+    NAVBAR (unchanged)
     ============================================ -->
     <div class="nav">
         <div class="nav-utility">
@@ -617,7 +701,8 @@
                 <div class="section-label">
                     <span>The program</span>
                 </div>
-                <h2 class="section-title">Built around the realities of <span class="highlight">executive life.</span></h2>
+                <h2 class="section-title">Built around the realities of <span class="highlight">executive life.</span>
+                </h2>
                 <p>
                     The OSB Executive MBA is built around the realities of executive life.
                     Its residency-based format enables professionals to continue advancing
@@ -759,6 +844,128 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CURRICULUM OVERVIEW — NEW SECTION
+    ============================================ -->
+    <section class="curriculum-section">
+        <div class="container">
+            <div class="curriculum-header">
+                <div class="section-label">
+                    <span>Curriculum overview</span>
+                </div>
+                <h2 class="section-title">Strategy, AI, Finance &amp; <span class="highlight">Leadership</span></h2>
+                <p class="section-subtitle">
+                    A future-focused curriculum designed for executive impact.
+                </p>
+            </div>
+
+            <div class="curriculum-grid">
+                <!-- Card 1: Strategy and AI for Executives -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Strategy &amp; AI for Executives</h3>
+                    </div>
+                    <ul>
+                        <li>Strategy</li>
+                        <li>Strategic Analysis</li>
+                        <li>Managing Risk and Uncertainty</li>
+                        <li>Leading with Artificial Intelligence</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Marketing for Strategic Decision Making -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Marketing for Strategic Decision Making</h3>
+                    </div>
+                    <ul>
+                        <li>Strategic Marketing</li>
+                        <li>Digital Marketing</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Driving Operational Excellence & Global Supply Chains -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Driving Operational Excellence &amp; Global Supply Chains</h3>
+                    </div>
+                    <ul>
+                        <li>Operations Management</li>
+                        <li>Sustainable Supply Chain Management</li>
+                        <li>Quantitative Models for Decision-Making</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Financial Mastery for Strategic Leaders -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Financial Mastery for Strategic Leaders</h3>
+                    </div>
+                    <ul>
+                        <li>Applied Corporate Finance</li>
+                        <li>The Dynamics of Global and Regional Financial Markets</li>
+                        <li>Strategic Financial Management</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Financial Reporting & Analysis for Executives -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Financial Reporting &amp; Analysis for Executives</h3>
+                    </div>
+                    <ul>
+                        <li>Financial Statement Analysis</li>
+                        <li>Managerial Accounting</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Economic Analysis for Executive Decision-Making -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Economic Analysis for Executive Decision-Making</h3>
+                    </div>
+                    <ul>
+                        <li>Microeconomics</li>
+                        <li>Macroeconomics</li>
+                    </ul>
+                </div>
+
+                <!-- Card 7: Machine Learning & Data Analysis -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Machine Learning &amp; Data Analysis for Evidence-Based Decision-Making</h3>
+                    </div>
+                    <ul>
+                        <li>Statistics and Data Analysis</li>
+                        <li>Business Data Analytics</li>
+                    </ul>
+                </div>
+
+                <!-- Card 8: Leading People & Organizations with Impact -->
+                <div class="curriculum-card">
+                    <div class="card-head">
+                        <h3>Leading People &amp; Organizations with Impact</h3>
+                    </div>
+                    <ul>
+                        <li>Organizational Behavior</li>
+                        <li>Negotiation and Conflict Resolution</li>
+                        <li>People Management</li>
+                        <li>Innovation Management</li>
+                        <li>Corporate IT Management</li>
+                        <li>Corporate Governance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Download PDF button (opens curriculum.pdf in project root) -->
+            <div class="cta-lead-button-wrapper" style="text-align: center;">
+                <a href="./documents/AUB-OSB-Executive-MBA-Courses.pdf" target="_blank" class="cta-lead-button" style="background:var(--color-primary) !important; color:white !important; margin-top: 30px;">
+                    Download full curriculum (PDF)
+                </a>
             </div>
         </div>
     </section>

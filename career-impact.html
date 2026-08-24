@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="icon" href="images/logos/favicon.ico" type="image/x-icon">
 
-     <!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
@@ -79,7 +79,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px dashed var(--color-border);
             position: relative;
             overflow: hidden;
         }
@@ -649,12 +648,14 @@
     <section class="in-practice">
         <div class="container">
             <div class="practice-wrapper">
-                <!-- Video Placeholder (Left) -->
-                <!-- lii - yara video - dr somthing -->
+                <!-- YouTube Video (Left) -->
                 <div class="practice-video">
                     <div class="video-placeholder">
-                        <span class="play-icon">▶</span>
-                        <div class="video-label">Testimonial video</div>
+                        <iframe src="https://www.youtube.com/embed/FKbhGAqTrxY" title="Testimonial video"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
 
@@ -678,6 +679,22 @@
             </div>
         </div>
     </section>
+    <style>
+        .practice-video .video-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .practice-video .video-placeholder iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 
     <!-- ============================================
     TRANSFORMATION CAPABILITIES
@@ -744,16 +761,16 @@ ALUMNI & NETWORK
                 Explore the professional journeys of our alumni and connect with a powerful network of executives across
                 industries and markets.
             </p>
-
-
-
             <div class="alumni-cta-text">
                 <p>Join a global AUB alumni community.</p>
                 <div class="cta-sub">Connect, mentor, and grow with executives across industries and markets.</div>
             </div>
-            <a href="./alumni.html" class="cta-lead-button" style="background: var(--color-bg-alt) !important; color: var(--color-primary) !important;">
-                Checkout our alumni profiles →
-            </a>
+            <div class="cta-lead-button-wrapper" style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <a href="./career-impact/alumni.html" class="cta-lead-button"
+                    style="background:var(--color-primary) !important; color:white !important;">
+                    Checkout our alumni profiles →
+                </a>
+            </div>
         </div>
     </section>
 

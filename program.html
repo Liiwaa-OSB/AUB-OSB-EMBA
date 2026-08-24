@@ -849,231 +849,85 @@
             </div>
         </div>
     </section>
-
     <section class="faculty-cta-section">
-  <div class="faculty-cta-container">
-    <div class="faculty-cta-content">
-      <span class="faculty-cta-badge">Meet the minds behind the program</span>
-      <h2 class="faculty-cta-title">World‑Class Faculty <br><span class="highlight">Who Shape Leaders</span></h2>
-      <p class="faculty-cta-text">
-        Our Executive MBA is taught by a distinguished group of scholars, industry experts, 
-        and thought leaders who bring decades of real‑world experience into every classroom. 
-        They don’t just teach — they mentor, challenge, and inspire.
-      </p>
-      <div class="faculty-cta-button-wrapper">
-        <a href="program/faculty.html" class="faculty-cta-button">
-          <span>Explore our faculty</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="faculty-cta-visual">
-      <div class="faculty-cta-image">
-        <img src="images/faculty-cta-collage.jpg" alt="AUB OSB Faculty" />
-        <div class="faculty-cta-overlay-card">
-          <span class="stat-number">15</span>
-          <span class="stat-label">Full‑time faculty</span>
-          <span class="stat-detail">with global expertise</span>
+        <div class="container">
+            <div class="faculty-cta-content">
+                <div class="section-label">
+                    <span>Meet the faculty</span>
+                </div>
+                <h2 class="faculty-cta-title">World‑Class Faculty <span class="highlight">Who Shape Leaders</span></h2>
+                <p class="faculty-cta-text">
+                    Our Executive MBA is taught by a distinguished group of scholars, industry experts,
+                    and thought leaders who bring decades of real‑world experience into every classroom.
+                    They don’t just teach — they mentor, challenge, and inspire.
+                </p>
+                <div class="cta-lead-button-wrapper" style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a href="./program/faculty.html" class="cta-lead-button"
+                        style="background:var(--color-primary) !important; color:white !important;">
+                        Explore our faculty →
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<style>
-  /* ─── FACULTY CTA SECTION ─── */
-  .faculty-cta-section {
-    padding: 80px 0;
-    background: var(--color-bg, #f7f5f2);
-    border-top: 1px solid var(--color-border, #e0dcd8);
-    border-bottom: 1px solid var(--color-border, #e0dcd8);
-  }
+    <style>
+        /* ─── FACULTY CTA SECTION ─── */
+        .faculty-cta-section {
+            padding: 80px 0;
+            background: var(--color-bg, #f7f5f2);
+            border-top: 1px solid var(--color-border, #e0dcd8);
+            border-bottom: 1px solid var(--color-border, #e0dcd8);
+        }
 
-  .faculty-cta-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
+        /* left content */
+        .faculty-cta-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-  /* left content */
-  .faculty-cta-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+        .faculty-cta-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--color-ink, #1a1a1a);
+            margin: 0 0 0.25rem 0;
+        }
 
-  .faculty-cta-badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-primary, #b31b1b);
-    background: rgba(179, 27, 27, 0.08);
-    padding: 0.4rem 1rem;
-    border-radius: 40px;
-    align-self: flex-start;
-  }
+        .faculty-cta-title .highlight {
+            color: var(--color-primary, #b31b1b);
+        }
 
-  .faculty-cta-title {
-    font-size: 2.6rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--color-ink, #1a1a1a);
-    margin: 0 0 0.25rem 0;
-  }
-  .faculty-cta-title .highlight {
-    color: var(--color-primary, #b31b1b);
-  }
+        .faculty-cta-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-ink-mid, #4a4a4a);
+            max-width: 90%;
+            margin: 0.5rem 0 1.25rem 0;
+        }
 
-  .faculty-cta-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--color-ink-mid, #4a4a4a);
-    max-width: 90%;
-    margin: 0.5rem 0 1.25rem 0;
-  }
+        /* responsive */
+        @media (max-width: 900px) {
+            .faculty-cta-text {
+                max-width: 100%;
+            }
 
-  .faculty-cta-button-wrapper {
-    margin-top: 0.5rem;
-  }
+            .faculty-cta-title {
+                font-size: 2.2rem;
+            }
+        }
 
-  .faculty-cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--color-primary, #b31b1b);
-    color: white;
-    padding: 0.9rem 2.2rem 0.9rem 2rem;
-    border-radius: 60px;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    box-shadow: 0 8px 24px rgba(179, 27, 27, 0.25);
-    border: none;
-    cursor: pointer;
-  }
-  .faculty-cta-button:hover {
-    background: #8f1515;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(179, 27, 27, 0.35);
-  }
-  .faculty-cta-button svg {
-    transition: transform 0.2s;
-  }
-  .faculty-cta-button:hover svg {
-    transform: translateX(5px);
-  }
+        @media (max-width: 500px) {
+            .faculty-cta-section {
+                padding: 48px 0;
+            }
 
-  /* right visual */
-  .faculty-cta-visual {
-    position: relative;
-  }
-
-  .faculty-cta-image {
-    position: relative;
-    border-radius: var(--radius, 16px);
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    aspect-ratio: 4/3;
-    background: #d9d2cb;
-  }
-  .faculty-cta-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-  }
-  .faculty-cta-image:hover img {
-    transform: scale(1.02);
-  }
-
-  .faculty-cta-overlay-card {
-    position: absolute;
-    bottom: 24px;
-    left: 24px;
-    right: 24px;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(4px);
-    padding: 1.25rem 1.5rem;
-    border-radius: 14px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.4rem 0.8rem;
-    border: 1px solid rgba(255,255,255,0.5);
-  }
-  .stat-number {
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--color-primary, #b31b1b);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--color-ink, #1a1a1a);
-  }
-  .stat-detail {
-    font-size: 0.8rem;
-    color: var(--color-ink-mid, #4a4a4a);
-    font-weight: 400;
-    margin-left: 0.2rem;
-  }
-
-  /* responsive */
-  @media (max-width: 900px) {
-    .faculty-cta-container {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .faculty-cta-text {
-      max-width: 100%;
-    }
-    .faculty-cta-title {
-      font-size: 2.2rem;
-    }
-    .faculty-cta-overlay-card {
-      bottom: 16px;
-      left: 16px;
-      right: 16px;
-      padding: 1rem 1.25rem;
-      flex-wrap: wrap;
-    }
-    .stat-number {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (max-width: 500px) {
-    .faculty-cta-section {
-      padding: 48px 0;
-    }
-    .faculty-cta-title {
-      font-size: 1.8rem;
-    }
-    .faculty-cta-button {
-      width: 100%;
-      justify-content: center;
-      padding: 0.8rem 1.5rem;
-    }
-    .faculty-cta-overlay-card {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.1rem;
-    }
-    .stat-detail {
-      margin-left: 0;
-    }
-  }
-</style>
+            .faculty-cta-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 
     <!-- ============================================
     CURRICULUM OVERVIEW — NEW SECTION

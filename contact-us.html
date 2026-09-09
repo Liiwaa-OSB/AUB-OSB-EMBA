@@ -49,9 +49,8 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 24px;
-            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -134,6 +133,13 @@
         .contact-detail a:hover {
             text-decoration: underline;
             text-underline-offset: 3px;
+        }
+
+        @media (max-width: 1023px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
         }
 
         @media (max-width: 767px) {
@@ -555,7 +561,7 @@
                         <h2>Myriam Sultan El Ajami</h2>
                         <div class="program-name">Executive MBA</div>
 
-                        <div class="role">Manager of Academic Affairs</div>
+                        <div class="role">EMBA Academic Affairs Manager</div>
 
                         <div class="organization">
                             Suliman S. Olayan School of Business<br>
@@ -573,6 +579,30 @@
                             </div>
                         </div>
                     </article>
+
+                    <article class="contact-card">
+                        <h2>Diala Haddad</h2>
+                        <div class="program-name">Executive MBA</div>
+
+                        <div class="role">Program Manager</div>
+
+                        <div class="organization">
+                            Suliman S. Olayan School of Business<br>
+                            American University of Beirut
+                        </div>
+
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <strong>Phone:</strong>
+                                <span>+961 1 350000 ext. 3722</span>
+                            </div>
+                            <div class="contact-detail">
+                                <strong>Email:</strong>
+                                <a href="mailto:dh84@aub.edu.lb">dh84@aub.edu.lb</a>
+                            </div>
+                        </div>
+                    </article>
+
 
                 </div>
             </div>

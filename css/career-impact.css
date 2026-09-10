@@ -1,0 +1,266 @@
+/* career-impact.css — page-specific styles for career-impact.html */
+
+/* ============================================
+   PAGE-SPECIFIC STYLES — Career Impact
+   ============================================ */
+
+/* ---------- IN PRACTICE SECTION (with video) ---------- */
+.in-practice {
+    background: var(--color-white);
+    padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+    .in-practice {
+        padding: 100px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .in-practice {
+        padding: 100px 0;
+    }
+}
+
+.in-practice .practice-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .in-practice .practice-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+    }
+}
+
+.in-practice .practice-video {
+    background: var(--color-bg-alt);
+    border-radius: var(--radius);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.in-practice .practice-video .video-placeholder {
+    text-align: center;
+    color: var(--color-ink-light);
+}
+
+.in-practice .practice-video .video-placeholder .play-icon {
+    font-size: 3rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.in-practice .practice-video .video-placeholder .video-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-light);
+}
+
+.in-practice .practice-text .section-label {
+    margin-bottom: 12px;
+}
+
+.in-practice .practice-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin-bottom: 16px;
+}
+
+.in-practice .practice-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-ink-mid);
+}
+
+/* ============================================
+ALUMNI & NETWORK
+============================================ */
+.alumni-section {
+    background: var(--color-white);
+    padding: 80px 0;
+}
+
+@media (min-width: 768px) {
+    .alumni-section {
+        padding: 100px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .alumni-section {
+        padding: 100px 0;
+    }
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .alumni-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .alumni-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 3rem 2rem;
+    }
+}
+
+/* ---------- ALUMNI CARD ---------- */
+.alumni-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all var(--transition);
+}
+
+.alumni-card:hover {
+    transform: translateY(-4px);
+}
+
+.alumni-card .alumni-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+    border: 3px solid var(--color-bg-alt);
+    transition: all var(--transition);
+}
+
+.alumni-card:hover .alumni-photo {
+    border-color: var(--color-primary);
+}
+
+.alumni-card .alumni-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.alumni-card:hover .alumni-photo img {
+    transform: scale(1.05);
+}
+
+.alumni-card .alumni-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-ink);
+    margin-bottom: 2px;
+}
+
+.alumni-card .alumni-role {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.alumni-card .alumni-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-ink-mid);
+    max-width: 320px;
+    margin: 0 auto 16px;
+}
+
+.alumni-card .alumni-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--color-border);
+    margin: 0 auto 12px;
+}
+
+.alumni-card .alumni-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    transition: all var(--transition);
+}
+
+.alumni-card .alumni-link:hover {
+    color: var(--color-primary);
+    gap: 12px;
+}
+
+.alumni-card .alumni-link .in-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--color-secondary);
+    color: white;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    transition: background var(--transition);
+}
+
+.alumni-card .alumni-link:hover .in-icon {
+    background: var(--color-primary);
+}
+
+.alumni-cta-text {
+    margin: 0.5rem 0 1rem 0;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 767px) {
+    .alumni-card .alumni-photo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .alumni-card .alumni-desc {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .alumni-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.practice-video .video-placeholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.practice-video .video-placeholder iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

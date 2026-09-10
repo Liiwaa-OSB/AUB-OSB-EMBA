@@ -525,30 +525,9 @@ ul {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 767px) {
-  .exp-item {
-    padding: 16px 0;
-    gap: 14px;
-  }
-
-  .exp-item .exp-num {
-    font-size: 1.4rem;
-    min-width: 36px;
-  }
-
-  .experiences-section {
-    padding: 48px 0;
-  }
-
   .card-component .card-img {
     height: 140px;
   }
-}
-
-@media (max-width: 480px) {
-  .highlight-grid {
-    grid-template-columns: 1fr;
-  }
-
 }
 
 /* ---------- COMPONENT: WHY CARD ---------- */
@@ -1171,3 +1150,18 @@ ul {
 /*****************
 * Floating Buttons Styling - END
 *****************/
+/*****************
+* ACTIVE NAV LINK (OSB bar) - shared
+* Replaces the per-page `#<page>-link` overrides that were previously
+* duplicated inline in every page. Add class="is-active" to the anchor
+* for the current page.
+*****************/
+.nav-osb-links .osb-nav-item > a.is-active {
+  color: var(--color-primary);
+}
+
+body.nav-scrolled .nav-osb .osb-nav-item > a.is-active {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}

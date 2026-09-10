@@ -15,156 +15,10 @@
 
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
+    <link href="css/contact-us.css" rel="stylesheet" />
 
     <script defer src="js/menu.js"></script>
 
-    <style>
-        /* ============================================
-           CONTACT US — PAGE-SPECIFIC STYLES
-           ============================================ */
-
-        .contact-section {
-            background: var(--color-white);
-            padding: 90px 0 100px;
-        }
-
-        .contact-header {
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto 48px;
-        }
-
-        .contact-header .section-label {
-            justify-content: center;
-        }
-
-        .contact-header .section-title {
-            margin-bottom: 14px;
-        }
-
-        .contact-header .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 24px;
-            margin: 0 auto;
-        }
-
-        .contact-card {
-            background: var(--color-white);
-            border: 1px solid var(--color-border);
-            border-top: 4px solid var(--color-primary);
-            border-radius: var(--radius);
-            padding: 34px 32px;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition);
-        }
-
-        .contact-card:hover {
-            border-color: var(--color-primary);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
-        }
-
-        .contact-card h2 {
-            color: var(--color-primary);
-            font-size: 1.45rem;
-            font-weight: 800;
-            line-height: 1.25;
-            margin: 0 0 4px;
-        }
-
-        .contact-card .program-name {
-            color: var(--color-ink-mid);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-        }
-
-        .contact-card .role {
-            color: var(--color-ink);
-            font-size: 1rem;
-            font-weight: 800;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .contact-card .organization {
-            color: var(--color-ink-mid);
-            font-size: 0.9rem;
-            line-height: 1.55;
-            margin-bottom: 22px;
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 11px;
-            padding-top: 18px;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: baseline;
-            gap: 7px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: var(--color-ink-mid);
-        }
-
-        .contact-detail strong {
-            color: var(--color-ink);
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        .contact-detail a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 600;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-detail a:hover {
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        @media (max-width: 1023px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .contact-section {
-                padding: 60px 0 70px;
-            }
-
-            .contact-header {
-                margin-bottom: 32px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .contact-card {
-                padding: 26px 22px;
-            }
-
-            .contact-card h2 {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -535,6 +389,29 @@
                 <div class="contact-grid">
 
                     <article class="contact-card">
+                        <h2>Diala Haddad</h2>
+                        <div class="program-name">Executive MBA</div>
+
+                        <div class="role">Program Manager</div>
+
+                        <div class="organization">
+                            Suliman S. Olayan School of Business<br>
+                            American University of Beirut
+                        </div>
+
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <strong>Phone:</strong>
+                                <span>+961 1 350000 ext. 3722</span>
+                            </div>
+                            <div class="contact-detail">
+                                <strong>Email:</strong>
+                                <a href="mailto:dh84@aub.edu.lb">dh84@aub.edu.lb</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="contact-card">
                         <h2>Jad Khiami</h2>
                         <div class="program-name">Executive MBA</div>
 
@@ -580,28 +457,6 @@
                         </div>
                     </article>
 
-                    <article class="contact-card">
-                        <h2>Diala Haddad</h2>
-                        <div class="program-name">Executive MBA</div>
-
-                        <div class="role">Program Manager</div>
-
-                        <div class="organization">
-                            Suliman S. Olayan School of Business<br>
-                            American University of Beirut
-                        </div>
-
-                        <div class="contact-details">
-                            <div class="contact-detail">
-                                <strong>Phone:</strong>
-                                <span>+961 1 350000 ext. 3722</span>
-                            </div>
-                            <div class="contact-detail">
-                                <strong>Email:</strong>
-                                <a href="mailto:dh84@aub.edu.lb">dh84@aub.edu.lb</a>
-                            </div>
-                        </div>
-                    </article>
 
 
                 </div>

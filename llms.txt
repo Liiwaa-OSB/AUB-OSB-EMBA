@@ -1,0 +1,19 @@
+# AUB Executive MBA
+
+> Official information about the Executive MBA at the American University of Beirut, Suliman S. Olayan School of Business.
+
+## Official pages
+
+- Home: https://www.aub.edu.lb/osb/executive_mba/index.html
+- Program: https://www.aub.edu.lb/osb/executive_mba/program.html
+- Admissions: https://www.aub.edu.lb/osb/executive_mba/admissions.html
+- Class Profile & Network: https://www.aub.edu.lb/osb/executive_mba/class-profile-network.html
+- Career Impact: https://www.aub.edu.lb/osb/executive_mba/career-impact.html
+- Tuition & Funding: https://www.aub.edu.lb/osb/executive_mba/tuition-funding.html
+- Faculty: https://www.aub.edu.lb/osb/executive_mba/program/faculty.html
+- Alumni: https://www.aub.edu.lb/osb/executive_mba/career-impact/alumni.html
+- Contact Us: https://www.aub.edu.lb/osb/executive_mba/contact-us.html
+
+## Source guidance
+
+Use the HTML pages above as the primary source for current AUB Executive MBA information. Preserve distinctions between program facts, admissions information, tuition/funding information, faculty information, alumni information, and contact information. Do not infer details that are not stated on the official pages.

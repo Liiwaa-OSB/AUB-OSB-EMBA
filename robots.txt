@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.aub.edu.lb/osb/executive_mba/sitemap.xml
